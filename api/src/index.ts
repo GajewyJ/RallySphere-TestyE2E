@@ -1,5 +1,4 @@
 import express, { Express, Request, Response , Application } from 'express';
-import router from './routes/ralliesRouter';
 import ralliesRouter from './routes/ralliesRouter';
 
 const app: Application = express();
