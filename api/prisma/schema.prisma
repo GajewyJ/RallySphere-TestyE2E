@@ -15,3 +15,11 @@ model rallies {
   beginning DateTime? @db.Date
   end       DateTime? @db.Date
 }
+
+model wrc_drivers {
+  id        Int     @id @default(autoincrement())
+  firstName String? @db.Text
+  lastName  String? @db.Text
+  country   String? @db.Text
+  team      String? @db.Text
+}
