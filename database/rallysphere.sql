@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 11 Kwi 2024, 16:47
+-- Czas generowania: 11 Kwi 2024, 17:11
 -- Wersja serwera: 10.4.25-MariaDB
 -- Wersja PHP: 8.1.10
 
@@ -93,7 +93,7 @@ INSERT INTO `teams` (`id`, `name`, `basedIn`, `establishment`, `principal`, `cat
 (1, 'TOYOTA GAZOO Racing WRT', 'Japan', 2016, 'Jari-Matti Latvala', 'WRC1', 'Toyota', 131),
 (2, 'Hyundai Shell Mobis WRT', 'Germany', 2012, 'Cyril Abiteboul', 'WRC1', 'Hyundai', 127),
 (3, 'M-Sport Ford WRT', 'United Kingdom', 2006, 'Richard Millener', 'WRC1', 'Ford', 72),
-(4, 'Toksport WRT', 'Czech Republic', 1999, 'Gus Greensmith', 'WRC2', 'Skoda', 43),
+(4, 'Toksport WRT', 'Czech Republic', 1999, 'Serkan Duru', 'WRC2', 'Skoda', 43),
 (5, 'AEC - DG Sport Competition', 'France', 2008, 'Christian Jupsin', 'WRC2', 'Citroen', 43),
 (6, 'Printsport TOYOTA GAZOO Racing WRT NG', 'Finland', 1997, 'Eero Raikkonen', 'WRC2', 'Toyota', 43);
 
@@ -335,7 +335,7 @@ ALTER TABLE `teams`
 -- AUTO_INCREMENT dla tabeli `wrc_codrivers`
 --
 ALTER TABLE `wrc_codrivers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT dla tabeli `wrc_codrivers_standings`
@@ -347,7 +347,7 @@ ALTER TABLE `wrc_codrivers_standings`
 -- AUTO_INCREMENT dla tabeli `wrc_drivers`
 --
 ALTER TABLE `wrc_drivers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT dla tabeli `wrc_drivers_standings`
