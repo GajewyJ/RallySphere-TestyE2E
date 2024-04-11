@@ -7,11 +7,18 @@ const ralliesRouter = express.Router();
 ralliesRouter.use(express.json());
 ralliesRouter.use(express.urlencoded({ extended: true }));
 
+const ERROR_404 = {error: '404 Not Found'};
+
 // Get data from the 'rallies' table
 ralliesRouter.get('/', async (req: Request, res: Response) => {
   try {
     const rallies = await prisma.rallies.findMany();
-    res.json(rallies);
+    if(rallies != null) {
+        res.json(rallies);
+    }
+    else{
+        res.status(404).json(ERROR_404);
+    }
   } catch (error) {
     res.status(500).json({ error: 'Error fetching data from the rallies table' });
   }
@@ -25,7 +32,7 @@ ralliesRouter.get('/:id', async (req: Request, res: Response) => {
       where: { id: parseInt(id) },
     });
     if (!rally) {
-      res.status(404).json({ error: 'Rally not found' });
+      res.status(404).json(ERROR_404);
     } else {
       res.json(rally);
     }

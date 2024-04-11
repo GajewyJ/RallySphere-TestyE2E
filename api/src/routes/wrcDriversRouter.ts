@@ -7,11 +7,18 @@ const wrcDriversRouter = express.Router();
 wrcDriversRouter.use(express.json());
 wrcDriversRouter.use(express.urlencoded({ extended: true }));
 
+const ERROR_404 = {error: '404 Not Found'};
+
 // Get all drivers
 wrcDriversRouter.get('/', async (req, res) => {
     try {
         const drivers = await prisma.wrc_drivers.findMany();
-        res.json(drivers);
+        if(drivers != null) {
+            res.json(drivers);
+        }
+        else{
+            res.status(404).json(ERROR_404);
+        }
     } 
     catch (error) {
         res.status(500).json({ error: 'Error fetching data from the drivers table' });
@@ -23,7 +30,12 @@ wrcDriversRouter.get('/:id', async (req, res) => {
     try {
         const { id } = req.params;
         const drivers = await prisma.wrc_drivers.findUnique({where: {id: parseInt(id)}})
-        res.json(drivers);
+        if(drivers != null) {
+            res.json(drivers);
+        }
+        else{
+            res.status(404).json(ERROR_404);
+        }
     } catch (error) {
         res.status(500).json({ error: 'Error fetching data from the drivers table' });
     }
