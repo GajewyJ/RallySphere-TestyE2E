@@ -17,9 +17,48 @@ model rallies {
 }
 
 model wrc_drivers {
-  id        Int     @id @default(autoincrement())
-  firstName String? @db.Text
-  lastName  String? @db.Text
-  country   String? @db.Text
-  team      String? @db.Text
+  id                    Int                     @id @default(autoincrement())
+  firstName             String?                 @db.Text
+  lastName              String?                 @db.Text
+  country               String?                 @db.Text
+  team                  String?                 @db.Text
+  wrc_drivers_standings wrc_drivers_standings[]
+}
+
+model teams {
+  id            Int     @id @default(autoincrement())
+  name          String? @db.Text
+  basedIn       String? @db.Text
+  establishment Int?
+  principal     String? @db.Text
+  category      String? @db.Text
+  brand         String? @db.Text
+  points        Int?
+}
+
+model wrc_codrivers {
+  id                      Int                       @id @default(autoincrement())
+  firstName               String?                   @db.Text
+  lastName                String?                   @db.Text
+  country                 String?                   @db.Text
+  team                    String?                   @db.Text
+  wrc_codrivers_standings wrc_codrivers_standings[]
+}
+
+model wrc_codrivers_standings {
+  id            Int            @id @default(autoincrement())
+  codriversId   Int?
+  points        Int?
+  wrc_codrivers wrc_codrivers? @relation(fields: [codriversId], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "wrc_codrivers_standings_ibfk_1")
+
+  @@index([codriversId], map: "codriversId")
+}
+
+model wrc_drivers_standings {
+  id          Int          @id @default(autoincrement())
+  driversId   Int?
+  points      Int?
+  wrc_drivers wrc_drivers? @relation(fields: [driversId], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "wrc_drivers_standings_ibfk_1")
+
+  @@index([driversId], map: "driversId")
 }
