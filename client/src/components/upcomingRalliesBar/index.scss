@@ -1,0 +1,18 @@
+section {
+    position: relative;
+    background-image: url('https://rajdpolski.pl/wp-content/uploads/2024/02/3a3a77aa-09cf-4e40-8c88-b0238b80e05a.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .sideDiv{
+        padding: 30px;
+        width: 40%;
+        height: 400px;
+        background-color: rgb(255, 102, 0);
+    }
+}
