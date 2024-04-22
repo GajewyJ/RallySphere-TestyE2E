@@ -7,6 +7,11 @@ const wrcDriversRouter = express.Router();
 wrcDriversRouter.use(express.json());
 wrcDriversRouter.use(express.urlencoded({ extended: true }));
 
+wrcDriversRouter.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin"); 
+  next();
+});
+
 const ERROR_404 = {error: '404 Not Found'};
 
 // Get all drivers

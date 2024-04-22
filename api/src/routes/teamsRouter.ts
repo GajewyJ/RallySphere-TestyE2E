@@ -7,6 +7,11 @@ const teamsRouter = express.Router();
 teamsRouter.use(express.json());
 teamsRouter.use(express.urlencoded({ extended: true }));
 
+teamsRouter.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin"); 
+  next();
+});
+
 const ERROR_404 = {error: '404 Not Found'};
 
 // Get all teams

@@ -7,6 +7,11 @@ const wrcCoDriversRouter = express.Router();
 wrcCoDriversRouter.use(express.json());
 wrcCoDriversRouter.use(express.urlencoded({ extended: true }));
 
+wrcCoDriversRouter.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin"); 
+  next();
+});
+
 const ERROR_404 = {error: '404 Not Found'};
 
 // Get all co-drivers

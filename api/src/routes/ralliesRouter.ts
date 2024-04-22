@@ -7,6 +7,11 @@ const ralliesRouter = express.Router();
 ralliesRouter.use(express.json());
 ralliesRouter.use(express.urlencoded({ extended: true }));
 
+ralliesRouter.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin"); 
+  next();
+});
+
 const ERROR_404 = {error: '404 Not Found'};
 
 // Get data from the 'rallies' table
@@ -19,7 +24,42 @@ ralliesRouter.get('/', async (req: Request, res: Response) => {
     else{
         res.status(404).json(ERROR_404);
     }
-  } catch (error) {
+  } catch (error: any) {
+    res.status(500).json({ error: 'Error fetching data from the rallies table' });
+  }
+});
+
+// Get ongoing rally data from the 'rallies' table
+ralliesRouter.get('/ongoing', async (req: Request, res: Response) => {
+  try {
+    const now = new Date();
+    const rallies = await prisma.rallies.findMany({where: { beginning: { lt: now }, end: { gt: now }}});
+    if(rallies.length == 0){
+        res.json({message: "No ongoing WRC rallies"})
+    }
+    else if(rallies != null) {
+        res.json(rallies);
+    }
+    else{
+        res.status(404).json(ERROR_404);
+    }
+  } catch (error: any) {
+    res.status(500).json({ error: 'Error fetching data from the rallies table' });
+  }
+});
+
+// Get 3 upcoming WRC rallies from the 'rallies' table
+ralliesRouter.get('/upcoming', async (req: Request, res: Response) => {
+  try {
+    const now = new Date();
+    const rallies = await prisma.rallies.findMany({where: { beginning: { gt: now }}, orderBy: {beginning: 'asc'}, take: 3});
+    if(rallies != null) {
+        res.json(rallies);
+    }
+    else{
+        res.status(404).json(ERROR_404);
+    }
+  } catch (error: any) {
     res.status(500).json({ error: 'Error fetching data from the rallies table' });
   }
 });
