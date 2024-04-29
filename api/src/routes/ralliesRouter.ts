@@ -8,7 +8,7 @@ ralliesRouter.use(express.json());
 ralliesRouter.use(express.urlencoded({ extended: true }));
 
 ralliesRouter.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin"); 
+  res.header('Access-Control-Allow-Origin', '*');
   next();
 });
 
