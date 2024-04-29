@@ -30,14 +30,17 @@ const UpcomingRalliesBar: React.FC = () => {
 
   return (
     <section>
-      <div className="sideDiv">
-        <Heading level={1}>Upcoming Rallies</Heading>
-        {rallies.map((rally, index) => (
-          <div key={index}>
-            <p>{rally.name}</p>
-            <p>{rally.beginning.toString().substring(0, 10)}</p>
-          </div>
-        ))}
+      <div className="mainDiv">
+        <div className="upcomingRalliesContent">
+          {rallies.map((rally, index) => (
+            <div key={index} className="rally">
+              <div>
+                <p className="dates">From: {rally.beginning.toString().substring(0, 10)}<br/>To: {rally.end.toString().substring(0, 10)}</p>
+              </div>
+              <Heading level={3}>{rally.name}</Heading>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
