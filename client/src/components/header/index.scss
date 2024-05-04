@@ -6,9 +6,16 @@ header{
     justify-content: space-between;
     align-items: center;
 
-    img{
-        height: 40%;
+    a{
+        height: 100%;
         margin-left: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        img{
+            height: 50%;
+        }
     }
 
     nav{
@@ -25,9 +32,13 @@ header{
             margin: 10px 0;
         }
 
-        img{
+        a{
             width: 90%;
             margin: 10px;
+
+            img{
+                width: 100%;
+            }
         }
     }
 }

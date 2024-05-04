@@ -3,7 +3,7 @@ import "./index.scss"
 function Header(){
     return (
         <header>
-            <img src="./././public/logos/rallysphere-high-resolution-logo-transparent.png"/>
+            <a href="/"><img src="./././logos/rallysphere-high-resolution-logo-transparent.png"/></a>
             <nav>Nav Placeholder</nav>
         </header>
     );
