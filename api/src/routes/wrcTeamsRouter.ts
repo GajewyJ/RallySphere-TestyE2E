@@ -2,12 +2,12 @@ import express from 'express';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
-const teamsRouter = express.Router();
+const wrcTeamsRouter = express.Router();
 
-teamsRouter.use(express.json());
-teamsRouter.use(express.urlencoded({ extended: true }));
+wrcTeamsRouter.use(express.json());
+wrcTeamsRouter.use(express.urlencoded({ extended: true }));
 
-teamsRouter.use((req, res, next) => {
+wrcTeamsRouter.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     next();
 });
@@ -15,9 +15,9 @@ teamsRouter.use((req, res, next) => {
 const ERROR_404 = {error: '404 Not Found'};
 
 // Get all teams
-teamsRouter.get('/', async (req, res) => {
+wrcTeamsRouter.get('/', async (req, res) => {
     try {
-        const teams = await prisma.teams.findMany();
+        const teams = await prisma.wrc_teams.findMany();
         if(teams != null) {
             res.json(teams);
         }
@@ -31,10 +31,10 @@ teamsRouter.get('/', async (req, res) => {
 });
 
 // Get team by ID
-teamsRouter.get('/:id', async (req, res) => {
+wrcTeamsRouter.get('/:id', async (req, res) => {
     try {
         const { id } = req.params;
-        const team = await prisma.teams.findUnique({where: {id: parseInt(id)}})
+        const team = await prisma.wrc_teams.findUnique({where: {id: parseInt(id)}})
         if(team != null) {
             res.json(team);
         }
@@ -47,10 +47,10 @@ teamsRouter.get('/:id', async (req, res) => {
 });
 
 // Create a new team
-teamsRouter.post('/', async (req, res) => {
+wrcTeamsRouter.post('/', async (req, res) => {
     const { name, basedIn, establishment, principal, category, brand, points } = req.body;
     try {
-        const newTeam = await prisma.teams.create({
+        const newTeam = await prisma.wrc_teams.create({
         data: { name, basedIn, establishment, principal, category, brand, points },
         });
         res.json(newTeam);
@@ -60,11 +60,11 @@ teamsRouter.post('/', async (req, res) => {
 });
 
 // Update a team
-teamsRouter.put('/:id', async (req, res) => {
+wrcTeamsRouter.put('/:id', async (req, res) => {
     const { id } = req.params;
     const { name, basedIn, establishment, principal, category, brand, points } = req.body;
     try {
-        const updatedTeam = await prisma.teams.update({
+        const updatedTeam = await prisma.wrc_teams.update({
         where: { id: parseInt(id) },
         data: { name, basedIn, establishment, principal, category, brand, points },
         });
@@ -75,14 +75,14 @@ teamsRouter.put('/:id', async (req, res) => {
 });
 
 // Delete a team
-teamsRouter.delete('/:id', async (req, res) => {
+wrcTeamsRouter.delete('/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        await prisma.teams.delete({ where: { id: parseInt(id) } });
+        await prisma.wrc_teams.delete({ where: { id: parseInt(id) } });
         res.json({ message: 'Data deleted successfully' });
     } catch (error) {
         res.status(500).json({ error: 'Error deleting data' });
     }
 });
 
-export default teamsRouter;
+export default wrcTeamsRouter;

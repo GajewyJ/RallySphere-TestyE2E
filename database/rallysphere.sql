@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 11 Kwi 2024, 17:11
+-- Czas generowania: 04 Maj 2024, 12:04
 -- Wersja serwera: 10.4.25-MariaDB
 -- Wersja PHP: 8.1.10
 
@@ -20,82 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Baza danych: `rallysphere`
 --
-
--- --------------------------------------------------------
-
---
--- Struktura tabeli dla tabeli `rallies`
---
-
-CREATE TABLE `rallies` (
-  `id` int(11) NOT NULL,
-  `name` text DEFAULT NULL,
-  `season` int(11) DEFAULT NULL,
-  `country` text DEFAULT NULL,
-  `beginning` date DEFAULT NULL,
-  `end` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Zrzut danych tabeli `rallies`
---
-
-INSERT INTO `rallies` (`id`, `name`, `season`, `country`, `beginning`, `end`) VALUES
-(1, 'Rallye Monte-Carlo', 2024, 'Monaco', '2024-01-24', '2024-01-28'),
-(2, 'WRC Rally Sweden', 2024, 'Sweden', '2024-02-15', '2024-02-18'),
-(5, 'Safari Rally Kenya', 2024, 'Kenya', '2024-03-28', '2024-03-31'),
-(6, 'Croatia Rally', 2024, 'Croatia', '2024-04-18', '2024-04-21'),
-(7, 'Vodafone Rally de Portugal', 2024, 'Portugal', '2024-05-09', '2024-05-12'),
-(8, 'Rally Italia Sardegna', 2024, 'Italy', '2024-05-30', '2024-06-02'),
-(9, 'ORLEN 80th Rally Poland', 2024, 'Poland', '2024-06-27', '2024-06-30'),
-(10, 'Tet Rally Latvia', 2024, 'Latvia', '2024-07-18', '2024-07-21'),
-(11, 'Secto Rally Finland', 2024, 'Finland', '2024-08-01', '2024-08-04'),
-(12, 'EKO Acropolis Rally Greece', 2024, 'Greece', '2024-09-05', '2024-09-08'),
-(13, 'Rally Chile Bio Bío', 2024, 'Chile', '2024-09-26', '2024-09-29'),
-(14, 'Central European Rally', 2024, 'Central Europe', '2024-10-17', '2024-10-20'),
-(15, 'FORUM8 Rally Japan', 2024, 'Japan', '2024-11-21', '2024-11-24'),
-(16, 'Rally Monte Carlo', 2023, 'Monaco', '2023-01-19', '2023-01-22'),
-(17, 'Rally Sweden', 2023, 'Sweden', '2023-02-09', '2023-02-12'),
-(18, 'Rally Mexico', 2023, 'Mexico', '2023-03-16', '2023-03-19'),
-(19, 'Croatia Rally', 2023, 'Croatia', '2023-04-20', '2023-04-23'),
-(20, 'Rally de Portugal', 2023, 'Portugal', '2023-05-11', '2023-05-14'),
-(21, 'Rally Italia Sardegna', 2023, 'Italy', '2023-06-01', '2023-06-04'),
-(22, 'Safari Rally Kenya', 2023, 'Kenya', '2023-06-22', '2023-06-25'),
-(23, 'Rally Estonia', 2023, 'Estonia', '2023-07-20', '2023-07-23'),
-(24, 'Rally Finland', 2023, 'Finland', '2023-08-03', '2023-08-06'),
-(25, 'Acropolis Rally', 2023, 'Greece', '2023-09-07', '2023-09-10'),
-(26, 'Rally Chile', 2023, 'Chile', '2023-09-28', '2023-10-01'),
-(27, 'Central European Rally', 2023, 'Austria, Czech Republic, Germany', '2023-10-26', '2023-10-29'),
-(28, 'Rally Japan', 2023, 'Japan', '2023-11-16', '2023-11-19');
-
--- --------------------------------------------------------
-
---
--- Struktura tabeli dla tabeli `teams`
---
-
-CREATE TABLE `teams` (
-  `id` int(11) NOT NULL,
-  `name` text DEFAULT NULL,
-  `basedIn` text DEFAULT NULL,
-  `establishment` int(11) DEFAULT NULL,
-  `principal` text DEFAULT NULL,
-  `category` text DEFAULT NULL,
-  `brand` text DEFAULT NULL,
-  `points` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Zrzut danych tabeli `teams`
---
-
-INSERT INTO `teams` (`id`, `name`, `basedIn`, `establishment`, `principal`, `category`, `brand`, `points`) VALUES
-(1, 'TOYOTA GAZOO Racing WRT', 'Japan', 2016, 'Jari-Matti Latvala', 'WRC1', 'Toyota', 131),
-(2, 'Hyundai Shell Mobis WRT', 'Germany', 2012, 'Cyril Abiteboul', 'WRC1', 'Hyundai', 127),
-(3, 'M-Sport Ford WRT', 'United Kingdom', 2006, 'Richard Millener', 'WRC1', 'Ford', 72),
-(4, 'Toksport WRT', 'Czech Republic', 1999, 'Serkan Duru', 'WRC2', 'Skoda', 43),
-(5, 'AEC - DG Sport Competition', 'France', 2008, 'Christian Jupsin', 'WRC2', 'Citroen', 43),
-(6, 'Printsport TOYOTA GAZOO Racing WRT NG', 'Finland', 1997, 'Eero Raikkonen', 'WRC2', 'Toyota', 43);
 
 -- --------------------------------------------------------
 
@@ -273,21 +197,72 @@ INSERT INTO `wrc_drivers_standings` (`id`, `driversId`, `points`) VALUES
 (24, 26, 0),
 (25, 27, 0);
 
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `wrc_rallies`
+--
+
+CREATE TABLE `wrc_rallies` (
+  `id` int(11) NOT NULL,
+  `name` text DEFAULT NULL,
+  `season` int(11) DEFAULT NULL,
+  `country` text DEFAULT NULL,
+  `beginning` date DEFAULT NULL,
+  `end` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Zrzut danych tabeli `wrc_rallies`
+--
+
+INSERT INTO `wrc_rallies` (`id`, `name`, `season`, `country`, `beginning`, `end`) VALUES
+(1, 'Rallye Monte-Carlo', 2024, 'Monaco', '2024-01-24', '2024-01-28'),
+(2, 'WRC Rally Sweden', 2024, 'Sweden', '2024-02-15', '2024-02-18'),
+(5, 'Safari Rally Kenya', 2024, 'Kenya', '2024-03-28', '2024-03-31'),
+(6, 'Croatia Rally', 2024, 'Croatia', '2024-04-18', '2024-04-21'),
+(7, 'Vodafone Rally de Portugal', 2024, 'Portugal', '2024-05-09', '2024-05-12'),
+(8, 'Rally Italia Sardegna', 2024, 'Italy', '2024-05-30', '2024-06-02'),
+(9, 'ORLEN 80th Rally Poland', 2024, 'Poland', '2024-06-27', '2024-06-30'),
+(10, 'Tet Rally Latvia', 2024, 'Latvia', '2024-07-18', '2024-07-21'),
+(11, 'Secto Rally Finland', 2024, 'Finland', '2024-08-01', '2024-08-04'),
+(12, 'EKO Acropolis Rally Greece', 2024, 'Greece', '2024-09-05', '2024-09-08'),
+(13, 'Rally Chile Bio Bío', 2024, 'Chile', '2024-09-26', '2024-09-29'),
+(14, 'Central European Rally', 2024, 'Central Europe', '2024-10-17', '2024-10-20'),
+(15, 'FORUM8 Rally Japan', 2024, 'Japan', '2024-11-21', '2024-11-24');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `wrc_teams`
+--
+
+CREATE TABLE `wrc_teams` (
+  `id` int(11) NOT NULL,
+  `name` text DEFAULT NULL,
+  `basedIn` text DEFAULT NULL,
+  `establishment` int(11) DEFAULT NULL,
+  `principal` text DEFAULT NULL,
+  `category` text DEFAULT NULL,
+  `brand` text DEFAULT NULL,
+  `points` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Zrzut danych tabeli `wrc_teams`
+--
+
+INSERT INTO `wrc_teams` (`id`, `name`, `basedIn`, `establishment`, `principal`, `category`, `brand`, `points`) VALUES
+(1, 'TOYOTA GAZOO Racing WRT', 'Japan', 2016, 'Jari-Matti Latvala', 'WRC1', 'Toyota', 131),
+(2, 'Hyundai Shell Mobis WRT', 'Germany', 2012, 'Cyril Abiteboul', 'WRC1', 'Hyundai', 127),
+(3, 'M-Sport Ford WRT', 'United Kingdom', 2006, 'Richard Millener', 'WRC1', 'Ford', 72),
+(4, 'Toksport WRT', 'Czech Republic', 1999, 'Serkan Duru', 'WRC2', 'Skoda', 43),
+(5, 'AEC - DG Sport Competition', 'France', 2008, 'Christian Jupsin', 'WRC2', 'Citroen', 43),
+(6, 'Printsport TOYOTA GAZOO Racing WRT NG', 'Finland', 1997, 'Eero Raikkonen', 'WRC2', 'Toyota', 43);
+
 --
 -- Indeksy dla zrzutów tabel
 --
-
---
--- Indeksy dla tabeli `rallies`
---
-ALTER TABLE `rallies`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeksy dla tabeli `teams`
---
-ALTER TABLE `teams`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeksy dla tabeli `wrc_codrivers`
@@ -316,20 +291,20 @@ ALTER TABLE `wrc_drivers_standings`
   ADD KEY `driversId` (`driversId`);
 
 --
+-- Indeksy dla tabeli `wrc_rallies`
+--
+ALTER TABLE `wrc_rallies`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeksy dla tabeli `wrc_teams`
+--
+ALTER TABLE `wrc_teams`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT dla zrzuconych tabel
 --
-
---
--- AUTO_INCREMENT dla tabeli `rallies`
---
-ALTER TABLE `rallies`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
-
---
--- AUTO_INCREMENT dla tabeli `teams`
---
-ALTER TABLE `teams`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT dla tabeli `wrc_codrivers`
@@ -354,6 +329,18 @@ ALTER TABLE `wrc_drivers`
 --
 ALTER TABLE `wrc_drivers_standings`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT dla tabeli `wrc_rallies`
+--
+ALTER TABLE `wrc_rallies`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT dla tabeli `wrc_teams`
+--
+ALTER TABLE `wrc_teams`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Ograniczenia dla zrzutów tabel

@@ -18,7 +18,7 @@ const UpcomingRalliesBar: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get<Rally[]>('http://localhost:3000/rallies/upcoming');
+        const response = await axios.get<Rally[]>('http://localhost:3000/wrcrallies/upcoming');
         setRallies(response.data);
       } catch (error) {
         console.error('Error fetching data', error);

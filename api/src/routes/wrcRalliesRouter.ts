@@ -2,12 +2,12 @@ import express, { Request, Response } from 'express';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
-const ralliesRouter = express.Router();
+const wrcRalliesRouter = express.Router();
 
-ralliesRouter.use(express.json());
-ralliesRouter.use(express.urlencoded({ extended: true }));
+wrcRalliesRouter.use(express.json());
+wrcRalliesRouter.use(express.urlencoded({ extended: true }));
 
-ralliesRouter.use(function(req, res, next) {
+wrcRalliesRouter.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   next();
 });
@@ -15,9 +15,9 @@ ralliesRouter.use(function(req, res, next) {
 const ERROR_404 = {error: '404 Not Found'};
 
 // Get data from the 'rallies' table
-ralliesRouter.get('/', async (req: Request, res: Response) => {
+wrcRalliesRouter.get('/', async (req: Request, res: Response) => {
   try {
-    const rallies = await prisma.rallies.findMany();
+    const rallies = await prisma.wrc_rallies.findMany();
     if(rallies != null) {
         res.json(rallies);
     }
@@ -30,10 +30,10 @@ ralliesRouter.get('/', async (req: Request, res: Response) => {
 });
 
 // Get ongoing rally data from the 'rallies' table
-ralliesRouter.get('/ongoing', async (req: Request, res: Response) => {
+wrcRalliesRouter.get('/ongoing', async (req: Request, res: Response) => {
   try {
     const now = new Date();
-    const rallies = await prisma.rallies.findMany({where: { beginning: { lt: now }, end: { gt: now }}});
+    const rallies = await prisma.wrc_rallies.findMany({where: { beginning: { lt: now }, end: { gt: now }}});
     if(rallies.length == 0){
         res.json({message: "No ongoing WRC rallies"})
     }
@@ -49,10 +49,10 @@ ralliesRouter.get('/ongoing', async (req: Request, res: Response) => {
 });
 
 // Get 3 upcoming WRC rallies from the 'rallies' table
-ralliesRouter.get('/upcoming', async (req: Request, res: Response) => {
+wrcRalliesRouter.get('/upcoming', async (req: Request, res: Response) => {
   try {
     const now = new Date();
-    const rallies = await prisma.rallies.findMany({where: { beginning: { gt: now }}, orderBy: {beginning: 'asc'}, take: 3});
+    const rallies = await prisma.wrc_rallies.findMany({where: { beginning: { gt: now }}, orderBy: {beginning: 'asc'}, take: 3});
     if(rallies != null) {
         res.json(rallies);
     }
@@ -65,10 +65,10 @@ ralliesRouter.get('/upcoming', async (req: Request, res: Response) => {
 });
 
 // Get data from the 'rallies' table based on ID
-ralliesRouter.get('/:id', async (req: Request, res: Response) => {
+wrcRalliesRouter.get('/:id', async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
-    const rally = await prisma.rallies.findUnique({
+    const rally = await prisma.wrc_rallies.findUnique({
       where: { id: parseInt(id) },
     });
     if (!rally) {
@@ -82,12 +82,12 @@ ralliesRouter.get('/:id', async (req: Request, res: Response) => {
 });
 
 // Add a new record to the 'rallies' table
-ralliesRouter.post('/', async (req: Request, res: Response) => {
+wrcRalliesRouter.post('/', async (req: Request, res: Response) => {
   const { name, season, country, beginning, end } = req.body;
   let beg = new Date(beginning)
   let end1 = new Date(end)
   try {
-    const newRally = await prisma.rallies.create({
+    const newRally = await prisma.wrc_rallies.create({
       data: {
         name,
         season,
@@ -103,13 +103,13 @@ ralliesRouter.post('/', async (req: Request, res: Response) => {
 });
 
 // Update an existing record in the 'rallies' table
-ralliesRouter.put('/:id', async (req: Request, res: Response) => {
+wrcRalliesRouter.put('/:id', async (req: Request, res: Response) => {
   const { id } = req.params;
   const { name, season, country, beginning, end } = req.body;
   let beg = new Date(beginning)
   let end1 = new Date(end)
   try {
-    const updatedRally = await prisma.rallies.update({
+    const updatedRally = await prisma.wrc_rallies.update({
       where: { id: parseInt(id) },
       data: {
         name,
@@ -126,10 +126,10 @@ ralliesRouter.put('/:id', async (req: Request, res: Response) => {
 });
 
 // Delete a record from the 'rallies' table based on ID
-ralliesRouter.delete('/:id', async (req: Request, res: Response) => {
+wrcRalliesRouter.delete('/:id', async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
-    await prisma.rallies.delete({
+    await prisma.wrc_rallies.delete({
       where: { id: parseInt(id) },
     });
     res.json({ message: 'Rally successfully deleted' });
@@ -138,4 +138,4 @@ ralliesRouter.delete('/:id', async (req: Request, res: Response) => {
   }
 });
 
-export default ralliesRouter;
+export default wrcRalliesRouter;
