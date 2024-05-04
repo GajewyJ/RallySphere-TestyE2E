@@ -1,7 +1,7 @@
-import "./index.scss"
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
-import Heading from "../heading";
+import { Card, Container, Row, Col } from 'react-bootstrap';
+import './index.scss'
 
 interface Rally {
   id: number;
@@ -12,7 +12,7 @@ interface Rally {
   end: Date;
 }
 
-const UpcomingRalliesBar: React.FC = () => {
+function UpcomingRalliesBar(){
   const [rallies, setRallies] = useState<Rally[]>([]);
 
   useEffect(() => {
@@ -29,20 +29,23 @@ const UpcomingRalliesBar: React.FC = () => {
   }, []);
 
   return (
-    <section>
-      <div className="mainDiv">
-        <div className="upcomingRalliesContent">
-          {rallies.map((rally, index) => (
-            <div key={index} className="rally">
-              <div>
-                <p className="dates">From: {rally.beginning.toString().substring(0, 10)}<br/>To: {rally.end.toString().substring(0, 10)}</p>
-              </div>
-              <Heading level={3}>{rally.name}</Heading>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <Container>
+      <Row>
+        {rallies.map((rally, index) => (
+          <Col sm={4} key={index}>
+            <Card className="mb-4">
+              <Card.Body>
+                <Card.Title>{rally.name}</Card.Title>
+                <Card.Text>
+                  <strong>From:</strong> {rally.beginning.toString().substring(0, 10)}<br/>
+                  <strong>To:</strong> {rally.end.toString().substring(0, 10)}
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    </Container>
   );
 };
 
