@@ -52,7 +52,7 @@ wrcRalliesRouter.get('/ongoing', async (req: Request, res: Response) => {
 wrcRalliesRouter.get('/upcoming', async (req: Request, res: Response) => {
   try {
     const now = new Date();
-    const rallies = await prisma.wrc_rallies.findMany({where: { beginning: { gt: now }}, orderBy: {beginning: 'asc'}, take: 3});
+    const rallies = await prisma.wrc_rallies.findMany({where: { beginning: { gt: now }}, orderBy: {beginning: 'asc'}, take: 1});
     if(rallies != null) {
         res.json(rallies);
     }
