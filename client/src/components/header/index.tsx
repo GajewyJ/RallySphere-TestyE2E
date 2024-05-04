@@ -1,10 +1,9 @@
-import Heading from "../heading";
 import "./index.scss"
 
 function Header(){
     return (
         <header>
-            <Heading level={1}>Logo Placeholder</Heading>
+            <img src="./././public/logos/rallysphere-high-resolution-logo-transparent.png"/>
             <nav>Nav Placeholder</nav>
         </header>
     );
