@@ -47,8 +47,8 @@ function UpcomingRalliesBar(){
     return (
       <Container>
         <Row>
-          {rallies.map((rally, index) => (
-            <Col sm={4} key={index}>
+          {rallies.map((rally) => (
+            <Col sm={4} key={rally.id}>
               <Card className="mb-4">
                 <Card.Body>
                   <Card.Title>Upcoming: {rally.name}</Card.Title>
@@ -68,8 +68,8 @@ function UpcomingRalliesBar(){
     return (
       <Container>
         <Row>
-          {ongoingRally.map((rally, index) => (
-            <Col sm={4} key={index}>
+          {ongoingRally.map((rally) => (
+            <Col sm={4} key={rally.id}>
               <Card className="mb-4">
                 <Card.Body>
                   <Card.Title>Ongoing rally: {rally.name}</Card.Title>
