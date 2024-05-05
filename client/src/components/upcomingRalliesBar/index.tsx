@@ -53,8 +53,8 @@ function UpcomingRalliesBar(){
                 <Card.Body>
                   <Card.Title>Upcoming: {rally.name}</Card.Title>
                   <Card.Text>
-                    <strong>From:</strong> {rally.beginning.toString().substring(0, 10)}<br/>
-                    <strong>To:</strong> {rally.end.toString().substring(0, 10)}
+                    <strong>From:</strong>&nbsp;{rally.beginning.toString().substring(8, 10)}&#8209;{rally.beginning.toString().substring(5, 7)}
+                    <strong> To:</strong>&nbsp;{rally.end.toString().substring(8, 10)}&#8209;{rally.end.toString().substring(5, 7)}
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -74,8 +74,8 @@ function UpcomingRalliesBar(){
                 <Card.Body>
                   <Card.Title>Ongoing rally: {rally.name}</Card.Title>
                   <Card.Text>
-                    <strong>From:</strong> {rally.beginning.toString().substring(0, 10)}<br/>
-                    <strong>To:</strong> {rally.end.toString().substring(0, 10)}
+                    <strong>From:</strong>&nbsp;{rally.beginning.toString().substring(8, 10)}&#8209;{rally.beginning.toString().substring(5, 7)}
+                    <strong> To:</strong>&nbsp;{rally.end.toString().substring(8, 10)}&#8209;{rally.end.toString().substring(5, 7)}
                   </Card.Text>
                 </Card.Body>
               </Card>
