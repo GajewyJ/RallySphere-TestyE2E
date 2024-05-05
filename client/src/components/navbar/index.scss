@@ -1,0 +1,48 @@
+nav{
+    display: flex;
+    width: 70%;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+
+    a{
+        width: 12%;
+        padding: 10px;
+        height: 30% !important;
+        background-color: rgb(32, 42, 68);
+        color: white;
+        text-decoration: none;
+        text-align: center;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-wrap: wrap;
+        margin: 10px !important;
+        border-radius: 10px;
+    }
+}
+
+
+@media (max-width: 1125px) {
+    nav{
+        width: 100%;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        flex-direction: row;
+        
+        a{
+            text-wrap: nowrap;
+            width: 40%;
+            font-size: medium !important;
+        }
+    }
+}
+
+@media (max-width: 1275px) {
+    nav{
+        a{
+            font-size: smaller;
+        }
+    }
+}

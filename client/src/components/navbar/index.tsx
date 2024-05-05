@@ -5,7 +5,8 @@ function NavBar(){
   return(
     <nav>
       <Link to='/'>Home</Link>
-      <Link to='/wrc'>WRC {new Date(Date.now()).getFullYear()}</Link>
+      <Link to='/wrc'>{"WRC " + new Date(Date.now()).getFullYear()}</Link>
+      <Link to='/'>Encyclopedia</Link>
     </nav>
   )
 };
