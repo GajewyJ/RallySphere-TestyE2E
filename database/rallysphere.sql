@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 04 Maj 2024, 12:04
+-- Czas generowania: 07 Maj 2024, 20:08
 -- Wersja serwera: 10.4.25-MariaDB
 -- Wersja PHP: 8.1.10
 
@@ -20,6 +20,21 @@ SET time_zone = "+00:00";
 --
 -- Baza danych: `rallysphere`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `news`
+--
+
+CREATE TABLE `news` (
+  `id` int(11) NOT NULL,
+  `title` text DEFAULT NULL,
+  `paragraph1` text DEFAULT NULL,
+  `paragraph2` text DEFAULT NULL,
+  `paragraph3` text DEFAULT NULL,
+  `photo` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -219,17 +234,17 @@ CREATE TABLE `wrc_rallies` (
 INSERT INTO `wrc_rallies` (`id`, `name`, `season`, `country`, `beginning`, `end`) VALUES
 (1, 'Rallye Monte-Carlo', 2024, 'Monaco', '2024-01-24', '2024-01-28'),
 (2, 'WRC Rally Sweden', 2024, 'Sweden', '2024-02-15', '2024-02-18'),
-(5, 'Safari Rally Kenya', 2024, 'Kenya', '2024-03-28', '2024-03-31'),
-(6, 'Croatia Rally', 2024, 'Croatia', '2024-04-18', '2024-04-21'),
-(7, 'Vodafone Rally de Portugal', 2024, 'Portugal', '2024-05-09', '2024-05-12'),
-(8, 'Rally Italia Sardegna', 2024, 'Italy', '2024-05-30', '2024-06-02'),
-(9, 'ORLEN 80th Rally Poland', 2024, 'Poland', '2024-06-27', '2024-06-30'),
-(10, 'Tet Rally Latvia', 2024, 'Latvia', '2024-07-18', '2024-07-21'),
-(11, 'Secto Rally Finland', 2024, 'Finland', '2024-08-01', '2024-08-04'),
-(12, 'EKO Acropolis Rally Greece', 2024, 'Greece', '2024-09-05', '2024-09-08'),
-(13, 'Rally Chile Bio Bío', 2024, 'Chile', '2024-09-26', '2024-09-29'),
-(14, 'Central European Rally', 2024, 'Central Europe', '2024-10-17', '2024-10-20'),
-(15, 'FORUM8 Rally Japan', 2024, 'Japan', '2024-11-21', '2024-11-24');
+(5, 'WRC Safari Rally Kenya', 2024, 'Kenya', '2024-03-28', '2024-03-31'),
+(6, 'WRC Croatia Rally', 2024, 'Croatia', '2024-04-18', '2024-04-21'),
+(7, 'WRC Vodafone Rally de Portugal', 2024, 'Portugal', '2024-05-09', '2024-05-12'),
+(8, 'WRC Rally Italia Sardegna', 2024, 'Italy', '2024-05-30', '2024-06-02'),
+(9, 'WRC ORLEN 80th Rally Poland', 2024, 'Poland', '2024-06-27', '2024-06-30'),
+(10, 'WRC Tet Rally Latvia', 2024, 'Latvia', '2024-07-18', '2024-07-21'),
+(11, 'WRC Secto Rally Finland', 2024, 'Finland', '2024-08-01', '2024-08-04'),
+(12, 'WRC EKO Acropolis Rally Greece', 2024, 'Greece', '2024-09-05', '2024-09-08'),
+(13, 'WRC Rally Chile Bio Bío', 2024, 'Chile', '2024-09-26', '2024-09-29'),
+(14, 'WRC Central European Rally', 2024, 'Central Europe', '2024-10-17', '2024-10-20'),
+(15, 'WRC FORUM8 Rally Japan', 2024, 'Japan', '2024-11-21', '2024-11-24');
 
 -- --------------------------------------------------------
 
@@ -263,6 +278,12 @@ INSERT INTO `wrc_teams` (`id`, `name`, `basedIn`, `establishment`, `principal`, 
 --
 -- Indeksy dla zrzutów tabel
 --
+
+--
+-- Indeksy dla tabeli `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeksy dla tabeli `wrc_codrivers`
@@ -307,6 +328,12 @@ ALTER TABLE `wrc_teams`
 --
 
 --
+-- AUTO_INCREMENT dla tabeli `news`
+--
+ALTER TABLE `news`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT dla tabeli `wrc_codrivers`
 --
 ALTER TABLE `wrc_codrivers`
@@ -334,7 +361,7 @@ ALTER TABLE `wrc_drivers_standings`
 -- AUTO_INCREMENT dla tabeli `wrc_rallies`
 --
 ALTER TABLE `wrc_rallies`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT dla tabeli `wrc_teams`
