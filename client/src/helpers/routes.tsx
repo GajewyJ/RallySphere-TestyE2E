@@ -1,7 +1,7 @@
 import React from "react"
 import Home from "../pages/home"
 import WRC from "../pages/wrc"
-import Calendar from "../components/calendar"
+import CalendarPage from "../pages/calendar"
 
 interface RouteItem{
     path: string,
@@ -22,7 +22,7 @@ export const routes: Array<RouteItem> = [
     },
     {
         path: "/wrc/calendar",
-        element: <Calendar/>,
+        element: <CalendarPage/>,
         label: "WRC Calendar"
     },
 ]

@@ -1,8 +1,7 @@
-import { useEffect } from "react";
-import "./index.scss"
+import { useEffect } from "react";  
 import Calendar from "../../components/calendar";
 
-function Home(){
+function CalendarPage(){
   useEffect(() => {
       document.title = 'RallySphere - WRC Calendar';
   }, []);
@@ -14,4 +13,4 @@ function Home(){
   );
 };
 
-export default Home;
+export default CalendarPage;
