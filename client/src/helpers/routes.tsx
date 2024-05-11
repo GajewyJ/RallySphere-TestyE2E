@@ -2,6 +2,7 @@ import React from "react"
 import Home from "../pages/home"
 import WRC from "../pages/wrc"
 import CalendarPage from "../pages/calendar"
+import News from "../pages/news"
 
 interface RouteItem{
     path: string,
@@ -24,5 +25,10 @@ export const routes: Array<RouteItem> = [
         path: "/wrc/calendar",
         element: <CalendarPage/>,
         label: "WRC Calendar"
+    },
+    {
+        path: "/wrc/news",
+        element: <News/>,
+        label: "WRC News"
     },
 ]
