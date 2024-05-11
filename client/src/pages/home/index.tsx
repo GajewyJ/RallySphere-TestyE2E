@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import UpcomingRalliesBar from "../../components/upcomingRalliesBar";
 import "./index.scss"
 import LatestNewsBar from "../../components/latestNewsBar";
 import WRCLinksBar from "../../components/wrcLinksBar";
@@ -11,7 +10,6 @@ function Home(){
 
   return (
     <>
-        <UpcomingRalliesBar/>
         <LatestNewsBar/>
         <WRCLinksBar/>
     </>
