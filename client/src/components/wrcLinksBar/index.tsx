@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Heading from "../heading";
 
 import "./index.scss"
@@ -7,9 +8,9 @@ function WRCLinksBar(){
     <div className="WRCLinksDiv">
       <div>
         <Heading level={1}>WRC Standings</Heading>
-        <a>Drivers</a>
-        <a>Co-Drivers</a>
-        <a>Teams</a>
+        <Link to='/'>Drivers</Link>
+        <Link to='/'>Co-Drivers</Link>
+        <Link to='/'>Teams</Link>
       </div>
     </div>
   );
