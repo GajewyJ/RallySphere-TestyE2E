@@ -29,28 +29,29 @@ function Calendar(){
 
   return(
     <main>
-      {rallies.map((rally) => {
-        const currentYear = new Date().getFullYear();
-        if (parseInt(rally.season) === currentYear) {
-          return (
-            <a key={rally.id} href='/'>
-              <div>
-                <p>{
-                  new Date(rally.end) < new Date() 
-                    ? "COMPLETED " 
-                    : `${new Date(rally.beginning).toLocaleDateString('pl-PL')} - ${new Date(rally.end).toLocaleDateString('pl-PL')} `
-                }</p>
-                <p>{rally.name}</p>
+      <div className='calendarContent'>
+        {rallies.map((rally) => {
+          const currentYear = new Date().getFullYear();
+          if (parseInt(rally.season) === currentYear) {
+            return (
+              <a key={rally.id}>
                 <div>
-                  <p> {rally.country}</p>
-                  <img src={`public/flags/${rally.country}.png`}/>
+                  <p>{
+                    new Date(rally.end) < new Date() 
+                      ? "COMPLETED " 
+                      : `${new Date(rally.beginning).toLocaleDateString('pl-PL')} - ${new Date(rally.end).toLocaleDateString('pl-PL')} `
+                  }</p>
+                  <p>{rally.name}</p>
+                  <div>
+                    <p> {rally.country}</p>
+                    <img src={`public/flags/${rally.country}.png`}/>
+                  </div>
                 </div>
-              </div>
-            </a>
-          )
-        }
-        return null;
-      })}
+              </a>
+            )
+          }
+        })}
+      </div>
     </main>
   )
 };
