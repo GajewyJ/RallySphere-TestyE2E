@@ -62,3 +62,13 @@ model wrc_teams {
   brand         String? @db.Text
   points        Int?
 }
+
+model news {
+  id              Int       @id @default(autoincrement())
+  title           String?   @db.Text
+  paragraph1      String?   @db.Text
+  paragraph2      String?   @db.Text
+  paragraph3      String?   @db.Text
+  photo           String?   @db.Text
+  publicationDate DateTime? @db.DateTime(0)
+}
