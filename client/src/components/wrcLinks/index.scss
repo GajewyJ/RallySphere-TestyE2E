@@ -33,8 +33,32 @@
                 margin: 20px;
                 text-decoration: none;
                 color: white;
-                border-radius: 20px;
+                border-radius: 40px;
                 font-size: 2em;
+                text-align: center;
+                padding: 10px;
+            }
+    
+
+            @media (max-width: 1171px) {
+                a{
+                    width: 40%;
+                    height: 200px;
+                }
+            }
+    
+
+            @media (max-width: 857px) {
+                a{
+                    width: 100%;
+                }
+            }
+    
+
+            @media (max-width: 400px) {
+                a{
+                    font-size: 1.5em;
+                }
             }
         }
     }
