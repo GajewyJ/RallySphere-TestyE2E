@@ -59,6 +59,10 @@ article{
     @media (max-width: 1125px) {
         .newsBody{
             width: 80%;
+
+            h1{
+                padding: 0;
+            }
         }
     }
 }
