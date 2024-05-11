@@ -29,7 +29,7 @@ function Calendar(){
 
   return(
     <main>
-      {rallies.map((rally, index) => {
+      {rallies.map((rally) => {
         const currentYear = new Date().getFullYear();
         if (parseInt(rally.season) === currentYear) {
           return (
