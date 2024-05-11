@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import UpcomingRalliesBar from "../../components/upcomingRalliesBar";
 import "./index.scss"
+import LatestNewsBar from "../../components/latestNewsBar";
 
 function Home(){
   useEffect(() => {
@@ -10,6 +11,7 @@ function Home(){
   return (
     <>
         <UpcomingRalliesBar/>
+        <LatestNewsBar/>
     </>
   );
 };
