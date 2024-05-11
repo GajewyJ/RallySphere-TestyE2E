@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import UpcomingRalliesBar from "../../components/upcomingRalliesBar";
 import "./index.scss"
+import Calendar from "../../components/calendar";
 
 function WRC(){
   let date = new Date(Date.now())
@@ -11,6 +12,7 @@ function WRC(){
   return (
     <>
       <UpcomingRalliesBar/>
+      <Calendar/>
     </>
   );
 };
