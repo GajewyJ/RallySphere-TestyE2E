@@ -2,14 +2,22 @@ main{
     width: 100%;
     height: auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    h1{
+        font-size: 2.5em;
+        font-weight: 900;
+        text-align: center;
+    }
 
     .calendarContent{
         width: 80%;
         display: flex;
         align-items: center;
         flex-wrap: wrap;
+        justify-content: space-around;
 
         a{
             margin: 20px;
@@ -68,6 +76,12 @@ main{
                     }
                 }
             }
+        }
+    }
+
+    @media (max-width: 1400px){
+        .calendarContent{
+            width: 90%;
         }
     }
 }

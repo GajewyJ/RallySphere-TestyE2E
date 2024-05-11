@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './index.scss'
+import Heading from '../heading';
 
 interface Rally {
   id: number;
@@ -13,6 +14,10 @@ interface Rally {
 
 function Calendar(){
   const [rallies, setRallies] = useState<Rally[]>([]);
+
+  useEffect(() => {
+      document.title = 'RallySphere - WRC ' + new Date(Date.now()).getFullYear().toString() + ' Calendar';
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,6 +34,7 @@ function Calendar(){
 
   return(
     <main>
+      <Heading level={1}>WRC {new Date(Date.now()).getFullYear().toString()} Calendar</Heading>
       <div className='calendarContent'>
         {rallies.map((rally) => {
           const currentYear = new Date().getFullYear();
@@ -44,7 +50,7 @@ function Calendar(){
                   <p>{rally.name}</p>
                   <div>
                     <p> {rally.country}</p>
-                    <img src={`public/flags/${rally.country}.png`}/>
+                    <img src={`/flags/${rally.country.toLowerCase()}.png`}/>
                   </div>
                 </div>
               </a>
