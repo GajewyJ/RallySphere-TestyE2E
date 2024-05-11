@@ -10,7 +10,7 @@ function WRC(){
   }, []);
   return (
     <>
-        <UpcomingRalliesBar/>
+      <UpcomingRalliesBar/>
     </>
   );
 };
