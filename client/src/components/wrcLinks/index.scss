@@ -1,0 +1,41 @@
+.WRCLinksDiv1{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div{
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+
+        h1{
+            font-size: 2.5em;
+            font-weight: 900;
+            text-align: center;
+        }
+
+        div{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+
+            a{
+                width: 350px;
+                height: 350px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: rgb(32, 42, 68);
+                margin: 20px;
+                text-decoration: none;
+                color: white;
+                border-radius: 20px;
+                font-size: 2em;
+            }
+        }
+    }
+}
