@@ -33,7 +33,7 @@ newsRouter.get('/', async (req, res) => {
 // Get 3 latest news
 newsRouter.get('/latest', async (req, res) => {
     try {
-        const news = await prisma.news.findMany({orderBy: {publicationDate: 'desc'}, take: 4});
+        const news = await prisma.news.findMany({orderBy: {publicationDate: 'desc'}, take: 3});
         if(news != null) {
             res.json(news);
         }
