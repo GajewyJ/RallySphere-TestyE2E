@@ -3,7 +3,7 @@ import AllNews from "../../components/allNews";
 
 function News(){
   useEffect(() => {
-      document.title = 'RallySphere - WRC Calendar';
+      document.title = 'RallySphere - WRC News';
   }, []);
 
   return (
