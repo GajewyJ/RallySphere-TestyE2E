@@ -34,7 +34,7 @@ function LatestNewsBar(){
       <Heading level={1}>Latest WRC News</Heading>
       <div>
         {news.map((newsItem) => (
-          <a href={'http://localhost:3000/news/' + newsItem.id.toString()} key={newsItem.id}>
+          <a href={'/wrc/news/' + newsItem.id.toString()} key={newsItem.id}>
             <img src={newsItem.photo} alt={newsItem.title}/>
             <p>{newsItem.publicationDate.toString().substring(8, 10) + '.' + newsItem.publicationDate.toString().substring(5, 7) + '.' + newsItem.publicationDate.toString().substring(0, 4) + ' ' + newsItem.publicationDate.toString().substring(11, 13) + ':' + newsItem.publicationDate.toString().substring(14, 16)}</p>
             <p>{newsItem.title}</p>
