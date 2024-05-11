@@ -9,7 +9,7 @@ function WRCLinks(){
       <div>
         <Heading level={1}>Useful WRC Information</Heading>
         <div>
-          <Link to="/">WRC News</Link>
+          <Link to="/wrc/news">WRC News</Link>
           <Link to="/wrc/calendar">Calendar</Link>
           <Link to="/">Driver Standings</Link>
           <Link to="/">Co-Driver Standings</Link>
