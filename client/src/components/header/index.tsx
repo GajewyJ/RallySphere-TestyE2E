@@ -5,7 +5,7 @@ import "./index.scss"
 function Header(){
     return (
         <header>
-            <Link to="/"><img src="./././logos/rallysphere-high-resolution-logo-transparent.png"/></Link>
+            <Link to="/"><img src="logos/rallysphere-high-resolution-logo-transparent.png"/></Link>
             <NavBar/>
         </header>
     );
