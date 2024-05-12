@@ -8,39 +8,21 @@ datasource db {
 }
 
 model wrc_drivers {
-  id                    Int                     @id @default(autoincrement())
-  firstName             String?                 @db.Text
-  lastName              String?                 @db.Text
-  country               String?                 @db.Text
-  team                  String?                 @db.Text
-  wrc_drivers_standings wrc_drivers_standings[]
+  id        Int     @id @default(autoincrement())
+  firstName String? @db.Text
+  lastName  String? @db.Text
+  country   String? @db.Text
+  team      String? @db.Text
+  points    Int?
 }
 
 model wrc_codrivers {
-  id                      Int                       @id @default(autoincrement())
-  firstName               String?                   @db.Text
-  lastName                String?                   @db.Text
-  country                 String?                   @db.Text
-  team                    String?                   @db.Text
-  wrc_codrivers_standings wrc_codrivers_standings[]
-}
-
-model wrc_codrivers_standings {
-  id            Int            @id @default(autoincrement())
-  codriversId   Int?
-  points        Int?
-  wrc_codrivers wrc_codrivers? @relation(fields: [codriversId], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "wrc_codrivers_standings_ibfk_1")
-
-  @@index([codriversId], map: "codriversId")
-}
-
-model wrc_drivers_standings {
-  id          Int          @id @default(autoincrement())
-  driversId   Int?
-  points      Int?
-  wrc_drivers wrc_drivers? @relation(fields: [driversId], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "wrc_drivers_standings_ibfk_1")
-
-  @@index([driversId], map: "driversId")
+  id        Int     @id @default(autoincrement())
+  firstName String? @db.Text
+  lastName  String? @db.Text
+  country   String? @db.Text
+  team      String? @db.Text
+  points    Int?
 }
 
 model wrc_rallies {
