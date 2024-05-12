@@ -17,7 +17,7 @@ const ERROR_404 = {error: '404 Not Found'};
 // Get all teams
 wrcTeamsRouter.get('/', async (req, res) => {
     try {
-        const teams = await prisma.wrc_teams.findMany();
+        const teams = await prisma.wrc_teams.findMany({orderBy: {points: 'desc'}});
         if(teams != null) {
             res.json(teams);
         }
