@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 11 Maj 2024, 17:38
+-- Czas generowania: 12 Maj 2024, 18:45
 -- Wersja serwera: 10.4.25-MariaDB
 -- Wersja PHP: 8.1.10
 
@@ -45,7 +45,10 @@ INSERT INTO `news` (`id`, `title`, `paragraph1`, `paragraph2`, `paragraph3`, `ph
 (1, 'Disaster for Evans: Martin resorts to phone to call notes', 'Co-driver Scott Martin found himself relying on his mobile phone to relay pace notes to Elfyn Evans after misplacing his physical notebook on Friday afternoon at Vodafone Rally de Portugal.', 'Panic ensued between the British duo just before the second running of Góis 2 when Martin discovered that his pace note book, containing crucial details of every twist and turn of the stage, had gone astray.', 'With no time to spare, Martin ingeniously resorted to using his mobile phone to access a digital copy of the notes. However, the bad luck continued for the pair as their Toyota GR Yaris sustained front-right tyre damage during the stage, costing almost one minute.', 'https://wrc.enhance.diagnal.com/resources/images/eyJrZXkiOiJodHRwczovL2VuaGFuY2Utc3RvcmFnZS1zdGFjay1wcm9kLXdyY21lZGlhZmlsZXN0b3JhZ2UtZzN6MmhnM3Vyd2ZmLnMzLmFtYXpvbmF3cy5jb20vZjAzMDRjMWYtZjczOC00ZWNmLTk5NDMtNjlmZTc4ZDI4N2ZlXzEwMDUyNG1pc3NpbmctcGFjZW5vdGVzLnBuZyIsInRpbWVzdGFtcCI6IjIwMjQtMDUtMTBUMTQ6NDY6NTAuMzU0WiIsImVkaXRzIjp7ImV4dHJhY3QiOnsibGVmdCI6MCwidG9wIjowLCJ3aWR0aCI6MTQ3MSwiaGVpZ2h0Ijo4Mjd9LCJyZXNpemUiOnsid2lkdGgiOjE5MjAsImhlaWdodCI6MTA4MH0sImpwZWciOnsicXVhbGl0eSI6MTAwfX19/f0304c1f-f738-4ecf-9943-69fe78d287fe_100524missing-pacenotes.png', '2024-05-10 17:00:00'),
 (2, 'New agreement confirms Portugal’s continued WRC legacy', 'WRC Promoter and Automóvel Club de Portugal (ACP) have sealed a new deal which guarantees Vodafone Rally de Portugal\'s position in the FIA World Rally Championship calendar until at least 2026.', 'The agreement, announced today (Friday 10 May), follows an electrifying opening day of action at round five of the 2024 season that drew tens of thousands of spectators to the stages in and around the vibrant northern Portuguese cities of Matosinhos and Porto.', 'Vodafone Rally de Portugal stands as the pinnacle of sporting excellence in the country, generating in excess 60 million Euros for the nation\'s economy. With extensive free-to-air live coverage on Portugal’s national broadcaster RTP and every stage broadcast on long-standing WRC partner SportTV, the event captivates audiences nationwide. Having been a cornerstone of the WRC since its inception in 1973, the rally holds esteemed status as one of the championship\'s enduring classics and is cherished by competitors and fans alike. “It is a big pleasure for me to confirm 2025 and 2026,” asserted ACP President Carlos Barbosa. \"We have an exceptional relationship with the promoter in terms of the event and the activations around it. Over the past 20 years Rally Portugal has asserted itself as one of the best rallies in the world.\" “Vodafone Rally de Portugal has once again earned its position on the FIA World Rally Championship calendar. This is a deserved recognition and we hope it continues for many years to come,” added WRC Promoter Managing Director Jona Siebel.', 'https://wrc.enhance.diagnal.com/resources/images/eyJrZXkiOiJodHRwczovL2VuaGFuY2Utc3RvcmFnZS1zdGFjay1wcm9kLXdyY21lZGlhZmlsZXN0b3JhZ2UtZzN6MmhnM3Vyd2ZmLnMzLmFtYXpvbmF3cy5jb20vMmZmYzI2YTUtOTJlNC00YjE1LThjODQtNmE5MWFkZGQyZThlXzEwMDUyNGFjcC1zaWduaW5nLmpwZyIsInRpbWVzdGFtcCI6IjIwMjQtMDUtMTBUMTg6NDQ6MjEuMjIyWiIsImVkaXRzIjp7ImV4dHJhY3QiOnsibGVmdCI6NTQ2LCJ0b3AiOjAsIndpZHRoIjo0MDkxLCJoZWlnaHQiOjIzMDN9LCJyZXNpemUiOnsid2lkdGgiOjE5MjAsImhlaWdodCI6MTA4MH0sImpwZWciOnsicXVhbGl0eSI6MTAwfX19/2ffc26a5-92e4-4b15-8c84-6a91addd2e8e_100524acp-signing.jpg', '2024-05-10 20:00:00'),
 (3, 'Rovanperä surrenders Rally de Portugal lead after Saturday morning roll', 'A hat-trick of Vodafone Rally de Portugal victories is no longer on the cards for Kalle Rovanperä after the Finn rolled out of contention on Saturday morning.', 'Having claimed a commanding win in Saturday\'s opening stage at Felgueiras, Rovanperä seemed poised to further solidify his lead at this fifth round of the 2024 FIA World Rally Championship. However, the 23-year-old\'s aspirations came crashing down in the Montim stage when he misjudged a fast right-hander over a crest, clipping a tree on the outside which sent his Toyota GR Yaris into a roll.', 'Rovanperä and his co-driver Jonne Halttunen emerged unscathed from the incident but will take no further part in today\'s proceedings. Further drama unfolded as Oliver Solberg, who led the WRC2 category overnight, suffered a similar fate. Shortly after passing Rovanperä\'s stricken car, the Swede veered wide on a right-hand corner and rolled his Škoda Fabia RS Rally2. With Rovanperä and Solberg sidelined, Sébastien Ogier took the rally lead while Yohan Rossel swooped to the top spot in WRC2.', 'https://wrc.enhance.diagnal.com/resources/images/eyJrZXkiOiJodHRwczovL2VuaGFuY2Utc3RvcmFnZS1zdGFjay1wcm9kLXdyY21lZGlhZmlsZXN0b3JhZ2UtZzN6MmhnM3Vyd2ZmLnMzLmFtYXpvbmF3cy5jb20vNGMwMTJmNDYtMjYyYi00NzNkLWFkZTUtOTQxM2E2MzNlMDljXzExMDUyNHJvdi5qcGciLCJ0aW1lc3RhbXAiOiIyMDI0LTA1LTExVDA4OjUzOjU2LjQ5M1oiLCJlZGl0cyI6eyJleHRyYWN0Ijp7ImxlZnQiOjAsInRvcCI6MCwid2lkdGgiOjE5MjAsImhlaWdodCI6MTA4MH0sInJlc2l6ZSI6eyJ3aWR0aCI6MTkyMCwiaGVpZ2h0IjoxMDgwfSwianBlZyI6eyJxdWFsaXR5IjoxMDB9fX0=/4c012f46-262b-473d-ade5-9413a633e09c_110524rov.jpg', '2024-05-11 11:00:00'),
-(4, 'Neuville claims early advantage in Portugal', 'Thousands of fans turned out in the central Portuguese coastal city Figueira da Foz on Thursday night to witness Thierry Neuville go fastest on the opening stage of Vodafone Rally de Portugal 2024.', 'The FIA World Rally Championship points leader was the last of the Rally1 cars to take to the 2.94km Tarmac street stage and went 0.6sec quicker than five-time Rally de Portugal winner Sébastien Ogier. Neuville needed every advantage he could get behind the wheel of his Hyundai i20 N Rally Hybrid on Thursday’s opener, with a tough Friday of gravel road clearing awaiting the Belgian. His Estonian team-mate Ott Tänak crossed the line third-quickest, 1.4sec down on Ogier.', 'The Toyota Gazoo Racing pairing of Takamoto Katsuta and Kalle Rovanperä rounded out the top five whilst Adrien Fourmaux was the fastest of the M-Sport Ford Puma drivers, coming home in sixth. Despite going quickest on Thursday morning’s shakedown, Dani Sordo could only muster the seventh-quickest time on his 2024 Hyundai debut, narrowly seeing off Toyota Gazoo Racing’s fourth driver Elfyn Evans. Leading home the WRC2 field in ninth overall was Yohan Rossel, continuing a stellar season to date for Citröen, whilst Pierre-Louis Loubet announced his return to action in style, going second-quickest in his first WRC2 outting in Škoda Fabia RS Rally2. It marked the Frenchman\'s first outting at global level since Central European Rally, when he competed in an M-Sport Ford Puma Rally1. Action resumes Friday morning 08:05 with stages awaiting competitors.', 'https://wrc.enhance.diagnal.com/resources/images/eyJrZXkiOiJodHRwczovL2VuaGFuY2Utc3RvcmFnZS1zdGFjay1wcm9kLXdyY21lZGlhZmlsZXN0b3JhZ2UtZzN6MmhnM3Vyd2ZmLnMzLmFtYXpvbmF3cy5jb20vNTM3YThiMTAtMGJkMS00NDBiLTg5NjUtMmY2ZjYxYjU1YTlmXzA5MDUyNHJiLXRoaWVycnktbmV1dmlsbGUtcG9ydHVnYWwtMjAyMzAxLmpwZyIsInRpbWVzdGFtcCI6IjIwMjQtMDUtMDlUMjE6MTk6MTEuOTA4WiIsImVkaXRzIjp7ImV4dHJhY3QiOnsibGVmdCI6MCwidG9wIjoxNTEsIndpZHRoIjozODQwLCJoZWlnaHQiOjIxNjB9LCJyZXNpemUiOnsid2lkdGgiOjE5MjAsImhlaWdodCI6MTA4MH0sImpwZWciOnsicXVhbGl0eSI6MTAwfX19/537a8b10-0bd1-440b-8965-2f6f61b55a9f_090524rb-thierry-neuville-portugal-202301.jpg', '2024-05-09 21:00:00');
+(4, 'Neuville claims early advantage in Portugal', 'Thousands of fans turned out in the central Portuguese coastal city Figueira da Foz on Thursday night to witness Thierry Neuville go fastest on the opening stage of Vodafone Rally de Portugal 2024.', 'The FIA World Rally Championship points leader was the last of the Rally1 cars to take to the 2.94km Tarmac street stage and went 0.6sec quicker than five-time Rally de Portugal winner Sébastien Ogier. Neuville needed every advantage he could get behind the wheel of his Hyundai i20 N Rally Hybrid on Thursday’s opener, with a tough Friday of gravel road clearing awaiting the Belgian. His Estonian team-mate Ott Tänak crossed the line third-quickest, 1.4sec down on Ogier.', 'The Toyota Gazoo Racing pairing of Takamoto Katsuta and Kalle Rovanperä rounded out the top five whilst Adrien Fourmaux was the fastest of the M-Sport Ford Puma drivers, coming home in sixth. Despite going quickest on Thursday morning’s shakedown, Dani Sordo could only muster the seventh-quickest time on his 2024 Hyundai debut, narrowly seeing off Toyota Gazoo Racing’s fourth driver Elfyn Evans. Leading home the WRC2 field in ninth overall was Yohan Rossel, continuing a stellar season to date for Citröen, whilst Pierre-Louis Loubet announced his return to action in style, going second-quickest in his first WRC2 outting in Škoda Fabia RS Rally2. It marked the Frenchman\'s first outting at global level since Central European Rally, when he competed in an M-Sport Ford Puma Rally1. Action resumes Friday morning 08:05 with stages awaiting competitors.', 'https://wrc.enhance.diagnal.com/resources/images/eyJrZXkiOiJodHRwczovL2VuaGFuY2Utc3RvcmFnZS1zdGFjay1wcm9kLXdyY21lZGlhZmlsZXN0b3JhZ2UtZzN6MmhnM3Vyd2ZmLnMzLmFtYXpvbmF3cy5jb20vNTM3YThiMTAtMGJkMS00NDBiLTg5NjUtMmY2ZjYxYjU1YTlmXzA5MDUyNHJiLXRoaWVycnktbmV1dmlsbGUtcG9ydHVnYWwtMjAyMzAxLmpwZyIsInRpbWVzdGFtcCI6IjIwMjQtMDUtMDlUMjE6MTk6MTEuOTA4WiIsImVkaXRzIjp7ImV4dHJhY3QiOnsibGVmdCI6MCwidG9wIjoxNTEsIndpZHRoIjozODQwLCJoZWlnaHQiOjIxNjB9LCJyZXNpemUiOnsid2lkdGgiOjE5MjAsImhlaWdodCI6MTA4MH0sImpwZWciOnsicXVhbGl0eSI6MTAwfX19/537a8b10-0bd1-440b-8965-2f6f61b55a9f_090524rb-thierry-neuville-portugal-202301.jpg', '2024-05-09 20:00:00'),
+(5, 'Ogier grabs Portugal lead as Toyota team-mates suffer', 'Sébastien Ogier vaulted into the lead of Vodafone Rally de Portugal as his Toyota Gazoo Racing colleagues Kalle Rovanperä and Takamoto Katsuta suffered heartbreak on a brutal Saturday morning.', 'Just as overnight leader Rovanperä seemed poised to consolidate his position at the top at this fifth round of the season, the two-time world champion misjudged a right-hand bend in Montim – running wide and clipping a tree that sent his GR Yaris Rally1 rolling into retirement, Ogier was thrust into the lead going into the morning’s penultimate stage at Amarante, but further misfortune struck the Japanese manufacturer squad in the 37km stage as Katsuta, who had lost position to Hyundai\'s Ott Tänak earlier in the morning, was forced to park his crippled Toyota at the roadside with smashed rear suspension.', 'Tänak dominated Amarante, outpacing Ogier by 3.6sec to become the fifth different rally leader in 12 special stages. However, rear tyre damage for the Estonian in Paredes allowed Frenchman Ogier to regain control late in the loop, taking a 13.6sec lead to service. “It was a big push in the last one, but honestly it hasn’t been so different since the start of the rally,\" Ogier said. \"We’re giving it everything we have.” The drama up ahead brought more good news for Thierry Neuville, who finished the morning 40.8sec behind team-mate Tänak after climbing from sixth to third. Despite stalling his i20 N at a hairpin, the Belgian driver is poised to extend his championship lead - which stood at six points before this rally - over Elfyn Evans with the Welshman currently down in sixth overall. Spain’s Dani Sordo made it three Hyundais in the top four, trailing Tänak by 3.6sec having dropped behind his colleague in the first stage of the day. M-Sport Ford man Adrien Fourmaux was 20.4sec further back in fifth with a 1min 20.9sec buffer to Evans, who was delayed by a spin on SS11. Grégoire Munster had a disastrous run through Amarante, pulling over twice and dropping over six minutes as he tried to diagnose a mysterious powertrain fault. Initially suspecting an alternator fault, Munster later discovered that was not the case and the issue appeared to rectify itself.', 'https://wrc.enhance.diagnal.com/resources/images/eyJrZXkiOiJodHRwczovL2VuaGFuY2Utc3RvcmFnZS1zdGFjay1wcm9kLXdyY21lZGlhZmlsZXN0b3JhZ2UtZzN6MmhnM3Vyd2ZmLnMzLmFtYXpvbmF3cy5jb20vZjZiYzhmNDItMWNiYi00MzJhLWFmOWYtM2NiMzUzMWFhYTgwXzExMDUyNGF0b2dpZXJzYXRhbS5qcGciLCJ0aW1lc3RhbXAiOiIyMDI0LTA1LTExVDExOjAxOjAzLjQ0NFoiLCJlZGl0cyI6eyJleHRyYWN0Ijp7ImxlZnQiOjAsInRvcCI6MCwid2lkdGgiOjE5MjAsImhlaWdodCI6MTA4MH0sInJlc2l6ZSI6eyJ3aWR0aCI6MTkyMCwiaGVpZ2h0IjoxMDgwfSwianBlZyI6eyJxdWFsaXR5IjoxMDB9fX0=/f6bc8f42-1cbb-432a-af9f-3cb3531aaa80_110524atogiersatam.jpg', '2024-05-11 20:00:00'),
+(6, 'Chaotic Saturday puts Ogier in line for record Portugal win', 'Sébastien Ogier stands on the cusp of surpassing Markku Alén’s Vodafone Rally de Portugal record - providing he can maintain his lead over Hyundai Motorsport rival Ott Tänak on the event’s final day tomorrow (Sunday).', 'A tumultuous Saturday at the 2024 FIA World Rally Championship’s fifth round wreaked havoc among some of the series’ top drivers, reshuffling the leaderboard and granting Ogier an 11.9-sec overnight lead. The Frenchman’s Toyota Gazoo Racing team began this penultimate leg with all guns blazing, locking out the podium after a near-perfect opening day. However, their fortunes took a dive early this morning when Kalle Rovanperä and Takamoto Katsuta both faltered on the brutal gravel terrain.', 'Overnight leader Rovanperä looked poised to tighten his grip on the top spot after blitzing the Felgueiras opener, but he misjudged a right-hander in Montim shortly afterwards and rolled out of contention. Katsuta’s exit was less dramatic but equally devastating: a rearward impact shattered his GR Yaris Rally1 car’s suspension as the Japanese driver battled for third. Toyota’s hopes rested on Ogier’s shoulders. He tussled for the lead with Tänak and briefly relinquished the position on Amarante 1 before going back in front when the Estonian nursed a deflated tyre in the following stage. Although Tänak maintained the pressure with benchmark times over the first two stages of the repeated afternoon loop, Ogier responded with a brace of stage wins to widen the gap. Victory for Ogier on Sunday would be his sixth in Portugal. At present he jointly tops the event’s roll of honour with Finnish legend Markku Alén, known for his dominance with Fiat and Lancia in the 1970s and 80s. “It\'s been a good day,” said Ogier. “A tricky one, we didn\'t expect so many things happening today. Unfortunately on Toyota’s side it was not a perfect day. For me it was good, but we lost two cars. “We have to try and finish the job tomorrow now,” he added. The drama up ahead brought good news for Thierry Neuville, who ended the day 59.5sec behind team-mate Tänak having climbed from sixth to third. With main title rival Elfyn Evans languishing in sixth, Neuville is poised to extend his championship lead and his Saturday standing will earn him 13 points providing he completes Super Sunday. Neuville overtook Dani Sordo in the first stage of the day but the Spaniard kept touch with his colleague, ending the day 14.2sec further back to make it three Hyundais in the top four. Behind Sordo by only 7.3sec was M-Sport Ford hotshot Adrien Fourmaux, who held a comfortable buffer of almost two minutes to Evans. Evans struggled to get into a rhythm with his GR Yaris, and an early spin exacerbated his challenges. Rally2 cars filled the remainder of the leaderboard, with Nikolay Gryazin sitting seventh in his Citroën C3. Jan Solans was the first of the WRC2-registered drivers while Josh McErlean and Yohan Rossel completed the top 10.', 'https://wrc.enhance.diagnal.com/resources/images/eyJrZXkiOiJodHRwczovL2VuaGFuY2Utc3RvcmFnZS1zdGFjay1wcm9kLXdyY21lZGlhZmlsZXN0b3JhZ2UtZzN6MmhnM3Vyd2ZmLnMzLmFtYXpvbmF3cy5jb20vNWU4Y2YwMDAtNTNmZi00ZTQwLTk5ZTYtZWY1MmNlMzY5YmQzXzExMDUyNGF0LXNlYi1vZ2llci1wb3J0dWdhbDAxLmpwZyIsInRpbWVzdGFtcCI6IjIwMjQtMDUtMTFUMTg6MDY6NTEuODE5WiIsImVkaXRzIjp7ImV4dHJhY3QiOnsibGVmdCI6MCwidG9wIjo1NTIsIndpZHRoIjo1NDA0LCJoZWlnaHQiOjMwNDB9LCJyZXNpemUiOnsid2lkdGgiOjE5MjAsImhlaWdodCI6MTA4MH0sImpwZWciOnsicXVhbGl0eSI6MTAwfX19/5e8cf000-53ff-4e40-99e6-ef52ce369bd3_110524at-seb-ogier-portugal01.jpg', '2024-05-11 21:00:00'),
+(7, 'Record-breaking Ogier powers to sixth Portugal win', 'Sébastien Ogier became the first driver to achieve six Vodafone Rally de Portugal victories on Sunday, powering to glory 7.9sec clear of his Hyundai Motorsport rival Ott Tänak.', 'The Frenchman is now the most successful driver in the 56-year history of the event, which was a founding round of the FIA World Rally Championship back in 1973. Ogier previously shared the record with Finnish WRC legend Markku Alén before his triumph today. Five different drivers led the gruelling gravel fixture, which utilised roads near the northern Portuguese cities of Porto and Matosinhos and drew attendance from tens of thousands of passionate fans.', 'Ogier seized the top spot on a tumultuous Saturday, during which his Toyota GR Yaris team-mate Kalle Rovanperä rolled out of the lead and Takamoto Katsuta retired his similar car with shattered rear suspension. He headed the i20 N car of Tänak by 11.9sec arriving into Sunday’s four-stage finale and stayed cool to keep the Estonian at bay, soaring high over the legendary Fafe jump to round out this fifth round of the season in style. \"I had nothing against being tied with Markku Alén,\" Ogier smiled. \"He is a legend, but I heard for many years \'when will you beat this record?\' It was a not a great weekend for the whole team, but it was a good rally for us and I am glad we could bring some points.\" Second place marked Tänak’s best result since re-joining Hyundai at the beginning of the year. The additional seven points he earned for topping the Super Sunday classification helped move him ahead of Adrien Fourmaux to third in the championship standings. Championship wise, it was also a strong weekend for Thierry Neuville, who filled the final podium spot 1min 1.9sec behind his Hyundai colleague. Belgian star Neuville extended his drivers’ series lead to 24 points over Elfyn Evans after the Welshman endured a torrid week, finishing down in sixth having overcome a coolant leakage through the final day. Fourmaux climbed from fifth to fourth, passing the Hyundai of Dani Sordo on SS19 and pulling more than a minute clear of the Spaniard by the end. The M-Sport Ford youngster has finished all five rallies so far this year, gracing the top five on all but one occasion. Evans’ coolant leak forced him to crawl out of SS21 in EV mode and exacerbated what had already been a challenging outing for the GR Yaris driver. On Friday his co-driver Scott Martin resorted to reading pace notes from a mobile phone after misplacing his physical book, and the crew failed to post a single top-three stage time. Citroën C3 Rally2 driver Nikolay Gryazin took seventh overall ahead of Jan Solans, who was the best-placed WRC2-registered driver in eighth. Solans edged Josh McErlean by just 3.2sec while Lauri Joona completed the top 10. Competitors face more hot weather and rough roads as the WRC moves to the Mediterranean island of Sardinia later this month. Rally Italia Sardegna is based in Alghero from 30 May - 2 June.', 'https://wrc.enhance.diagnal.com/resources/images/eyJrZXkiOiJodHRwczovL2VuaGFuY2Utc3RvcmFnZS1zdGFjay1wcm9kLXdyY21lZGlhZmlsZXN0b3JhZ2UtZzN6MmhnM3Vyd2ZmLnMzLmFtYXpvbmF3cy5jb20vOTBmNzE2ZTgtZjNjMC00MTM1LWJiZWMtNGU1MzFlY2ZhZjMzXzEyMDUyNGF0b2dpZXJzdW4tMS5qcGciLCJ0aW1lc3RhbXAiOiIyMDI0LTA1LTEyVDEyOjU4OjM5LjMzM1oiLCJlZGl0cyI6eyJleHRyYWN0Ijp7ImxlZnQiOjAsInRvcCI6MCwid2lkdGgiOjE5MjAsImhlaWdodCI6MTA4MH0sInJlc2l6ZSI6eyJ3aWR0aCI6MTkyMCwiaGVpZ2h0IjoxMDgwfSwianBlZyI6eyJxdWFsaXR5IjoxMDB9fX0=/90f716e8-f3c0-4135-bbec-4e531ecfaf33_120524atogiersun-1.jpg', '2024-05-12 15:20:00');
 
 -- --------------------------------------------------------
 
@@ -58,82 +61,38 @@ CREATE TABLE `wrc_codrivers` (
   `firstName` text DEFAULT NULL,
   `lastName` text DEFAULT NULL,
   `country` text DEFAULT NULL,
-  `team` text DEFAULT NULL
+  `team` text DEFAULT NULL,
+  `points` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Zrzut danych tabeli `wrc_codrivers`
 --
 
-INSERT INTO `wrc_codrivers` (`id`, `firstName`, `lastName`, `country`, `team`) VALUES
-(1, 'Martijn', 'Wydaeghe', 'Belgium', 'Hyundai'),
-(2, 'Scott', 'Martin', 'Great Britain', 'Toyota'),
-(3, 'Alexandre', 'Coria', 'France', 'M-Sport Ford'),
-(4, 'Martin', 'Järveoja', 'Estonia', 'Hyundai'),
-(5, 'Jonne', 'Halttunen', 'Finland', 'Toyota'),
-(6, 'Aaron', 'Johnston', 'Ireland', 'Toyota'),
-(7, 'Vincent', 'Landais', 'France', 'Toyota'),
-(8, 'Janne', 'Ferm', 'Finland', 'Hyundai'),
-(9, 'Elliott', 'Edmondson', 'Great Britain', 'Skoda'),
-(10, 'Enni', 'Mälkönen', 'Finland', 'Toyota'),
-(11, 'Torstein', 'Eriksen', 'Norway', 'Hyundai'),
-(12, 'Jonas', 'Andersson', 'Sweden', 'Skoda'),
-(13, 'James', 'Morgan', 'Great Britain', 'Toyota'),
-(14, 'Anssi', 'Viinikka', 'Finland', 'Toyota'),
-(15, 'Maciej', 'Szczepaniak', 'Poland', 'Skoda'),
-(16, 'Konstantin', 'Aleksandrov', 'ANA', 'Citroen'),
-(17, 'Louis', 'Louka', 'Belgium', 'M-Sport Ford'),
-(18, 'Frédéric', 'Miclotte', 'Belgium', 'M-Sport Ford'),
-(19, 'David', 'Vázquez', 'Spain', 'Skoda'),
-(20, 'Kristian', 'Temonen', 'Finland', 'Toyota'),
-(21, 'Arnaud', 'Dunand', 'France', 'Citroen'),
-(22, 'Janni', 'Hussi', 'Finland', 'Skoda'),
-(23, 'Alice', 'Tasselli', 'Italy', 'Volkswagen'),
-(24, 'Simone', 'Angi', 'Italy', 'M-Sport Ford'),
-(25, 'Simone', 'Scattolin', 'Italy', 'Toyota');
-
--- --------------------------------------------------------
-
---
--- Struktura tabeli dla tabeli `wrc_codrivers_standings`
---
-
-CREATE TABLE `wrc_codrivers_standings` (
-  `id` int(11) NOT NULL,
-  `codriversId` int(11) DEFAULT NULL,
-  `points` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Zrzut danych tabeli `wrc_codrivers_standings`
---
-
-INSERT INTO `wrc_codrivers_standings` (`id`, `codriversId`, `points`) VALUES
-(1, 1, 67),
-(2, 2, 61),
-(3, 3, 46),
-(4, 4, 33),
-(5, 5, 31),
-(6, 6, 30),
-(7, 7, 24),
-(8, 8, 23),
-(9, 9, 12),
-(10, 10, 6),
-(11, 11, 6),
-(12, 12, 6),
-(13, 13, 4),
-(14, 14, 3),
-(15, 15, 3),
-(16, 16, 3),
-(17, 17, 3),
-(18, 18, 2),
-(19, 19, 2),
-(20, 20, 2),
-(21, 21, 1),
-(22, 22, 1),
-(23, 23, 0),
-(24, 24, 0),
-(25, 25, 0);
+INSERT INTO `wrc_codrivers` (`id`, `firstName`, `lastName`, `country`, `team`, `points`) VALUES
+(1, 'Martijn', 'Wydaeghe', 'Belgium', 'Hyundai', 86),
+(2, 'Scott', 'Martin', 'Great Britain', 'Toyota', 80),
+(3, 'Alexandre', 'Coria', 'France', 'M-Sport Ford', 59),
+(4, 'Martin', 'Järveoja', 'Estonia', 'Hyundai', 53),
+(5, 'Jonne', 'Halttunen', 'Finland', 'Toyota', 31),
+(6, 'Aaron', 'Johnston', 'Ireland', 'Toyota', 45),
+(7, 'Vincent', 'Landais', 'France', 'Toyota', 45),
+(8, 'Janne', 'Ferm', 'Finland', 'Hyundai', 23),
+(9, 'Elliott', 'Edmondson', 'Great Britain', 'Skoda', 12),
+(10, 'Enni', 'Mälkönen', 'Finland', 'Toyota', 6),
+(11, 'Torstein', 'Eriksen', 'Norway', 'Hyundai', 14),
+(12, 'Jonas', 'Andersson', 'Sweden', 'Skoda', 6),
+(13, 'James', 'Morgan', 'Great Britain', 'Toyota', 4),
+(14, 'Anssi', 'Viinikka', 'Finland', 'Toyota', 3),
+(15, 'Maciej', 'Szczepaniak', 'Poland', 'Skoda', 3),
+(16, 'Konstantin', 'Aleksandrov', 'ANA', 'Citroen', 5),
+(17, 'Louis', 'Louka', 'Belgium', 'M-Sport Ford', 8),
+(18, 'Frédéric', 'Miclotte', 'Belgium', 'M-Sport Ford', 2),
+(19, 'David', 'Vázquez', 'Spain', 'Skoda', 2),
+(20, 'Kristian', 'Temonen', 'Finland', 'Toyota', 2),
+(21, 'Arnaud', 'Dunand', 'France', 'Citroen', 2),
+(22, 'Janni', 'Hussi', 'Finland', 'Skoda', 1),
+(25, 'Simone', 'Scattolin', 'Italy', 'Toyota', 0);
 
 -- --------------------------------------------------------
 
@@ -146,82 +105,38 @@ CREATE TABLE `wrc_drivers` (
   `firstName` text DEFAULT NULL,
   `lastName` text DEFAULT NULL,
   `country` text DEFAULT NULL,
-  `team` text DEFAULT NULL
+  `team` text DEFAULT NULL,
+  `points` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Zrzut danych tabeli `wrc_drivers`
 --
 
-INSERT INTO `wrc_drivers` (`id`, `firstName`, `lastName`, `country`, `team`) VALUES
-(1, 'Elfyn', 'Evans', 'UK', 'Toyota'),
-(2, 'Takamoto', 'Katsuta', 'Japan', 'Toyota'),
-(3, 'Kalle', 'Rovanperä', 'Finland', 'Toyota'),
-(4, 'Sebastian', 'Ogier', 'France', 'Toyota'),
-(5, 'Thierry', 'Neuville', 'Belgium', 'Hyundai'),
-(6, 'Ott', 'Tänak', 'Estonia', 'Hyundai'),
-(7, 'Esapekka', 'Lappi', 'Finland', 'Hyundai'),
-(8, 'Andreas', 'Mikkelsen', 'Norway', 'Hyundai'),
-(10, 'Adrien', 'Fourmaux', 'France', 'M-Sport Ford'),
-(11, 'Grégoire', 'Munster', 'Belgium', 'M-Sport Ford'),
-(13, 'Nikolay', 'Gryazin', 'Hungary', 'Citroën'),
-(14, 'Olivier', 'Solberg', 'Norway', 'Škoda'),
-(15, 'Kajetan', 'Kajetanowicz', 'Poland', 'Škoda'),
-(16, 'Sami', 'Pajari', 'Finland', 'Toyota'),
-(17, 'Gus', 'Greensmith', 'Great Britain', 'Skoda'),
-(18, 'Georg', 'Linnamae', 'Estonia', 'Toyota'),
-(19, 'Roope', 'Korhonen', 'Finland', 'Toyota'),
-(20, 'Jourdan', 'Serderidis', 'Greece', 'M-Sport Ford'),
-(21, 'Pepe', 'Lopez', 'Spain', 'Skoda'),
-(22, 'Mikko', 'Heikkila', 'Finland', 'Toyota'),
-(23, 'Yohan', 'Rossel', 'France', 'Citroen'),
-(24, 'Lauri', 'Joona', 'Finland', 'Toyota'),
-(25, 'Jakopo', 'Beegamin', 'Italy', 'Volkswagen'),
-(26, 'Carlo', 'Covi', 'Italy', 'M-Sport Ford'),
-(27, 'Lorenzo', 'Bertelli', 'Italy', 'Toyota');
-
--- --------------------------------------------------------
-
---
--- Struktura tabeli dla tabeli `wrc_drivers_standings`
---
-
-CREATE TABLE `wrc_drivers_standings` (
-  `id` int(11) NOT NULL,
-  `driversId` int(11) DEFAULT NULL,
-  `points` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Zrzut danych tabeli `wrc_drivers_standings`
---
-
-INSERT INTO `wrc_drivers_standings` (`id`, `driversId`, `points`) VALUES
-(1, 5, 67),
-(2, 1, 61),
-(3, 10, 46),
-(4, 6, 33),
-(5, 3, 31),
-(6, 2, 30),
-(7, 4, 24),
-(8, 7, 23),
-(9, 14, 12),
-(10, 16, 6),
-(11, 8, 6),
-(12, 17, 6),
-(13, 18, 4),
-(14, 19, 3),
-(15, 15, 3),
-(16, 13, 3),
-(17, 11, 3),
-(18, 20, 2),
-(19, 21, 2),
-(20, 22, 2),
-(21, 23, 1),
-(22, 24, 1),
-(23, 25, 0),
-(24, 26, 0),
-(25, 27, 0);
+INSERT INTO `wrc_drivers` (`id`, `firstName`, `lastName`, `country`, `team`, `points`) VALUES
+(1, 'Elfyn', 'Evans', 'UK', 'Toyota', 80),
+(2, 'Takamoto', 'Katsuta', 'Japan', 'Toyota', 45),
+(3, 'Kalle', 'Rovanperä', 'Finland', 'Toyota', 31),
+(4, 'Sebastian', 'Ogier', 'France', 'Toyota', 45),
+(5, 'Thierry', 'Neuville', 'Belgium', 'Hyundai', 86),
+(6, 'Ott', 'Tänak', 'Estonia', 'Hyundai', 53),
+(7, 'Esapekka', 'Lappi', 'Finland', 'Hyundai', 23),
+(8, 'Andreas', 'Mikkelsen', 'Norway', 'Hyundai', 14),
+(10, 'Adrien', 'Fourmaux', 'France', 'M-Sport Ford', 59),
+(11, 'Grégoire', 'Munster', 'Belgium', 'M-Sport Ford', 8),
+(13, 'Nikolay', 'Gryazin', 'Hungary', 'Citroën', 5),
+(14, 'Olivier', 'Solberg', 'Norway', 'Škoda', 12),
+(15, 'Kajetan', 'Kajetanowicz', 'Poland', 'Škoda', 3),
+(16, 'Sami', 'Pajari', 'Finland', 'Toyota', 6),
+(17, 'Gus', 'Greensmith', 'Great Britain', 'Skoda', 6),
+(18, 'Georg', 'Linnamae', 'Estonia', 'Toyota', 4),
+(19, 'Roope', 'Korhonen', 'Finland', 'Toyota', 3),
+(20, 'Jourdan', 'Serderidis', 'Greece', 'M-Sport Ford', 2),
+(21, 'Pepe', 'Lopez', 'Spain', 'Skoda', 2),
+(22, 'Mikko', 'Heikkila', 'Finland', 'Toyota', 2),
+(23, 'Yohan', 'Rossel', 'France', 'Citroen', 2),
+(24, 'Lauri', 'Joona', 'Finland', 'Toyota', 1),
+(27, 'Lorenzo', 'Bertelli', 'Italy', 'Toyota', 0);
 
 -- --------------------------------------------------------
 
@@ -279,12 +194,12 @@ CREATE TABLE `wrc_teams` (
 --
 
 INSERT INTO `wrc_teams` (`id`, `name`, `basedIn`, `establishment`, `principal`, `category`, `brand`, `points`) VALUES
-(1, 'TOYOTA GAZOO Racing WRT', 'Japan', 2016, 'Jari-Matti Latvala', 'WRC1', 'Toyota', 131),
-(2, 'Hyundai Shell Mobis WRT', 'Germany', 2012, 'Cyril Abiteboul', 'WRC1', 'Hyundai', 127),
-(3, 'M-Sport Ford WRT', 'United Kingdom', 2006, 'Richard Millener', 'WRC1', 'Ford', 72),
-(4, 'Toksport WRT', 'Czech Republic', 1999, 'Serkan Duru', 'WRC2', 'Skoda', 43),
-(5, 'AEC - DG Sport Competition', 'France', 2008, 'Christian Jupsin', 'WRC2', 'Citroen', 43),
-(6, 'Printsport TOYOTA GAZOO Racing WRT NG', 'Finland', 1997, 'Eero Raikkonen', 'WRC2', 'Toyota', 43);
+(1, 'TOYOTA GAZOO Racing WRT', 'Japan', 2016, 'Jari-Matti Latvala', 'WRC1', 'Toyota', 176),
+(2, 'Hyundai Shell Mobis WRT', 'Germany', 2012, 'Cyril Abiteboul', 'WRC1', 'Hyundai', 169),
+(3, 'M-Sport Ford WRT', 'United Kingdom', 2006, 'Richard Millener', 'WRC1', 'Ford', 96),
+(4, 'Toksport WRT', 'Czech Republic', 1999, 'Serkan Duru', 'WRC2', 'Skoda', 70),
+(5, 'AEC - DG Sport Competition', 'France', 2008, 'Christian Jupsin', 'WRC2', 'Citroen', 86),
+(6, 'Printsport TOYOTA GAZOO Racing WRT NG', 'Finland', 1997, 'Eero Raikkonen', 'WRC2', 'Toyota', 61);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -303,24 +218,10 @@ ALTER TABLE `wrc_codrivers`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeksy dla tabeli `wrc_codrivers_standings`
---
-ALTER TABLE `wrc_codrivers_standings`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `codriversId` (`codriversId`);
-
---
 -- Indeksy dla tabeli `wrc_drivers`
 --
 ALTER TABLE `wrc_drivers`
   ADD PRIMARY KEY (`id`);
-
---
--- Indeksy dla tabeli `wrc_drivers_standings`
---
-ALTER TABLE `wrc_drivers_standings`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `driversId` (`driversId`);
 
 --
 -- Indeksy dla tabeli `wrc_rallies`
@@ -342,7 +243,7 @@ ALTER TABLE `wrc_teams`
 -- AUTO_INCREMENT dla tabeli `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT dla tabeli `wrc_codrivers`
@@ -351,22 +252,10 @@ ALTER TABLE `wrc_codrivers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT dla tabeli `wrc_codrivers_standings`
---
-ALTER TABLE `wrc_codrivers_standings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
-
---
 -- AUTO_INCREMENT dla tabeli `wrc_drivers`
 --
 ALTER TABLE `wrc_drivers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
-
---
--- AUTO_INCREMENT dla tabeli `wrc_drivers_standings`
---
-ALTER TABLE `wrc_drivers_standings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT dla tabeli `wrc_rallies`
@@ -379,22 +268,6 @@ ALTER TABLE `wrc_rallies`
 --
 ALTER TABLE `wrc_teams`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- Ograniczenia dla zrzutów tabel
---
-
---
--- Ograniczenia dla tabeli `wrc_codrivers_standings`
---
-ALTER TABLE `wrc_codrivers_standings`
-  ADD CONSTRAINT `wrc_codrivers_standings_ibfk_1` FOREIGN KEY (`codriversId`) REFERENCES `wrc_codrivers` (`id`);
-
---
--- Ograniczenia dla tabeli `wrc_drivers_standings`
---
-ALTER TABLE `wrc_drivers_standings`
-  ADD CONSTRAINT `wrc_drivers_standings_ibfk_1` FOREIGN KEY (`driversId`) REFERENCES `wrc_drivers` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
