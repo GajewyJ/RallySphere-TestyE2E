@@ -13,7 +13,7 @@ function WRCLinks(){
           <Link to="/wrc/calendar">Calendar</Link>
           <Link to="/">Driver Standings</Link>
           <Link to="/">Co-Driver Standings</Link>
-          <Link to="/">Team Standings</Link>
+          <Link to="/wrc/teams">Team Standings</Link>
           <a href="https://www.rally.tv/" target="_blank">Watch</a>
         </div>
       </div>
