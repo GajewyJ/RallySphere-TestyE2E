@@ -17,7 +17,7 @@ const ERROR_404 = {error: '404 Not Found'};
 // Get all news
 newsRouter.get('/', async (req, res) => {
     try {
-        const news = await prisma.news.findMany();
+        const news = await prisma.news.findMany({orderBy: {publicationDate: 'desc'}});
         if(news != null) {
             res.json(news);
         }
