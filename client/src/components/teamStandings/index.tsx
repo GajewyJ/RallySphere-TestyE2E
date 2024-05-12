@@ -39,25 +39,27 @@ function TeamStandings(){
     <main>
       <h1>Team Standings</h1>
       <table className='teamsContent'>
-        <tr>
-          <td>Position</td>
-          <td>Team</td>
-          <td>Category</td>
-          <td>Based In</td>
-          <td>Points</td>
-        </tr>
-        {teams.map((team) => {
-          i = i + 1
-          return (
-            <tr key={team.id}>
-              <td>{i}</td>
-              <td>{team.name}</td>
-              <td>{team.category}</td>
-              <td>{team.basedIn}</td>
-              <td>{team.points}</td>
-            </tr>
-          )
-        })}
+        <tbody>
+          <tr>
+            <td>Position</td>
+            <td>Team</td>
+            <td>Category</td>
+            <td>Based In</td>
+            <td>Points</td>
+          </tr>
+          {teams.map((team) => {
+            i = i + 1
+            return (
+              <tr key={team.id}>
+                <td>{i}</td>
+                <td>{team.name}</td>
+                <td>{team.category}</td>
+                <td>{team.basedIn}</td>
+                <td>{team.points}</td>
+              </tr>
+            )
+          })}
+        </tbody>
       </table>
     </main>
   )
