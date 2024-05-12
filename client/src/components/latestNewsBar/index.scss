@@ -78,12 +78,9 @@ article{
     }
 
     @media (max-width: 1180px){
-        div{
-            width: 70%;
-
-            a{
-                width: 100%;
-            }
+        h1{
+            margin-bottom: 0;
+            padding-bottom: 0 !important;
         }
     }
 
