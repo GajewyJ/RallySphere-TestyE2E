@@ -43,7 +43,7 @@ function Calendar(){
               <a key={rally.id}>
                 <div>
                   <p>{
-                    new Date(rally.end) < new Date() 
+                    new Date(rally.end) < new Date(Date.now())
                       ? "COMPLETED " 
                       : `${new Date(rally.beginning).toLocaleDateString('pl-PL')} - ${new Date(rally.end).toLocaleDateString('pl-PL')} `
                   }</p>
