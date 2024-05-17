@@ -8,7 +8,7 @@ function WRCLinksBar(){
     <div className="WRCLinksDiv">
       <div>
         <Heading level={1}>WRC Standings</Heading>
-        <Link to='/'>Drivers</Link>
+        <Link to='/wrc/drivers'>Drivers</Link>
         <Link to='/'>Co-Drivers</Link>
         <Link to='/wrc/teams'>Teams</Link>
       </div>
