@@ -5,14 +5,6 @@
     justify-content: center;
     align-items: center;
 
-    h1{
-        font-size: 2.5em;
-        font-weight: 900;
-        padding: 20px;
-        text-align: center;
-        margin-top: 33.2px;
-    }
-
     div{
         width: 70%;
         display: flex;
@@ -26,44 +18,41 @@
             align-items: center;
             flex-wrap: wrap;
 
-            a{
-                width: 350px;
-                height: 350px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: rgb(32, 42, 68);
-                margin: 20px;
-                text-decoration: none;
-                color: white;
-                border-radius: 40px;
-                font-size: 2em;
-                text-align: center;
-                padding: 10px;
-                box-shadow: 15px 15px 15px rgb(163, 163, 163);
-            }
-    
+            div{
+                width: 40%;
+                margin: 30px;
 
-            @media (max-width: 1171px) {
                 a{
-                    width: 40%;
-                    height: 200px;
+                    background-color: rgb(32, 42, 68);
+                    box-shadow: 15px 15px 15px rgb(163, 163, 163);
+                    color: white;
+                    text-decoration: none;
+                    width: 100%;
+                    border-radius: 10px;
+
+                    img{
+                        width: 100%;
+                        border-top-left-radius: 10px;
+                        border-top-right-radius: 10px;
+                    }
+
+                    p{
+                        text-align: center;
+                        font-size: 1.4em;
+                        text-transform: uppercase;
+                    }
                 }
             }
-    
 
-            @media (max-width: 857px) {
-                a{
+            @media (max-width: 857px){
+                div{
                     width: 100%;
                 }
             }
-    
+        }
 
-            @media (max-width: 400px) {
-                a{
-                    font-size: 1.5em;
-                }
-            }
+        @media (max-width: 857px){
+            width: 90%;
         }
     }
 }
