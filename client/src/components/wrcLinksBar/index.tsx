@@ -9,7 +9,7 @@ function WRCLinksBar(){
       <div>
         <Heading level={1}>WRC Standings</Heading>
         <Link to='/wrc/drivers'>Drivers</Link>
-        <Link to='/'>Co-Drivers</Link>
+        <Link to='/wrc/coDrivers'>Co-Drivers</Link>
         <Link to='/wrc/teams'>Teams</Link>
       </div>
     </div>
