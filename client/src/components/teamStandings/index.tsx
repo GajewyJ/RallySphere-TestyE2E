@@ -44,7 +44,7 @@ function TeamStandings(){
             <td>Position</td>
             <td>Team</td>
             <td>Category</td>
-            <td>Based In</td>
+            <td className='dissapearCollumn'>Based In</td>
             <td>Points</td>
           </tr>
           {teams.map((team) => {
@@ -54,7 +54,7 @@ function TeamStandings(){
                 <td>{i}</td>
                 <td>{team.name}</td>
                 <td>{team.category}</td>
-                <td>{team.basedIn}</td>
+                <td className='dissapearCollumn'>{team.basedIn}</td>
                 <td>{team.points}</td>
               </tr>
             )
