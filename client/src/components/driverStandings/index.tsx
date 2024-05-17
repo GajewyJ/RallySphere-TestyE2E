@@ -15,10 +15,6 @@ function DriverStandings(){
   const [drivers, setDrivers] = useState<Driver[]>([]);
 
   useEffect(() => {
-    document.title = 'WRC Drivers';
-  }, []);
-
-  useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get<Driver[]>('http://localhost:3000/wrcDrivers');
@@ -51,7 +47,7 @@ function DriverStandings(){
               <tr key={driver.id}>
                 <td>{i}</td>
                 <td>{driver.firstName} {driver.lastName}</td>
-                <td  className='dissapearCollumn'>{driver.country}</td>
+                <td className='dissapearCollumn'>{driver.country}</td>
                 <td>{driver.team}</td>
                 <td>{driver.points}</td>
               </tr>
