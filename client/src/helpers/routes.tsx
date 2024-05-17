@@ -5,6 +5,7 @@ import CalendarPage from "../pages/calendar"
 import News from "../pages/news"
 import SingleNews from "../pages/singleNews"
 import Teams from "../pages/teams"
+import Drivers from "../pages/drivers"
 
 interface RouteItem{
     path: string,
@@ -42,5 +43,10 @@ export const routes: Array<RouteItem> = [
         path: "/wrc/teams",
         element: <Teams/>,
         label: "Teams"
+    },
+    {
+        path: "/wrc/drivers",
+        element: <Drivers/>,
+        label: "Drivers"
     },
 ]
