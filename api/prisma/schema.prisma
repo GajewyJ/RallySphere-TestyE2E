@@ -56,13 +56,14 @@ model news {
 }
 
 model enc_cars {
-  id             Int             @id @default(autoincrement())
-  brand          String?         @db.VarChar(50)
-  model          String?         @db.VarChar(150)
-  description    String?         @db.Text
-  photo          String?         @db.Text
-  category       Int?
-  enc_categories enc_categories? @relation(fields: [category], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "enc_cars_ibfk_1")
+  id                     Int             @id @default(autoincrement())
+  brand                  String?         @db.VarChar(50)
+  model                  String?         @db.VarChar(150)
+  description            String?         @db.Text
+  photo_url              String?         @db.Text
+  photo_html_attribution String?         @db.Text
+  category               Int?
+  enc_categories         enc_categories? @relation(fields: [category], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "enc_cars_ibfk_1")
 
   @@index([category], map: "category")
 }
