@@ -24,7 +24,6 @@
 
                 a{
                     background-color: rgb(32, 42, 68);
-                    box-shadow: 15px 15px 15px rgb(163, 163, 163);
                     color: white;
                     text-decoration: none;
                     width: 100%;
@@ -40,6 +39,17 @@
                         text-align: center;
                         font-size: 1.4em;
                         text-transform: uppercase;
+                    }
+
+                    &:hover{
+                        box-shadow: 5px 5px 5px rgba(73, 73, 73, 0.5);
+                        transform: scale(1.03);
+                    }
+            
+                    &:focus{
+                        box-shadow: 5px 5px 5px rgba(73, 73, 73, 0.5);
+                        outline: none;
+                        transform: scale(1.03);
                     }
                 }
             }
