@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 22 Maj 2024, 18:16
+-- Czas generowania: 22 Maj 2024, 19:24
 -- Wersja serwera: 10.4.25-MariaDB
 -- Wersja PHP: 8.1.10
 
@@ -32,9 +32,17 @@ CREATE TABLE `enc_cars` (
   `brand` varchar(50) DEFAULT NULL,
   `model` varchar(150) DEFAULT NULL,
   `description` text DEFAULT NULL,
-  `photo` text DEFAULT NULL,
+  `photo_url` text DEFAULT NULL,
+  `photo_html_attribution` text DEFAULT NULL,
   `category` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Zrzut danych tabeli `enc_cars`
+--
+
+INSERT INTO `enc_cars` (`id`, `brand`, `model`, `description`, `photo_url`, `photo_html_attribution`, `category`) VALUES
+(2, 'Volvo', 'Amazon', 'The Volvo Amazon, a classic car produced by the Swedish manufacturer Volvo from 1956 to 1970, had a notable presence in rallying during its production years. The Amazon, known for its robust construction, reliability, and durability, proved to be a competitive rally car in various national and international competitions.\n\nRally Success: The Volvo Amazon achieved considerable success in rallying, particularly in the 1960s. It competed in numerous rally events around the world, showcasing its performance and reliability on diverse terrain, including gravel, tarmac, and snow.\n\nFactory and Privateer Teams: The Volvo Amazon was campaigned by both factory-supported teams and privateer entries. Volvo Motorsport, the racing division of Volvo Cars, provided technical support and assistance to factory teams, while independent drivers and teams also campaigned the Amazon with success.\n\nEuropean Rally Championship (ERC): The Volvo Amazon participated in the European Rally Championship (ERC), a series of rally events held across Europe. It achieved victories and podium finishes in various ERC events, contributing to Volvo\'s success in the championship.\n\nSafari Rally: The Volvo Amazon competed in the Safari Rally, one of the toughest and most demanding rallies in the world. Known for its rugged terrain and challenging conditions, the Safari Rally tested the durability and reliability of rally cars, and the Amazon proved to be competitive in this grueling event.\n\nNational Championships: In addition to international competitions, the Volvo Amazon competed in national rally championships in countries such as Sweden, Finland, the United Kingdom, and others. It secured numerous class wins, overall victories, and championship titles in these domestic rally series.\n\nLegacy: The Volvo Amazon\'s success in rallying helped to enhance Volvo\'s reputation as a manufacturer of durable and reliable cars. Its performance on the rally stage contributed to the car\'s enduring legacy as an iconic classic car among enthusiasts worldwide.\n\nThe Volvo Amazon\'s rallying history is characterized by its competitive performances, reliability, and versatility on various rally stages. It remains a celebrated and beloved car in motorsport history, known for its achievements in rallying during the 1960s and beyond.', 'https://upload.wikimedia.org/wikipedia/commons/b/b5/1965_Volvo_133_GT_Amazon.jpg', '<a href=\"https://commons.wikimedia.org/wiki/File:1965_Volvo_133_GT_Amazon.jpg\">Rutger van der Maar</a>, <a href=\"https://creativecommons.org/licenses/by/2.0\">CC BY 2.0</a>, via Wikimedia Commons', 1);
 
 -- --------------------------------------------------------
 
@@ -303,7 +311,7 @@ ALTER TABLE `wrc_teams`
 -- AUTO_INCREMENT dla tabeli `enc_cars`
 --
 ALTER TABLE `enc_cars`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT dla tabeli `enc_categories`
