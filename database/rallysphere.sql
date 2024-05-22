@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 17 Maj 2024, 19:31
+-- Czas generowania: 22 Maj 2024, 18:16
 -- Wersja serwera: 10.4.25-MariaDB
 -- Wersja PHP: 8.1.10
 
@@ -20,6 +20,52 @@ SET time_zone = "+00:00";
 --
 -- Baza danych: `rallysphere`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `enc_cars`
+--
+
+CREATE TABLE `enc_cars` (
+  `id` int(11) NOT NULL,
+  `brand` varchar(50) DEFAULT NULL,
+  `model` varchar(150) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `photo` text DEFAULT NULL,
+  `category` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `enc_categories`
+--
+
+CREATE TABLE `enc_categories` (
+  `id` int(11) NOT NULL,
+  `name` text DEFAULT NULL,
+  `years` text DEFAULT NULL,
+  `description` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Zrzut danych tabeli `enc_categories`
+--
+
+INSERT INTO `enc_categories` (`id`, `name`, `years`, `description`) VALUES
+(1, 'Early Era', 'Late 19th Century to 1960s', 'First rally cars ever made, helping to establish rallying as sport.'),
+(2, 'Group 1', '1970s to 1980s', 'Standard production cars with minimal modifications.'),
+(3, 'Group 2', '1970s to 1980s', 'Modified production cars with more extensive changes allowed.'),
+(4, 'Group 3', '1970s to 1980s', 'Grand touring cars with limited production.'),
+(5, 'Group 4', '1970s to 1980s', 'Specially modified grand touring cars, leading to more competitive and specialized vehicles.'),
+(6, 'Group B', '1982-1986', 'Group B regulations were introduced in 1982, allowing for highly powerful and sophisticated rally cars. Known for its high performance and technological advancements, but also for safety concerns leading to its cancellation in 1986 after several fatal accidents.'),
+(7, 'Group A', 'Post-1986', 'Replacement for Group B: Introduced stricter regulations focusing on safety, with engine limits of 2000 cc and 300 bhp.'),
+(8, 'Super 1600', '2000-2011', 'It was primarily used in the Junior World Rally Championship (JWRC) between 2001 and 2010, as well as in various national rally championships and international rallycross events.'),
+(9, 'Super 2000', '2000 to Present', 'It is an FIA powertrain specification used in various championships, including the World Rally Championship (WRC), British Touring Car Championship (BTCC), and World Touring Car Championship (WTCC).'),
+(10, 'Group N', '1982-2013', 'Group N, often referred to as the \"showroom class,\" was introduced by the FIA in 1982. It is based on production models of street-legal cars with minimal modifications allowed.'),
+(11, 'WRC', '1997 to Present', 'WRC cars are based on production models but heavily modified for performance and safety.'),
+(12, 'Rally 1', '2021 to Present', 'Top-tier WRC cars with advanced technology and high performance.');
 
 -- --------------------------------------------------------
 
@@ -48,7 +94,8 @@ INSERT INTO `news` (`id`, `title`, `paragraph1`, `paragraph2`, `paragraph3`, `ph
 (4, 'Neuville claims early advantage in Portugal', 'Thousands of fans turned out in the central Portuguese coastal city Figueira da Foz on Thursday night to witness Thierry Neuville go fastest on the opening stage of Vodafone Rally de Portugal 2024.', 'The FIA World Rally Championship points leader was the last of the Rally1 cars to take to the 2.94km Tarmac street stage and went 0.6sec quicker than five-time Rally de Portugal winner Sébastien Ogier. Neuville needed every advantage he could get behind the wheel of his Hyundai i20 N Rally Hybrid on Thursday’s opener, with a tough Friday of gravel road clearing awaiting the Belgian. His Estonian team-mate Ott Tänak crossed the line third-quickest, 1.4sec down on Ogier.', 'The Toyota Gazoo Racing pairing of Takamoto Katsuta and Kalle Rovanperä rounded out the top five whilst Adrien Fourmaux was the fastest of the M-Sport Ford Puma drivers, coming home in sixth. Despite going quickest on Thursday morning’s shakedown, Dani Sordo could only muster the seventh-quickest time on his 2024 Hyundai debut, narrowly seeing off Toyota Gazoo Racing’s fourth driver Elfyn Evans. Leading home the WRC2 field in ninth overall was Yohan Rossel, continuing a stellar season to date for Citröen, whilst Pierre-Louis Loubet announced his return to action in style, going second-quickest in his first WRC2 outting in Škoda Fabia RS Rally2. It marked the Frenchman\'s first outting at global level since Central European Rally, when he competed in an M-Sport Ford Puma Rally1. Action resumes Friday morning 08:05 with stages awaiting competitors.', '537a8b10-0bd1-440b-8965-2f6f61b55a9f_090524rb-thierry-neuville-portugal-202301.jpg', '2024-05-09 20:00:00'),
 (5, 'Ogier grabs Portugal lead as Toyota team-mates suffer', 'Sébastien Ogier vaulted into the lead of Vodafone Rally de Portugal as his Toyota Gazoo Racing colleagues Kalle Rovanperä and Takamoto Katsuta suffered heartbreak on a brutal Saturday morning.', 'Just as overnight leader Rovanperä seemed poised to consolidate his position at the top at this fifth round of the season, the two-time world champion misjudged a right-hand bend in Montim – running wide and clipping a tree that sent his GR Yaris Rally1 rolling into retirement, Ogier was thrust into the lead going into the morning’s penultimate stage at Amarante, but further misfortune struck the Japanese manufacturer squad in the 37km stage as Katsuta, who had lost position to Hyundai\'s Ott Tänak earlier in the morning, was forced to park his crippled Toyota at the roadside with smashed rear suspension.', 'Tänak dominated Amarante, outpacing Ogier by 3.6sec to become the fifth different rally leader in 12 special stages. However, rear tyre damage for the Estonian in Paredes allowed Frenchman Ogier to regain control late in the loop, taking a 13.6sec lead to service. “It was a big push in the last one, but honestly it hasn’t been so different since the start of the rally,\" Ogier said. \"We’re giving it everything we have.” The drama up ahead brought more good news for Thierry Neuville, who finished the morning 40.8sec behind team-mate Tänak after climbing from sixth to third. Despite stalling his i20 N at a hairpin, the Belgian driver is poised to extend his championship lead - which stood at six points before this rally - over Elfyn Evans with the Welshman currently down in sixth overall. Spain’s Dani Sordo made it three Hyundais in the top four, trailing Tänak by 3.6sec having dropped behind his colleague in the first stage of the day. M-Sport Ford man Adrien Fourmaux was 20.4sec further back in fifth with a 1min 20.9sec buffer to Evans, who was delayed by a spin on SS11. Grégoire Munster had a disastrous run through Amarante, pulling over twice and dropping over six minutes as he tried to diagnose a mysterious powertrain fault. Initially suspecting an alternator fault, Munster later discovered that was not the case and the issue appeared to rectify itself.', 'f6bc8f42-1cbb-432a-af9f-3cb3531aaa80_110524atogiersatam.jpg', '2024-05-11 20:00:00'),
 (6, 'Chaotic Saturday puts Ogier in line for record Portugal win', 'Sébastien Ogier stands on the cusp of surpassing Markku Alén’s Vodafone Rally de Portugal record - providing he can maintain his lead over Hyundai Motorsport rival Ott Tänak on the event’s final day tomorrow (Sunday).', 'A tumultuous Saturday at the 2024 FIA World Rally Championship’s fifth round wreaked havoc among some of the series’ top drivers, reshuffling the leaderboard and granting Ogier an 11.9-sec overnight lead. The Frenchman’s Toyota Gazoo Racing team began this penultimate leg with all guns blazing, locking out the podium after a near-perfect opening day. However, their fortunes took a dive early this morning when Kalle Rovanperä and Takamoto Katsuta both faltered on the brutal gravel terrain.', 'Overnight leader Rovanperä looked poised to tighten his grip on the top spot after blitzing the Felgueiras opener, but he misjudged a right-hander in Montim shortly afterwards and rolled out of contention. Katsuta’s exit was less dramatic but equally devastating: a rearward impact shattered his GR Yaris Rally1 car’s suspension as the Japanese driver battled for third. Toyota’s hopes rested on Ogier’s shoulders. He tussled for the lead with Tänak and briefly relinquished the position on Amarante 1 before going back in front when the Estonian nursed a deflated tyre in the following stage. Although Tänak maintained the pressure with benchmark times over the first two stages of the repeated afternoon loop, Ogier responded with a brace of stage wins to widen the gap. Victory for Ogier on Sunday would be his sixth in Portugal. At present he jointly tops the event’s roll of honour with Finnish legend Markku Alén, known for his dominance with Fiat and Lancia in the 1970s and 80s. “It\'s been a good day,” said Ogier. “A tricky one, we didn\'t expect so many things happening today. Unfortunately on Toyota’s side it was not a perfect day. For me it was good, but we lost two cars. “We have to try and finish the job tomorrow now,” he added. The drama up ahead brought good news for Thierry Neuville, who ended the day 59.5sec behind team-mate Tänak having climbed from sixth to third. With main title rival Elfyn Evans languishing in sixth, Neuville is poised to extend his championship lead and his Saturday standing will earn him 13 points providing he completes Super Sunday. Neuville overtook Dani Sordo in the first stage of the day but the Spaniard kept touch with his colleague, ending the day 14.2sec further back to make it three Hyundais in the top four. Behind Sordo by only 7.3sec was M-Sport Ford hotshot Adrien Fourmaux, who held a comfortable buffer of almost two minutes to Evans. Evans struggled to get into a rhythm with his GR Yaris, and an early spin exacerbated his challenges. Rally2 cars filled the remainder of the leaderboard, with Nikolay Gryazin sitting seventh in his Citroën C3. Jan Solans was the first of the WRC2-registered drivers while Josh McErlean and Yohan Rossel completed the top 10.', '5e8cf000-53ff-4e40-99e6-ef52ce369bd3_110524at-seb-ogier-portugal01.jpg', '2024-05-11 21:00:00'),
-(7, 'Record-breaking Ogier powers to sixth Portugal win', 'Sébastien Ogier became the first driver to achieve six Vodafone Rally de Portugal victories on Sunday, powering to glory 7.9sec clear of his Hyundai Motorsport rival Ott Tänak.', 'The Frenchman is now the most successful driver in the 56-year history of the event, which was a founding round of the FIA World Rally Championship back in 1973. Ogier previously shared the record with Finnish WRC legend Markku Alén before his triumph today. Five different drivers led the gruelling gravel fixture, which utilised roads near the northern Portuguese cities of Porto and Matosinhos and drew attendance from tens of thousands of passionate fans.', 'Ogier seized the top spot on a tumultuous Saturday, during which his Toyota GR Yaris team-mate Kalle Rovanperä rolled out of the lead and Takamoto Katsuta retired his similar car with shattered rear suspension. He headed the i20 N car of Tänak by 11.9sec arriving into Sunday’s four-stage finale and stayed cool to keep the Estonian at bay, soaring high over the legendary Fafe jump to round out this fifth round of the season in style. \"I had nothing against being tied with Markku Alén,\" Ogier smiled. \"He is a legend, but I heard for many years \'when will you beat this record?\' It was a not a great weekend for the whole team, but it was a good rally for us and I am glad we could bring some points.\" Second place marked Tänak’s best result since re-joining Hyundai at the beginning of the year. The additional seven points he earned for topping the Super Sunday classification helped move him ahead of Adrien Fourmaux to third in the championship standings. Championship wise, it was also a strong weekend for Thierry Neuville, who filled the final podium spot 1min 1.9sec behind his Hyundai colleague. Belgian star Neuville extended his drivers’ series lead to 24 points over Elfyn Evans after the Welshman endured a torrid week, finishing down in sixth having overcome a coolant leakage through the final day. Fourmaux climbed from fifth to fourth, passing the Hyundai of Dani Sordo on SS19 and pulling more than a minute clear of the Spaniard by the end. The M-Sport Ford youngster has finished all five rallies so far this year, gracing the top five on all but one occasion. Evans’ coolant leak forced him to crawl out of SS21 in EV mode and exacerbated what had already been a challenging outing for the GR Yaris driver. On Friday his co-driver Scott Martin resorted to reading pace notes from a mobile phone after misplacing his physical book, and the crew failed to post a single top-three stage time. Citroën C3 Rally2 driver Nikolay Gryazin took seventh overall ahead of Jan Solans, who was the best-placed WRC2-registered driver in eighth. Solans edged Josh McErlean by just 3.2sec while Lauri Joona completed the top 10. Competitors face more hot weather and rough roads as the WRC moves to the Mediterranean island of Sardinia later this month. Rally Italia Sardegna is based in Alghero from 30 May - 2 June.', '90f716e8-f3c0-4135-bbec-4e531ecfaf33_120524atogiersun-1.jpg', '2024-05-12 15:20:00');
+(7, 'Record-breaking Ogier powers to sixth Portugal win', 'Sébastien Ogier became the first driver to achieve six Vodafone Rally de Portugal victories on Sunday, powering to glory 7.9sec clear of his Hyundai Motorsport rival Ott Tänak.', 'The Frenchman is now the most successful driver in the 56-year history of the event, which was a founding round of the FIA World Rally Championship back in 1973. Ogier previously shared the record with Finnish WRC legend Markku Alén before his triumph today. Five different drivers led the gruelling gravel fixture, which utilised roads near the northern Portuguese cities of Porto and Matosinhos and drew attendance from tens of thousands of passionate fans.', 'Ogier seized the top spot on a tumultuous Saturday, during which his Toyota GR Yaris team-mate Kalle Rovanperä rolled out of the lead and Takamoto Katsuta retired his similar car with shattered rear suspension. He headed the i20 N car of Tänak by 11.9sec arriving into Sunday’s four-stage finale and stayed cool to keep the Estonian at bay, soaring high over the legendary Fafe jump to round out this fifth round of the season in style. \"I had nothing against being tied with Markku Alén,\" Ogier smiled. \"He is a legend, but I heard for many years \'when will you beat this record?\' It was a not a great weekend for the whole team, but it was a good rally for us and I am glad we could bring some points.\" Second place marked Tänak’s best result since re-joining Hyundai at the beginning of the year. The additional seven points he earned for topping the Super Sunday classification helped move him ahead of Adrien Fourmaux to third in the championship standings. Championship wise, it was also a strong weekend for Thierry Neuville, who filled the final podium spot 1min 1.9sec behind his Hyundai colleague. Belgian star Neuville extended his drivers’ series lead to 24 points over Elfyn Evans after the Welshman endured a torrid week, finishing down in sixth having overcome a coolant leakage through the final day. Fourmaux climbed from fifth to fourth, passing the Hyundai of Dani Sordo on SS19 and pulling more than a minute clear of the Spaniard by the end. The M-Sport Ford youngster has finished all five rallies so far this year, gracing the top five on all but one occasion. Evans’ coolant leak forced him to crawl out of SS21 in EV mode and exacerbated what had already been a challenging outing for the GR Yaris driver. On Friday his co-driver Scott Martin resorted to reading pace notes from a mobile phone after misplacing his physical book, and the crew failed to post a single top-three stage time. Citroën C3 Rally2 driver Nikolay Gryazin took seventh overall ahead of Jan Solans, who was the best-placed WRC2-registered driver in eighth. Solans edged Josh McErlean by just 3.2sec while Lauri Joona completed the top 10. Competitors face more hot weather and rough roads as the WRC moves to the Mediterranean island of Sardinia later this month. Rally Italia Sardegna is based in Alghero from 30 May - 2 June.', '90f716e8-f3c0-4135-bbec-4e531ecfaf33_120524atogiersun-1.jpg', '2024-05-12 15:20:00'),
+(8, '\"Calm approach\" helped Ogier in Portugal, believes Toyoda', 'Toyota Gazoo Racing president Akio Toyoda has praised a calmer team approach which helped Sébastien Ogier score successive World Rally Championship victories last time out in Portugal.', 'Toyoda admitted he was impressed, once again, with the Frenchman’s approach to land a record-breaking sixth win at Vodafone Rally de Portugal. “No matter how tough the gravel surface was, Séb was always calm,” he said. “No matter how close and electrifying the competition was, Seb was always smiling to the fans. When something happened, he calmly informed the engineers about the situation and got back to the stages.', '“Then he comes back to the finish line faster than anyone else. I am grateful to have such a true professional driver in our team.” Toyoda admitted issues for Ogier’s team-mates were frustrating. He added: “There was both a disappointing thing and a good thing. The disappointing thing was that the other three cars were not able to drive through without problems. Our goal was for all four cars to have a trouble-free rally, but it became a frustrating result for us again. “On the other hand, the good thing which made me happy was that the team was calmer than before, whatever kind of problem they were facing. Many things happened during the weekend, but I heard everyone tried to stay calm and find a solution. “It is nice to see the team grow. The team gets stronger as each member gets stronger, and as the team gets stronger, the GR Yaris Rally1 will become ever better and stronger. We still have a lot of tough events ahead of us this season, but I hope to continue to grow with everybody in the team.” Despite Ogier’s win, Hyundai moved ahead of Toyota for the first time this season. The Frankfurt-based team heads to round six four points clear at the top of the manufacturers’ championship table.', 'dc478261-4bdc-47a3-8e1d-588d557ab719_220524rbogi.jpg', '2024-05-22 16:00:00');
 
 -- --------------------------------------------------------
 
@@ -206,6 +253,19 @@ INSERT INTO `wrc_teams` (`id`, `name`, `basedIn`, `establishment`, `principal`, 
 --
 
 --
+-- Indeksy dla tabeli `enc_cars`
+--
+ALTER TABLE `enc_cars`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `category` (`category`);
+
+--
+-- Indeksy dla tabeli `enc_categories`
+--
+ALTER TABLE `enc_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeksy dla tabeli `news`
 --
 ALTER TABLE `news`
@@ -240,10 +300,22 @@ ALTER TABLE `wrc_teams`
 --
 
 --
+-- AUTO_INCREMENT dla tabeli `enc_cars`
+--
+ALTER TABLE `enc_cars`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT dla tabeli `enc_categories`
+--
+ALTER TABLE `enc_categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
 -- AUTO_INCREMENT dla tabeli `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT dla tabeli `wrc_codrivers`
@@ -268,6 +340,16 @@ ALTER TABLE `wrc_rallies`
 --
 ALTER TABLE `wrc_teams`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Ograniczenia dla zrzutów tabel
+--
+
+--
+-- Ograniczenia dla tabeli `enc_cars`
+--
+ALTER TABLE `enc_cars`
+  ADD CONSTRAINT `enc_cars_ibfk_1` FOREIGN KEY (`category`) REFERENCES `enc_categories` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
