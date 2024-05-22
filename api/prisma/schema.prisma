@@ -54,3 +54,23 @@ model news {
   photo           String?   @db.Text
   publicationDate DateTime? @db.DateTime(0)
 }
+
+model enc_cars {
+  id             Int             @id @default(autoincrement())
+  brand          String?         @db.VarChar(50)
+  model          String?         @db.VarChar(150)
+  description    String?         @db.Text
+  photo          String?         @db.Text
+  category       Int?
+  enc_categories enc_categories? @relation(fields: [category], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "enc_cars_ibfk_1")
+
+  @@index([category], map: "category")
+}
+
+model enc_categories {
+  id          Int        @id @default(autoincrement())
+  name        String?    @db.Text
+  years       String?    @db.Text
+  description String?    @db.Text
+  enc_cars    enc_cars[]
+}
