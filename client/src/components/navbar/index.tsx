@@ -1,14 +1,20 @@
 import { Link } from 'react-router-dom';
-import './index.scss'
+import { useState } from 'react';
+import './index.scss';
 
-function NavBar(){
-  return(
+function NavBar() {
+  const [isNavExpanded, setIsNavExpanded] = useState(false);
+
+  return (
     <nav>
-      <Link to='/'>Home</Link>
-      <Link to='/wrc'>{"WRC " + new Date(Date.now()).getFullYear()}</Link>
-      <Link to='/'>Encyclopedia</Link>
+      <div className="menu-icon" onClick={() => setIsNavExpanded(!isNavExpanded)}>{isNavExpanded ? 'HIDE' : 'MENU'}</div>
+      <div className={`links ${isNavExpanded ? 'expanded' : ''}`}>
+        <Link to='/'>Home</Link>
+        <Link to='/wrc'>{"WRC " + new Date(Date.now()).getFullYear()}</Link>
+        <Link to='/'>Encyclopedia</Link>
+      </div>
     </nav>
-  )
-};
+  );
+}
 
 export default NavBar;
