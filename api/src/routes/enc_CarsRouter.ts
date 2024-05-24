@@ -41,7 +41,14 @@ carsRouter.get('/', async (req, res) => {
 carsRouter.get('/:cat_id', async (req, res) => {
     try {
         const { cat_id } = req.params;
-        const cars = await prisma.enc_cars.findMany({where: { category: parseInt(cat_id) }});
+        const cars = await prisma.enc_cars.findMany({where: { category: parseInt(cat_id) }, 
+            include: {
+                enc_categories: {
+                    select: {
+                        name: true  
+                    }
+                }
+        }});
         if (cars != null && cars.length > 0) {
             res.json(cars);
         } else {
