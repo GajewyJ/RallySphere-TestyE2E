@@ -36,8 +36,24 @@ carsRouter.get('/', async (req, res) => {
     }
 });
 
+
+// Get cars by category ID
+carsRouter.get('/:cat_id', async (req, res) => {
+    try {
+        const { cat_id } = req.params;
+        const car = await prisma.enc_cars.findMany({where: { category: parseInt(cat_id) }});
+        if (car != null) {
+            res.json(car);
+        } else {
+            res.status(404).json(ERROR_404);
+        }
+    } catch (error) {
+        res.status(500).json({ error: 'Error fetching data from the enc_cars table' });
+    }
+});
+
 // Get car by ID with its category name
-carsRouter.get('/:id', async (req, res) => {
+carsRouter.get('/:cat_id/:id', async (req, res) => {
     try {
         const { id } = req.params;
         const car = await prisma.enc_cars.findUnique({
