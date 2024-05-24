@@ -9,6 +9,7 @@ import Drivers from "../pages/drivers"
 import CoDrivers from "../pages/coDrivers"
 import AllCategoriesPage from "../pages/categories"
 import CarsByGroupPage from "../pages/carsByGroup"
+import SingleCar from "../pages/singleCar"
 
 interface RouteItem{
     path: string,
@@ -66,5 +67,10 @@ export const routes: Array<RouteItem> = [
         path: "/groups/:cat_id",
         element: <CarsByGroupPage/>,
         label: "Cars by category"
+    },
+    {
+        path: "/groups/:cat_id/:id",
+        element: <SingleCar/>,
+        label: "Car by category and id"
     }
 ]
