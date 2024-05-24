@@ -17,7 +17,7 @@ const ERROR_404 = { error: '404 Not Found' };
 // Get all categories
 categoriesRouter.get('/', async (req, res) => {
     try {
-        const categories = await prisma.enc_categories.findMany();
+        const categories = await prisma.enc_categories.findMany({orderBy: {chrono: 'asc'}});
         if (categories != null) {
             res.json(categories);
         } else {
@@ -45,10 +45,10 @@ categoriesRouter.get('/:id', async (req, res) => {
 
 // Create a new category
 categoriesRouter.post('/', async (req, res) => {
-    const { name, years, description } = req.body;
+    const { name, years, description, chrono } = req.body;
     try {
         const newCategory = await prisma.enc_categories.create({
-            data: { name, years, description },
+            data: { name, years, description, chrono },
         });
         res.json(newCategory);
     } catch (error) {
@@ -59,11 +59,11 @@ categoriesRouter.post('/', async (req, res) => {
 // Update a category
 categoriesRouter.put('/:id', async (req, res) => {
     const { id } = req.params;
-    const { name, years, description } = req.body;
+    const { name, years, description, chrono } = req.body;
     try {
         const updatedCategory = await prisma.enc_categories.update({
             where: { id: parseInt(id) },
-            data: { name, years, description },
+            data: { name, years, description, chrono },
         });
         res.json(updatedCategory);
     } catch (error) {
