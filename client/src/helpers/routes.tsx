@@ -7,6 +7,7 @@ import SingleNews from "../pages/singleNews"
 import Teams from "../pages/teams"
 import Drivers from "../pages/drivers"
 import CoDrivers from "../pages/coDrivers"
+import AllCategoriesPage from "../pages/categories"
 
 interface RouteItem{
     path: string,
@@ -54,5 +55,10 @@ export const routes: Array<RouteItem> = [
         path: "/wrc/coDrivers",
         element: <CoDrivers/>,
         label: "Co-Drivers"
+    },
+    {
+        path: "/groups",
+        element: <AllCategoriesPage/>,
+        label: "Car Groups"
     },
 ]
