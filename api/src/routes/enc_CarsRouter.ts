@@ -107,7 +107,7 @@ carsRouter.put('/:id', async (req, res) => {
         });
         res.json(updatedCar);
     } catch (error) {
-        res.status(500).json({ error: 'Error updating car entry' });
+        res.status(500).json({ error: 'Error updating car' });
     }
 });
 
@@ -118,7 +118,7 @@ carsRouter.delete('/:id', async (req, res) => {
         await prisma.enc_cars.delete({ where: { id: parseInt(id) } });
         res.json({ message: 'Car deleted successfully' });
     } catch (error) {
-        res.status(500).json({ error: 'Error deleting car entry' });
+        res.status(500).json({ error: 'Error deleting car' });
     }
 });
 
