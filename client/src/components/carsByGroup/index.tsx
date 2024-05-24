@@ -54,7 +54,7 @@ function CarsByGroup() {
                     <Heading level={1}>{cars[0].enc_categories.name}</Heading>
                     <div>
                         {cars.map((car) => (
-                            <Link to="/" key={car.id} className='singleCarA'>
+                            <Link to={"/groups/" + car.category + "/" + car.id} key={car.id} className='singleCarA'>
                                 <h2>{car.brand} {car.model}</h2>
                                 <img src={car.photo_url}/>
                             </Link>
