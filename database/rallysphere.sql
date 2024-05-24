@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 22 Maj 2024, 19:24
+-- Czas generowania: 24 Maj 2024, 18:07
 -- Wersja serwera: 10.4.25-MariaDB
 -- Wersja PHP: 8.1.10
 
@@ -42,7 +42,7 @@ CREATE TABLE `enc_cars` (
 --
 
 INSERT INTO `enc_cars` (`id`, `brand`, `model`, `description`, `photo_url`, `photo_html_attribution`, `category`) VALUES
-(2, 'Volvo', 'Amazon', 'The Volvo Amazon, a classic car produced by the Swedish manufacturer Volvo from 1956 to 1970, had a notable presence in rallying during its production years. The Amazon, known for its robust construction, reliability, and durability, proved to be a competitive rally car in various national and international competitions.\n\nRally Success: The Volvo Amazon achieved considerable success in rallying, particularly in the 1960s. It competed in numerous rally events around the world, showcasing its performance and reliability on diverse terrain, including gravel, tarmac, and snow.\n\nFactory and Privateer Teams: The Volvo Amazon was campaigned by both factory-supported teams and privateer entries. Volvo Motorsport, the racing division of Volvo Cars, provided technical support and assistance to factory teams, while independent drivers and teams also campaigned the Amazon with success.\n\nEuropean Rally Championship (ERC): The Volvo Amazon participated in the European Rally Championship (ERC), a series of rally events held across Europe. It achieved victories and podium finishes in various ERC events, contributing to Volvo\'s success in the championship.\n\nSafari Rally: The Volvo Amazon competed in the Safari Rally, one of the toughest and most demanding rallies in the world. Known for its rugged terrain and challenging conditions, the Safari Rally tested the durability and reliability of rally cars, and the Amazon proved to be competitive in this grueling event.\n\nNational Championships: In addition to international competitions, the Volvo Amazon competed in national rally championships in countries such as Sweden, Finland, the United Kingdom, and others. It secured numerous class wins, overall victories, and championship titles in these domestic rally series.\n\nLegacy: The Volvo Amazon\'s success in rallying helped to enhance Volvo\'s reputation as a manufacturer of durable and reliable cars. Its performance on the rally stage contributed to the car\'s enduring legacy as an iconic classic car among enthusiasts worldwide.\n\nThe Volvo Amazon\'s rallying history is characterized by its competitive performances, reliability, and versatility on various rally stages. It remains a celebrated and beloved car in motorsport history, known for its achievements in rallying during the 1960s and beyond.', 'https://upload.wikimedia.org/wikipedia/commons/b/b5/1965_Volvo_133_GT_Amazon.jpg', '<a href=\"https://commons.wikimedia.org/wiki/File:1965_Volvo_133_GT_Amazon.jpg\">Rutger van der Maar</a>, <a href=\"https://creativecommons.org/licenses/by/2.0\">CC BY 2.0</a>, via Wikimedia Commons', 1);
+(2, 'Volvo', 'Amazon', 'The Volvo Amazon proved to be a formidable rally car in its era. One of the most notable achievements was when Volvo\'s factory driver, Carl-Magnus Skogh, won the grueling 1965 Acropolis Rally in Greece driving a 122S Amazon. The Amazon\'s robust construction and reliable mechanicals made it well-suited for the demanding conditions of rally racing. Volvo even collaborated with the Swedish police to develop specialized equipment like disc brakes, brake assist, and radial tires that were later included on production Amazons used for patrol duties, years before such features became common on regular cars. The Amazon\'s rally pedigree helped establish Volvo\'s reputation for building durable and capable vehicles.', 'https://upload.wikimedia.org/wikipedia/commons/b/b5/1965_Volvo_133_GT_Amazon.jpg', '<a href=\"https://commons.wikimedia.org/wiki/File:1965_Volvo_133_GT_Amazon.jpg\">Rutger van der Maar</a>, <a href=\"https://creativecommons.org/licenses/by/2.0\">CC BY 2.0</a>, via Wikimedia Commons', 1);
 
 -- --------------------------------------------------------
 
@@ -54,26 +54,27 @@ CREATE TABLE `enc_categories` (
   `id` int(11) NOT NULL,
   `name` text DEFAULT NULL,
   `years` text DEFAULT NULL,
-  `description` text DEFAULT NULL
+  `description` text DEFAULT NULL,
+  `chrono` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Zrzut danych tabeli `enc_categories`
 --
 
-INSERT INTO `enc_categories` (`id`, `name`, `years`, `description`) VALUES
-(1, 'Early Era', 'Late 19th Century to 1960s', 'First rally cars ever made, helping to establish rallying as sport.'),
-(2, 'Group 1', '1970s to 1980s', 'Standard production cars with minimal modifications.'),
-(3, 'Group 2', '1970s to 1980s', 'Modified production cars with more extensive changes allowed.'),
-(4, 'Group 3', '1970s to 1980s', 'Grand touring cars with limited production.'),
-(5, 'Group 4', '1970s to 1980s', 'Specially modified grand touring cars, leading to more competitive and specialized vehicles.'),
-(6, 'Group B', '1982-1986', 'Group B regulations were introduced in 1982, allowing for highly powerful and sophisticated rally cars. Known for its high performance and technological advancements, but also for safety concerns leading to its cancellation in 1986 after several fatal accidents.'),
-(7, 'Group A', 'Post-1986', 'Replacement for Group B: Introduced stricter regulations focusing on safety, with engine limits of 2000 cc and 300 bhp.'),
-(8, 'Super 1600', '2000-2011', 'It was primarily used in the Junior World Rally Championship (JWRC) between 2001 and 2010, as well as in various national rally championships and international rallycross events.'),
-(9, 'Super 2000', '2000 to Present', 'It is an FIA powertrain specification used in various championships, including the World Rally Championship (WRC), British Touring Car Championship (BTCC), and World Touring Car Championship (WTCC).'),
-(10, 'Group N', '1982-2013', 'Group N, often referred to as the \"showroom class,\" was introduced by the FIA in 1982. It is based on production models of street-legal cars with minimal modifications allowed.'),
-(11, 'WRC', '1997 to Present', 'WRC cars are based on production models but heavily modified for performance and safety.'),
-(12, 'Rally 1', '2021 to Present', 'Top-tier WRC cars with advanced technology and high performance.');
+INSERT INTO `enc_categories` (`id`, `name`, `years`, `description`, `chrono`) VALUES
+(1, 'Early Era', 'Late 19th Century to 1960s', 'First rally cars ever made, helping to establish rallying as sport.', 1),
+(2, 'Group 1', '1970s to 1980s', 'Standard production cars with minimal modifications.', 2),
+(3, 'Group 2', '1970s to 1980s', 'Modified production cars with more extensive changes allowed.', 3),
+(4, 'Group 3', '1970s to 1980s', 'Grand touring cars with limited production.', 4),
+(5, 'Group 4', '1970s to 1980s', 'Specially modified grand touring cars, leading to more competitive and specialized vehicles.', 5),
+(6, 'Group B', '1982-1986', 'Group B regulations were introduced in 1982, allowing for highly powerful and sophisticated rally cars. Known for its high performance and technological advancements, but also for safety concerns leading to its cancellation in 1986 after several fatal accidents.', 6),
+(7, 'Group A', 'Post-1986', 'Replacement for Group B: Introduced stricter regulations focusing on safety, with engine limits of 2000 cc and 300 bhp.', 8),
+(8, 'Super 1600', '2000-2011', 'It was primarily used in the Junior World Rally Championship (JWRC) between 2001 and 2010, as well as in various national rally championships and international rallycross events.', 10),
+(9, 'Super 2000', '2000 to Present', 'It is an FIA powertrain specification used in various championships, including the World Rally Championship (WRC), British Touring Car Championship (BTCC), and World Touring Car Championship (WTCC).', 11),
+(10, 'Group N', '1982-2013', 'Group N, often referred to as the \"showroom class,\" was introduced by the FIA in 1982. It is based on production models of street-legal cars with minimal modifications allowed.', 7),
+(11, 'WRC', '1997 to Present', 'WRC cars are based on production models but heavily modified for performance and safety.', 9),
+(12, 'Rally 1', '2021 to Present', 'Top-tier WRC cars with advanced technology and high performance.', 12);
 
 -- --------------------------------------------------------
 
