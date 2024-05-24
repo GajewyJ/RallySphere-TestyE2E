@@ -17,6 +17,19 @@ interface Car {
   };
 }
 
+function createMarkup(htmlString: string) {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(htmlString, 'text/html');
+  const links = doc.querySelectorAll('a');
+  
+  links.forEach(link => {
+    link.setAttribute('target', '_blank');
+  });
+
+  return { __html: doc.body.innerHTML };
+}
+
+
 function SingleCar() {
   const [car, setCar] = useState<Car | null>(null);
   const { cat_id, id } = useParams<{ cat_id: string; id: string }>();
@@ -45,7 +58,7 @@ function SingleCar() {
           <Heading level={1}>{car.brand} {car.model}</Heading>
           <p className='category'>{car.enc_categories.name}</p>
           <img src={car.photo_url} alt={`${car.brand} ${car.model}`} />
-          <span dangerouslySetInnerHTML={{ __html: car.photo_html_attribution }}></span>
+          <span dangerouslySetInnerHTML={createMarkup(car.photo_html_attribution)}></span>
           <p>{car.description}</p>
           <Link to={"/groups/" + car.category}>Back</Link>
         </div>
