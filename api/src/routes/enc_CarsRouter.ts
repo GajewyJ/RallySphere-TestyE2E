@@ -62,9 +62,9 @@ carsRouter.get('/:cat_id', async (req, res) => {
 // Get car by ID with its category name
 carsRouter.get('/:cat_id/:id', async (req, res) => {
     try {
-        const { id } = req.params;
+        const { cat_id, id } = req.params;
         const car = await prisma.enc_cars.findUnique({
-            where: { id: parseInt(id) },
+            where: { id: parseInt(id), category: parseInt(cat_id) },
             include: {
                 enc_categories: {
                     select: {
