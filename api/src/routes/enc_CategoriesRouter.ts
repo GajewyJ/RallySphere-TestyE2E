@@ -45,10 +45,10 @@ categoriesRouter.get('/:id', async (req, res) => {
 
 // Create a new category
 categoriesRouter.post('/', async (req, res) => {
-    const { name, years, description, chrono } = req.body;
+    const { name, years, description, chrono, photo_url } = req.body;
     try {
         const newCategory = await prisma.enc_categories.create({
-            data: { name, years, description, chrono },
+            data: { name, years, description, chrono, photo_url },
         });
         res.json(newCategory);
     } catch (error) {
