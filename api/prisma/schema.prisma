@@ -74,5 +74,6 @@ model enc_categories {
   years       String?    @db.Text
   description String?    @db.Text
   chrono      Int
+  photo_url   String     @db.Text
   enc_cars    enc_cars[]
 }
