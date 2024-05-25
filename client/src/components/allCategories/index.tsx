@@ -9,6 +9,8 @@ interface Category {
   name: string;
   years: string;
   description: string;
+  chrono: string;
+  photo_url: string;
 }
 
 function AllCategories() {
@@ -33,10 +35,9 @@ function AllCategories() {
       <div>
         {categories.map((category) => (
           <Link to={'/groups/' + category.id.toString()} key={category.id}>
-            <div>
-              <h2>{category.name}</h2>
-              <p>{category.years}</p>
-            </div>
+            <p>{category.years}</p>
+            <p>{category.name}</p>
+            <img src={category.photo_url} alt={category.name + " car"}/>
           </Link>
         ))}
       </div>
