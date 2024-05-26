@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import "./index.scss";
 import AdminLogin from "../../components/adminLogin";
 
-// Define a type for the admin details
 type AdminDetails = {
   id: Number;
   username: string;
