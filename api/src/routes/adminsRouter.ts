@@ -7,10 +7,14 @@ const adminsRouter = express.Router();
 adminsRouter.use(express.json());
 adminsRouter.use(express.urlencoded({ extended: true }));
 
-adminsRouter.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    next();
-});
+const cors = require('cors');
+
+const corsOptions = {
+  origin: 'http://localhost:5173',
+  methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
+};
+
+adminsRouter.use(cors(corsOptions));
 
 const ERROR_404 = { error: '404 Not Found' };
 

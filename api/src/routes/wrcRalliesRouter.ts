@@ -7,11 +7,14 @@ const wrcRalliesRouter = express.Router();
 wrcRalliesRouter.use(express.json());
 wrcRalliesRouter.use(express.urlencoded({ extended: true }));
 
-wrcRalliesRouter.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  next();
-});
+const cors = require('cors');
+
+const corsOptions = {
+  origin: 'http://localhost:5173',
+  methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
+};
+
+wrcRalliesRouter.use(cors(corsOptions));
 
 const ERROR_404 = {error: '404 Not Found'};
 

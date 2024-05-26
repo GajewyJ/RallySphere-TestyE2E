@@ -7,11 +7,14 @@ const wrcTeamsRouter = express.Router();
 wrcTeamsRouter.use(express.json());
 wrcTeamsRouter.use(express.urlencoded({ extended: true }));
 
-wrcTeamsRouter.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    next();
-});
+const cors = require('cors');
+
+const corsOptions = {
+  origin: 'http://localhost:5173',
+  methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
+};
+
+wrcTeamsRouter.use(cors(corsOptions));
 
 const ERROR_404 = {error: '404 Not Found'};
 
