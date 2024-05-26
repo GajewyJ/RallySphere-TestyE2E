@@ -10,6 +10,7 @@ import CoDrivers from "../pages/coDrivers"
 import AllCategoriesPage from "../pages/categories"
 import CarsByGroupPage from "../pages/carsByGroup"
 import SingleCar from "../pages/singleCar"
+import AdminPanel from "../pages/adminPanel"
 
 interface RouteItem{
     path: string,
@@ -72,5 +73,10 @@ export const routes: Array<RouteItem> = [
         path: "/groups/:cat_id/:id",
         element: <SingleCar/>,
         label: "Car by category and id"
+    },
+    {
+        path: "/admin",
+        element: <AdminPanel/>,
+        label: "Admin Panel"
     }
 ]
