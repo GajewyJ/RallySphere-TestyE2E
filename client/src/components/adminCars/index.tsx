@@ -1,0 +1,165 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+interface Car {
+  id: number;
+  brand: string;
+  model: string;
+  description: string;
+  photo_url: string;
+  photo_html_attribution: string;
+  category: number;
+  enc_categories: {
+    name: string;
+  };
+}
+
+const AdminCars: React.FC = () => {
+  const [cars, setCars] = useState<Car[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
+  const [newCar, setNewCar] = useState({
+    brand: '',
+    model: '',
+    description: '',
+    photo_url: '',
+    photo_html_attribution: '',
+    category: 1
+  });
+  const [categories, setCategories] = useState<{ id: number; name: string }[]>([]);
+
+  useEffect(() => {
+    fetchCars();
+    fetchCategories();
+  }, []);
+
+  const fetchCategories = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/encCategories');
+      setCategories(response.data);
+    } catch (error) {
+      setError('Error fetching categories');
+    }
+  };
+
+  useEffect(() => {
+    fetchCars();
+  }, []);
+
+  const fetchCars = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.get('http://localhost:3000/encCars');
+      setCars(response.data);
+    } catch (error) {
+      setError('Error fetching cars');
+    }
+    setLoading(false);
+  };
+
+  const addCar = async (e: any) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const response = await axios.post('http://localhost:3000/encCars', newCar);
+      const newCarWithCategory = {
+        ...response.data,
+        enc_categories: categories.find(cat => cat.id === newCar.category)
+      };
+      setCars(prevCars => [...prevCars, newCarWithCategory]);
+      setNewCar({
+        brand: '',
+        model: '',
+        description: '',
+        photo_url: '',
+        photo_html_attribution: '',
+        category: 1
+      });
+    } catch (error) {
+      setError('Error adding new car');
+      console.error(error);
+    }
+    setLoading(false);
+  };
+
+  const deleteCar = async (carId: number) => {
+    setLoading(true);
+    try {
+      await axios.delete(`http://localhost:3000/encCars/${carId}`);
+      setCars(cars.filter(car => car.id !== carId));
+    } catch (error) {
+      setError('Error deleting car');
+      console.error(error);
+    }
+    setLoading(false);
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNewCar({ ...newCar, [e.target.name]: e.target.value });
+  };
+  
+  const handleTextAreaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setNewCar({ ...newCar, [e.target.name]: e.target.value });
+  };
+
+  const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setNewCar({ ...newCar, category: parseInt(e.target.value) });
+  };
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+
+  return (
+    <div>
+      <h2>Add a New Car</h2>
+      <form onSubmit={addCar}>
+        <input type="text" name="brand" placeholder="Brand" value={newCar.brand} onChange={handleInputChange} />
+        <input type="text" name="model" placeholder="Model" value={newCar.model} onChange={handleInputChange} />
+        <textarea name="description" placeholder="Description" value={newCar.description} onChange={handleTextAreaChange} />
+        <input type="text" name="photo_url" placeholder="Photo URL" value={newCar.photo_url} onChange={handleInputChange} />
+        <input type="text" name="photo_html_attribution" placeholder="Photo Attribution" value={newCar.photo_html_attribution} onChange={handleInputChange} />
+        <select name="category" value={newCar.category} onChange={handleCategoryChange}>
+          {categories.map((category) => (
+            <option key={category.id} value={category.id}>
+              {category.name}
+            </option>
+          ))}
+      </select>
+        <button type="submit">Add Car</button>
+      </form>
+      <h1>Cars</h1>
+      <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Brand</th>
+          <th>Model</th>
+          <th>Description</th>
+          <th>Photo URL</th>
+          <th>Photo HTML Attribution</th>
+          <th>Group</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {cars.map((car) => (
+          <tr key={car.id}>
+            <td>{car.id}</td>
+            <td>{car.brand}</td>
+            <td>{car.model}</td>
+            <td>{car.description.length > 30 ? (car.description.substring(0, 30).trim() + "...") : (car.description) }</td>
+            <td>{car.photo_url.length > 30 ? (car.photo_url.substring(0, 30).trim() + "...") : (car.photo_url) }</td>
+            <td>{car.photo_html_attribution.length > 30 ? (car.photo_html_attribution.substring(0, 30).trim() + "...") : (car.photo_html_attribution)}</td>
+            <td>{car.enc_categories.name}</td>
+            <td>
+              <button onClick={() => deleteCar(car.id)}>Delete</button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    </div>
+  );
+};
+
+export default AdminCars;
