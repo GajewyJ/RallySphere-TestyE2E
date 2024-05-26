@@ -77,3 +77,9 @@ model enc_categories {
   photo_url   String     @db.Text
   enc_cars    enc_cars[]
 }
+
+model admins {
+  id       Int     @id @default(autoincrement())
+  username String? @db.Text
+  password String  @db.Text
+}
