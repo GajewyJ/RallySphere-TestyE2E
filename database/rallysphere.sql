@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 26 Maj 2024, 18:24
+-- Czas generowania: 26 Maj 2024, 19:07
 -- Wersja serwera: 10.4.25-MariaDB
 -- Wersja PHP: 8.1.10
 
@@ -20,6 +20,25 @@ SET time_zone = "+00:00";
 --
 -- Baza danych: `rallysphere`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `admins`
+--
+
+CREATE TABLE `admins` (
+  `id` int(11) NOT NULL,
+  `username` text DEFAULT NULL,
+  `password` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Zrzut danych tabeli `admins`
+--
+
+INSERT INTO `admins` (`id`, `username`, `password`) VALUES
+(1, 'admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -308,6 +327,12 @@ INSERT INTO `wrc_teams` (`id`, `name`, `basedIn`, `establishment`, `principal`, 
 --
 
 --
+-- Indeksy dla tabeli `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeksy dla tabeli `enc_cars`
 --
 ALTER TABLE `enc_cars`
@@ -353,6 +378,12 @@ ALTER TABLE `wrc_teams`
 --
 -- AUTO_INCREMENT dla zrzuconych tabel
 --
+
+--
+-- AUTO_INCREMENT dla tabeli `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT dla tabeli `enc_cars`
