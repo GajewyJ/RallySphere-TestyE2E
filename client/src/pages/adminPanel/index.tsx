@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./index.scss";
 import AdminLogin from "../../components/adminLogin";
 import AdminCars from "../../components/adminCars";
+import AdminCategories from "../../components/adminCategories";
 
 type AdminDetails = {
   id: Number;
@@ -47,7 +48,7 @@ function AdminPanel() {
       case 'cars':
         return <AdminCars/>;
       case 'categories':
-        return null;
+        return <AdminCategories/>;
       default:
         return null;
     }
@@ -63,7 +64,7 @@ function AdminPanel() {
           </div>
           <div className="adminNav">
             <button onClick={() => setActiveTab('cars')}>Cars</button>
-            <button onClick={() => setActiveTab('categories')}>Categories</button>
+            <button onClick={() => setActiveTab('categories')}>Groups</button>
           </div>
           {renderContent()}
         </div>
