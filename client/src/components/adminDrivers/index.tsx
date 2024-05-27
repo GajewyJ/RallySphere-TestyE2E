@@ -118,7 +118,7 @@ const AdminDrivers: React.FC = () => {
 
   return (
     <div>
-      <h2>Add New Driver</h2>
+      <h2>Add a New Driver</h2>
       <form onSubmit={addDriver}>
         <input type="text" name="firstName" placeholder="First Name" value={newDriver.firstName} onChange={handleInputChange} />
         <input type="text" name="lastName" placeholder="Last Name" value={newDriver.lastName} onChange={handleInputChange} />
