@@ -123,7 +123,7 @@ const AdminNews: React.FC = () => {
         <textarea name="paragraph1" placeholder="First Paragraph" value={newNewsItem.paragraph1} onChange={handleInputChange} required />
         <textarea name="paragraph2" placeholder="Second Paragraph" value={newNewsItem.paragraph2} onChange={handleInputChange} />
         <textarea name="paragraph3" placeholder="Third Paragraph" value={newNewsItem.paragraph3} onChange={handleInputChange} />
-        <input type="text" name="photo" placeholder="Photo URL" value={newNewsItem.photo} onChange={handleInputChange} />
+        <input type="text" name="photo" placeholder="Photo File Name" value={newNewsItem.photo} onChange={handleInputChange} />
         <input type="datetime-local" name="publicationDate" placeholder="Publication Date" value={newNewsItem.publicationDate} onChange={handleInputChange} required />
         <button type="submit">Add News Item</button>
       </form>
