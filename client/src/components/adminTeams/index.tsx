@@ -125,7 +125,7 @@ const AdminTeams: React.FC = () => {
 
   return (
     <div>
-      <h2>Add New Team</h2>
+      <h2>Add a New Team</h2>
       <form onSubmit={addTeam}>
         <input type="text" name="name" placeholder="Name" value={newTeam.name} onChange={handleInputChange} />
         <input type="text" name="basedIn" placeholder="Based In" value={newTeam.basedIn} onChange={handleInputChange} />
