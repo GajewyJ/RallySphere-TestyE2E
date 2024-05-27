@@ -5,6 +5,7 @@ import AdminCars from "../../components/adminCars";
 import AdminCategories from "../../components/adminCategories";
 import AdminTeams from "../../components/adminTeams";
 import AdminDrivers from "../../components/adminDrivers";
+import AdminCoDrivers from "../../components/adminCoDrivers";
 
 type AdminDetails = {
   id: Number;
@@ -55,6 +56,8 @@ function AdminPanel() {
         return <AdminTeams/>;
       case 'drivers':
         return <AdminDrivers/>;
+      case 'codrivers':
+        return <AdminCoDrivers/>;
       default:
         return null;
     }
@@ -73,6 +76,7 @@ function AdminPanel() {
             <button onClick={() => setActiveTab('categories')}>Groups</button>
             <button onClick={() => setActiveTab('teams')}>WRC Teams</button>
             <button onClick={() => setActiveTab('drivers')}>WRC Drivers</button>
+            <button onClick={() => setActiveTab('codrivers')}>WRC Co-Drivers</button>
           </div>
           {renderContent()}
         </div>
