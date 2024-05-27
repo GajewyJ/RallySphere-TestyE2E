@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./index.scss";
 import AdminLogin from "../../components/adminLogin";
+import AdminCars from "../../components/adminCars";
 
 type AdminDetails = {
   id: Number;
@@ -11,6 +12,7 @@ type AdminDetails = {
 function AdminPanel() {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [adminDetails, setAdminDetails] = useState<AdminDetails | null>(null);
+  const [activeTab, setActiveTab] = useState<string>('');
 
   useEffect(() => {
     document.title = 'RallySphere - Admin Panel';
@@ -40,12 +42,30 @@ function AdminPanel() {
     setIsLoggedIn(false);
   };
 
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'cars':
+        return <AdminCars/>;
+      case 'categories':
+        return null;
+      default:
+        return null;
+    }
+  };
+
   return (
     <>
       {isLoggedIn ? (
-        <div className="login-status">
-          Logged in as {adminDetails?.username}
-          <button onClick={handleLogout}>Logout</button>
+        <div className="wrapper1">
+          <div className="login-status">
+            Logged in as {adminDetails?.username}
+            <button onClick={handleLogout}>Logout</button>
+          </div>
+          <div className="adminNav">
+            <button onClick={() => setActiveTab('cars')}>Cars</button>
+            <button onClick={() => setActiveTab('categories')}>Categories</button>
+          </div>
+          {renderContent()}
         </div>
       ) : (
         <AdminLogin
