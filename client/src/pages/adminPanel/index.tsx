@@ -3,6 +3,7 @@ import "./index.scss";
 import AdminLogin from "../../components/adminLogin";
 import AdminCars from "../../components/adminCars";
 import AdminCategories from "../../components/adminCategories";
+import AdminTeams from "../../components/adminTeams";
 
 type AdminDetails = {
   id: Number;
@@ -49,6 +50,8 @@ function AdminPanel() {
         return <AdminCars/>;
       case 'categories':
         return <AdminCategories/>;
+      case 'teams':
+        return <AdminTeams/>;
       default:
         return null;
     }
@@ -65,6 +68,7 @@ function AdminPanel() {
           <div className="adminNav">
             <button onClick={() => setActiveTab('cars')}>Cars</button>
             <button onClick={() => setActiveTab('categories')}>Groups</button>
+            <button onClick={() => setActiveTab('teams')}>WRC Teams</button>
           </div>
           {renderContent()}
         </div>
