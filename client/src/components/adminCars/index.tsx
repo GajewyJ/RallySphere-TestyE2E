@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Modal from '../modal';
 
 interface Car {
   id: number;
@@ -27,6 +28,37 @@ const AdminCars: React.FC = () => {
     category: 1
   });
   const [categories, setCategories] = useState<{ id: number; name: string }[]>([]);
+  const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [editingCar, setEditingCar] = useState<Car | null>(null);
+
+  const editCar = (car: Car) => {
+    setEditingCar(car);
+    setIsEditing(true);
+  };
+
+  const updateCar = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (editingCar) {
+      setLoading(true);
+      try {
+        const response = await axios.put(`http://localhost:3000/encCars/${editingCar.id}`, editingCar);
+        const updatedCar = response.data;
+        setCars(cars.map(car => car.id === updatedCar.id ? { ...car, ...updatedCar, enc_categories: categories.find(cat => cat.id === updatedCar.category) } : car));
+        setIsEditing(false);
+        setEditingCar(null);
+      } catch (error) {
+        setError('Error updating car');
+        console.error(error);
+      }
+      setLoading(false);
+    }
+  };
+  
+
+  const handleEditInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setEditingCar(prev => prev ? { ...prev, [name]: value } : null);
+  };
 
   useEffect(() => {
     fetchCars();
@@ -139,6 +171,7 @@ const AdminCars: React.FC = () => {
           <th>Photo HTML Attribution</th>
           <th>Group</th>
           <th>Delete</th>
+          <th>Edit</th>
         </tr>
       </thead>
       <tbody>
@@ -154,10 +187,32 @@ const AdminCars: React.FC = () => {
             <td>
               <button onClick={() => deleteCar(car.id)}>Delete</button>
             </td>
+            <td>
+              <button onClick={() => editCar(car)}>Edit</button>
+            </td>
           </tr>
         ))}
       </tbody>
-    </table>
+      </table>
+      {isEditing && editingCar && (
+        <Modal title="Edit Car" onClose={() => setIsEditing(false)}>
+          <form onSubmit={updateCar}>
+            <input type="text" name="brand" placeholder="Brand" value={editingCar.brand} onChange={handleEditInputChange} />
+            <input type="text" name="model" placeholder="Model" value={editingCar.model} onChange={handleEditInputChange} />
+            <textarea name="description" placeholder="Description" value={editingCar.description} onChange={handleEditInputChange} />
+            <input type="text" name="photo_url" placeholder="Photo URL" value={editingCar.photo_url} onChange={handleEditInputChange} />
+            <input type="text" name="photo_html_attribution" placeholder="Photo Attribution" value={editingCar.photo_html_attribution} onChange={handleEditInputChange} />
+            <select name="category" value={editingCar.category} onChange={(e) => setEditingCar({ ...editingCar, category: parseInt(e.target.value) })}>
+              {categories.map((category) => (
+                <option key={category.id} value={category.id}>
+                  {category.name}
+                </option>
+              ))}
+            </select>
+            <button type="submit">Update Car</button>
+          </form>
+        </Modal>
+      )}
     </div>
   );
 };
