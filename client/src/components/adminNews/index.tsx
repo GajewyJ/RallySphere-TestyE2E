@@ -66,13 +66,12 @@ const AdminNews: React.FC = () => {
         setLoading(false);
     };
   
-  
-  const updateNewsItem = async (e: React.FormEvent<HTMLFormElement>) => {
+    const updateNewsItem = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!editingNewsItem) return;
     setLoading(true);
     try {
-      const formattedDate = editingNewsItem.publicationDate.replace(' ', 'T');
+      const formattedDate = new Date(new Date(editingNewsItem.publicationDate).getTime() - new Date().getTimezoneOffset() * 60 * 1000).toISOString();
       const response = await axios.put(`http://localhost:3000/news/${editingNewsItem.id}`, {
         ...editingNewsItem,
         publicationDate: formattedDate,
@@ -86,7 +85,6 @@ const AdminNews: React.FC = () => {
     }
     setLoading(false);
   };
-  
 
   const deleteNewsItem = async (id: number) => {
     setLoading(true);
