@@ -107,6 +107,7 @@ const AdminCategories: React.FC = () => {
         chrono: 1,
         photo_url: '',
       });
+      setIsAdding(false);
     } catch (error) {
       setError('Error adding new category');
       console.error(error);
