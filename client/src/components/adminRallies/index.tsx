@@ -105,11 +105,11 @@ const AdminRallies: React.FC = () => {
   function formatDate(dateString: string) {
     const date = new Date(dateString);
     const day = String(date.getUTCDate()).padStart(2, '0');
-    const month = String(date.getUTCMonth() + 1).padStart(2, '0'); // Miesiące są indeksowane od 0
+    const month = String(date.getUTCMonth() + 1).padStart(2, '0');
     const year = date.getUTCFullYear();
 
     return `${day}-${month}-${year}`;
-}
+  }
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
