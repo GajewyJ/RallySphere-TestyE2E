@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './index.scss'
 
 type AdminLoginProps = {
   onLoginSuccess: (admin: any) => void;
@@ -14,7 +15,6 @@ const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess, onLoginError })
     try {
       const response = await axios.get('http://localhost:3000/admins');
       if (response.status === 200) {
-        // Find the admin with the matching username and password
         const admin = response.data.find((admin: { id: number; username: string; password: string; }) => admin.username === username && admin.password === password);
         if (admin) {
           onLoginSuccess(admin);
@@ -31,20 +31,25 @@ const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess, onLoginError })
   
 
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleLogin}>Login</button>
+    <div className='login-root'>
+      <div className='form'>
+        <h1>Admin Panel</h1>
+        <label htmlFor='username'>Username: <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          name='username'
+          onChange={(e) => setUsername(e.target.value)}
+        /></label>
+        <label htmlFor='password'>Password: <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          name='password'
+          onChange={(e) => setPassword(e.target.value)}
+        /></label>
+        <button onClick={handleLogin}>Sign In</button>
+      </div>
     </div>
   );
 };
