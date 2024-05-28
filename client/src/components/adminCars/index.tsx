@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Modal from '../modal';
+import './index.scss';
 
 interface Car {
   id: number;
@@ -29,6 +30,7 @@ const AdminCars: React.FC = () => {
   });
   const [categories, setCategories] = useState<{ id: number; name: string }[]>([]);
   const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [isAdding, setIsAdding] = useState<boolean>(false);
   const [editingCar, setEditingCar] = useState<Car | null>(null);
 
   const editCar = (car: Car) => {
@@ -107,6 +109,7 @@ const AdminCars: React.FC = () => {
         photo_html_attribution: '',
         category: 1
       });
+      setIsAdding(false);
     } catch (error) {
       setError('Error adding new car');
       console.error(error);
@@ -142,61 +145,65 @@ const AdminCars: React.FC = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div>
-      <h2>Add a New Car</h2>
-      <form onSubmit={addCar}>
-        <input type="text" name="brand" placeholder="Brand" value={newCar.brand} onChange={handleInputChange} />
-        <input type="text" name="model" placeholder="Model" value={newCar.model} onChange={handleInputChange} />
-        <textarea name="description" placeholder="Description" value={newCar.description} onChange={handleTextAreaChange} />
-        <input type="text" name="photo_url" placeholder="Photo URL" value={newCar.photo_url} onChange={handleInputChange} />
-        <input type="text" name="photo_html_attribution" placeholder="Photo Attribution" value={newCar.photo_html_attribution} onChange={handleInputChange} />
-        <select name="category" value={newCar.category} onChange={handleCategoryChange}>
-          {categories.map((category) => (
-            <option key={category.id} value={category.id}>
-              {category.name}
-            </option>
-          ))}
-      </select>
-        <button type="submit">Add Car</button>
-      </form>
+    <div className='adminPanelContent'>
+      <button onClick={() => {setIsAdding(true)}} className='addNewCarBtn'>Add a new Car</button>
+      {isAdding && (
+        <Modal title="Add Car" onClose={() => setIsAdding(false)}>
+          <form onSubmit={addCar} className='addForm'>
+            <input type="text" name="brand" placeholder="Brand" value={newCar.brand} onChange={handleInputChange} />
+            <input type="text" name="model" placeholder="Model" value={newCar.model} onChange={handleInputChange} />
+            <textarea name="description" placeholder="Description" value={newCar.description} onChange={handleTextAreaChange} />
+            <input type="text" name="photo_url" placeholder="Photo URL" value={newCar.photo_url} onChange={handleInputChange} />
+            <input type="text" name="photo_html_attribution" placeholder="Photo Attribution" value={newCar.photo_html_attribution} onChange={handleInputChange} />
+            <select name="category" value={newCar.category} onChange={handleCategoryChange}>
+              {categories.map((category) => (
+                <option key={category.id} value={category.id}>
+                  {category.name}
+                </option>
+              ))}
+            </select>
+            <button type="submit">Add Car</button>
+          </form>
+        </Modal>
+      )}
       <h1>Cars</h1>
-      <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Brand</th>
-          <th>Model</th>
-          <th>Description</th>
-          <th>Photo URL</th>
-          <th>Photo HTML Attribution</th>
-          <th>Group</th>
-          <th>Delete</th>
-          <th>Edit</th>
-        </tr>
-      </thead>
-      <tbody>
-        {cars.map((car) => (
-          <tr key={car.id}>
-            <td>{car.id}</td>
-            <td>{car.brand}</td>
-            <td>{car.model}</td>
-            <td>{car.description.length > 30 ? (car.description.substring(0, 30).trim() + "...") : (car.description) }</td>
-            <td>{car.photo_url.length > 30 ? (car.photo_url.substring(0, 30).trim() + "...") : (car.photo_url) }</td>
-            <td>{car.photo_html_attribution.length > 30 ? (car.photo_html_attribution.substring(0, 30).trim() + "...") : (car.photo_html_attribution)}</td>
-            <td>{car.enc_categories.name}</td>
-            <td>
-              <button onClick={() => deleteCar(car.id)}>Delete</button>
-            </td>
-            <td>
-              <button onClick={() => editCar(car)}>Edit</button>
-            </td>
+      <table className='adminTable'>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Description</th>
+            <th>Photo URL</th>
+            <th>Photo HTML Attribution</th>
+            <th>Group</th>
+            <th>Edit</th>
+            <th>Delete</th>
           </tr>
-        ))}
-      </tbody>
+        </thead>
+        <tbody>
+          {cars.map((car) => (
+            <tr key={car.id}>
+              <td>{car.id}</td>
+              <td>{car.brand}</td>
+              <td>{car.model}</td>
+              <td>{car.description.length > 30 ? (car.description.substring(0, 30).trim() + "...") : (car.description) }</td>
+              <td>{car.photo_url.length > 30 ? (car.photo_url.substring(0, 30).trim() + "...") : (car.photo_url) }</td>
+              <td>{car.photo_html_attribution.length > 30 ? (car.photo_html_attribution.substring(0, 30).trim() + "...") : (car.photo_html_attribution)}</td>
+              <td>{car.enc_categories.name}</td>
+              <td>
+                <button onClick={() => editCar(car)} className='editBtn'>Edit</button>
+              </td>
+              <td>
+                <button className='deleteBtn' onClick={() => deleteCar(car.id)}>Delete</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
       </table>
       {isEditing && editingCar && (
         <Modal title="Edit Car" onClose={() => setIsEditing(false)}>
-          <form onSubmit={updateCar}>
+          <form onSubmit={updateCar} className='editForm'>
             <input type="text" name="brand" placeholder="Brand" value={editingCar.brand} onChange={handleEditInputChange} />
             <input type="text" name="model" placeholder="Model" value={editingCar.model} onChange={handleEditInputChange} />
             <textarea name="description" placeholder="Description" value={editingCar.description} onChange={handleEditInputChange} />
