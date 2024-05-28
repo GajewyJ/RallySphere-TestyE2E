@@ -144,8 +144,8 @@ const AdminDrivers: React.FC = () => {
             <th>Country</th>
             <th>Team</th>
             <th>Points</th>
-            <th>Delete</th>
             <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
