@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Modal from '../modal';
+import './index.scss';
 
 interface NewsItem {
     id: number;
@@ -25,6 +26,7 @@ const AdminNews: React.FC = () => {
         publicationDate: '',
     });
     const [isEditing, setIsEditing] = useState<boolean>(false);
+    const [isAdding, setIsAdding] = useState<boolean>(false);
     const [editingNewsItem, setEditingNewsItem] = useState<NewsItem | null>(null);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -60,6 +62,7 @@ const AdminNews: React.FC = () => {
                 photo: '',
                 publicationDate: '',
             });
+            setIsAdding(false);
         } catch (error) {
             setError('Error adding new news item');
         }
@@ -112,23 +115,42 @@ const AdminNews: React.FC = () => {
     fetchNewsItems();
   }, []);
 
+  function getFirst30Chars(longString: string) {
+    return longString.substring(0, 30).trim() + '...';
+  }
+
+  function formatDateWithTime(dateString: string) {
+    const date = new Date(dateString);
+    const day = String(date.getUTCDate()).padStart(2, '0');
+    const month = String(date.getUTCMonth() + 1).padStart(2, '0');
+    const year = date.getUTCFullYear();
+    const hours = String(date.getUTCHours()).padStart(2, '0');
+    const minutes = String(date.getUTCMinutes()).padStart(2, '0');
+
+    return `${day}-${month}-${year} ${hours}:${minutes}`;
+  }
+
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div>
-      <h2>Add a New News Item</h2>
-      <form onSubmit={addNewsItem}>
-        <input type="text" name="title" placeholder="Title" value={newNewsItem.title} onChange={handleInputChange} required />
-        <textarea name="paragraph1" placeholder="First Paragraph" value={newNewsItem.paragraph1} onChange={handleInputChange} required />
-        <textarea name="paragraph2" placeholder="Second Paragraph" value={newNewsItem.paragraph2} onChange={handleInputChange} />
-        <textarea name="paragraph3" placeholder="Third Paragraph" value={newNewsItem.paragraph3} onChange={handleInputChange} />
-        <input type="text" name="photo" placeholder="Photo File Name" value={newNewsItem.photo} onChange={handleInputChange} />
-        <input type="datetime-local" name="publicationDate" placeholder="Publication Date" value={newNewsItem.publicationDate} onChange={handleInputChange} required />
-        <button type="submit">Add News Item</button>
-      </form>
-      <h1>News Items</h1>
-      <table>
+    <div className='adminPanelContent'>
+      <button onClick={() => {setIsAdding(true)}} className='addNewCarBtn'>Add new News</button>
+      {isAdding && (
+        <Modal title="Add News" onClose={() => setIsAdding(false)}>
+          <form onSubmit={addNewsItem} className='addForm'>
+            <input type="text" name="title" placeholder="Title" value={newNewsItem.title} onChange={handleInputChange} required />
+            <textarea name="paragraph1" placeholder="First Paragraph" value={newNewsItem.paragraph1} onChange={handleInputChange} required />
+            <textarea name="paragraph2" placeholder="Second Paragraph" value={newNewsItem.paragraph2} onChange={handleInputChange} />
+            <textarea name="paragraph3" placeholder="Third Paragraph" value={newNewsItem.paragraph3} onChange={handleInputChange} />
+            <input type="text" name="photo" placeholder="Photo File Name" value={newNewsItem.photo} onChange={handleInputChange} />
+            <input type="datetime-local" name="publicationDate" placeholder="Publication Date" value={newNewsItem.publicationDate} onChange={handleInputChange} required />
+            <button type="submit">Add News</button>
+          </form>
+        </Modal>
+      )}
+      <h1>News</h1>
+      <table className='adminTableNews'>
         <thead>
           <tr>
             <th>ID</th>
@@ -138,25 +160,25 @@ const AdminNews: React.FC = () => {
             <th>Third Paragraph</th>
             <th>Photo</th>
             <th>Publication Date</th>
-            <th>Delete</th>
             <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
           {newsItems.map((item) => (
             <tr key={item.id}>
               <td>{item.id}</td>
-              <td>{item.title}</td>
-              <td>{item.paragraph1}</td>
-              <td>{item.paragraph2}</td>
-              <td>{item.paragraph3}</td>
-              <td>{item.photo}</td>
-              <td>{item.publicationDate}</td>
+              <td>{getFirst30Chars(item.title)}</td>
+              <td>{getFirst30Chars(item.paragraph1)}</td>
+              <td>{getFirst30Chars(item.paragraph2)}</td>
+              <td>{getFirst30Chars(item.paragraph3)}</td>
+              <td>{getFirst30Chars(item.photo)}</td>
+              <td>{formatDateWithTime(item.publicationDate)}</td>
               <td>
-                <button onClick={() => deleteNewsItem(item.id)}>Delete</button>
+                <button onClick={() => { setEditingNewsItem(item); setIsEditing(true); }} className='editBtn'>Edit</button>
               </td>
               <td>
-                <button onClick={() => { setEditingNewsItem(item); setIsEditing(true); }}>Edit</button>
+                <button onClick={() => deleteNewsItem(item.id)} className='deleteBtn'>Delete</button>
               </td>
             </tr>
           ))}
@@ -164,7 +186,7 @@ const AdminNews: React.FC = () => {
       </table>
       {isEditing && editingNewsItem && (
         <Modal title="Edit News Item" onClose={() => setIsEditing(false)}>
-          <form onSubmit={updateNewsItem}>
+          <form onSubmit={updateNewsItem} className='editForm'>
             <input type="text" name="title" placeholder="Title" value={editingNewsItem.title} onChange={handleEditInputChange} required />
             <textarea name="paragraph1" placeholder="First Paragraph" value={editingNewsItem.paragraph1} onChange={handleEditInputChange} required />
             <textarea name="paragraph2" placeholder="Second Paragraph" value={editingNewsItem.paragraph2} onChange={handleEditInputChange} />
