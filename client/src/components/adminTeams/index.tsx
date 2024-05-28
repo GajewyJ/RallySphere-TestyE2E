@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Modal from '../modal';
+import './index.scss';
 
 interface Team {
   id: number;
@@ -27,6 +28,7 @@ const AdminTeams: React.FC = () => {
       points: 0,
     });
     const [isEditing, setIsEditing] = useState<boolean>(false);
+    const [isAdding, setIsAdding] = useState<boolean>(false);
     const [editingTeam, setEditingTeam] = useState<Team | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -68,6 +70,7 @@ const AdminTeams: React.FC = () => {
         brand: '',
         points: 0,
       });
+      setIsAdding(false);
     } catch (error) {
       setError('Error adding new team');
     }
@@ -124,20 +127,24 @@ const AdminTeams: React.FC = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div>
-      <h2>Add a New Team</h2>
-      <form onSubmit={addTeam}>
-        <input type="text" name="name" placeholder="Name" value={newTeam.name} onChange={handleInputChange} />
-        <input type="text" name="basedIn" placeholder="Based In" value={newTeam.basedIn} onChange={handleInputChange} />
-        <input type="number" name="establishment" placeholder="Establishment Year" value={newTeam.establishment} onChange={handleInputChange} />
-        <input type="text" name="principal" placeholder="Principal" value={newTeam.principal} onChange={handleInputChange} />
-        <input type="text" name="category" placeholder="Category" value={newTeam.category} onChange={handleInputChange} />
-        <input type="text" name="brand" placeholder="Brand" value={newTeam.brand} onChange={handleInputChange} />
-        <input type="number" name="points" placeholder="Points" value={newTeam.points} onChange={handleInputChange} />
-        <button type="submit">Add Team</button>
-      </form>
+    <div className='adminPanelContent'>
+      <button onClick={() => {setIsAdding(true)}} className='addNewCarBtn'>Add a new Team</button>
+      {isAdding && (
+        <Modal title="Add Team" onClose={() => setIsAdding(false)}>
+          <form onSubmit={addTeam} className='addForm'>
+            <input type="text" name="name" placeholder="Name" value={newTeam.name} onChange={handleInputChange} />
+            <input type="text" name="basedIn" placeholder="Based In" value={newTeam.basedIn} onChange={handleInputChange} />
+            <input type="number" name="establishment" placeholder="Establishment Year" value={newTeam.establishment} onChange={handleInputChange} />
+            <input type="text" name="principal" placeholder="Principal" value={newTeam.principal} onChange={handleInputChange} />
+            <input type="text" name="category" placeholder="Category" value={newTeam.category} onChange={handleInputChange} />
+            <input type="text" name="brand" placeholder="Brand" value={newTeam.brand} onChange={handleInputChange} />
+            <input type="number" name="points" placeholder="Points" value={newTeam.points} onChange={handleInputChange} />
+            <button type="submit">Add Team</button>
+          </form>
+        </Modal>
+      )}
       <h1>WRC Teams</h1>
-      <table>
+      <table className='adminTableTeams'>
         <thead>
           <tr>
             <th>ID</th>
@@ -148,8 +155,8 @@ const AdminTeams: React.FC = () => {
             <th>Category</th>
             <th>Brand</th>
             <th>Points</th>
-            <th>Delete</th>
             <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -163,15 +170,15 @@ const AdminTeams: React.FC = () => {
               <td>{team.category}</td>
               <td>{team.brand}</td>
               <td>{team.points}</td>
-              <td><button onClick={() => deleteTeam(team.id)}>Delete</button></td>
-              <td><button onClick={() => { setEditingTeam(team); setIsEditing(true); }}>Edit</button></td>
+              <td><button onClick={() => { setEditingTeam(team); setIsEditing(true); }} className='editBtn'>Edit</button></td>
+              <td><button onClick={() => deleteTeam(team.id)} className='deleteBtn'>Delete</button></td>
             </tr>
           ))}
         </tbody>
       </table>
       {isEditing && editingTeam && (
         <Modal title="Edit Team" onClose={() => setIsEditing(false)}>
-          <form onSubmit={updateTeam}>
+          <form onSubmit={updateTeam} className='editForm'>
             <input type="text" name="name" placeholder="Name" value={editingTeam.name} onChange={handleEditInputChange} />
             <input type="text" name="basedIn" placeholder="Based In" value={editingTeam.basedIn} onChange={handleEditInputChange} />
             <input type="number" name="establishment" placeholder="Establishment Year" value={editingTeam.establishment} onChange={handleEditInputChange} />

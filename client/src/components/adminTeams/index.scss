@@ -1,0 +1,187 @@
+.adminPanelContent{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1{
+        font-size: 3em;
+    }
+}
+
+.editForm{
+    display: flex;
+    flex-direction: column;
+
+    input, textarea, select, button{
+        margin: 10px;
+        padding: 10px;
+    }
+
+    textarea{
+        resize: none;
+        height: 100px;
+    }
+
+    button:hover{
+        cursor: pointer;
+    }
+}
+
+.adminTableTeams{
+    width: 90%;
+    border-collapse: collapse;
+
+    thead{
+        th{
+            border: 1px solid black;
+            padding: 5px;
+
+            &:nth-of-type(4){
+                @media (max-width: 1060px){
+                    display: none;
+                }
+            }
+
+            &:nth-of-type(5){
+                @media (max-width: 950px){
+                    display: none;
+                }
+            }
+
+            &:nth-of-type(7){
+                @media (max-width: 790px){
+                    display: none;
+                }
+            }
+
+            @media (max-width: 700px){
+                font-size: 0.7em;
+            }
+        }
+    }
+
+    tbody{
+        tr{
+            td{
+                border: 1px solid black;
+                padding: 5px;
+    
+                button{
+                    width: 100%;
+                    height: 70px;
+                    border: 0;
+                    cursor: pointer;
+                    margin: 0;
+                    font-size: 1em;
+
+                    &:hover{
+                        border: 1px solid black;
+                    }
+                }
+
+                .editBtn{
+                    background-color: green;
+                }
+
+                .deleteBtn{
+                    background-color: red;
+                }
+
+                @media (max-width: 700px){
+                    font-size: 0.7em;
+                }
+            }
+
+            td:nth-of-type(1){
+                text-align: center;
+                width: 40px;
+            }
+
+            td:nth-of-type(2){
+                text-align: center;
+                width: 250px;
+            }
+
+            td:nth-of-type(3){
+                text-align: center;
+                width: 140px;
+            }
+
+            td:nth-of-type(4){
+                text-align: center;
+                width: 120px;
+
+                @media (max-width: 1060px){
+                    display: none;
+                }
+            }
+
+            td:nth-of-type(5){
+                text-align: center;
+                width: 140px;
+
+                @media (max-width: 950px){
+                    display: none;
+                }
+            }
+
+            td:nth-of-type(6){
+                text-align: center;
+                width: 80px;
+            }
+
+            td:nth-of-type(7){
+                text-align: center;
+                width: 80px;
+                
+                @media (max-width: 790px){
+                    display: none;
+                }
+            }
+
+            td:nth-of-type(8){
+                text-align: center;
+                width: 80px;
+            }
+
+            td:nth-of-type(9){
+                text-align: center;
+                width: 80px;
+                padding: 0;
+            }
+
+            td:nth-of-type(10){
+                text-align: center;
+                width: 80px;
+                padding: 0;
+            }
+        }
+    }
+}
+
+.addForm{
+    display: flex;
+    flex-direction: column;
+
+    input, textarea, select, button{
+        margin: 10px;
+        padding: 10px;
+    }
+
+    textarea{
+        resize: none;
+        height: 100px;
+    }
+
+    button:hover{
+        cursor: pointer;
+    }
+}
+
+.addNewCarBtn{
+    margin: 60px;
+    padding: 20px;
+    font-size: 2.5em;
+    width: 90%;
+}
