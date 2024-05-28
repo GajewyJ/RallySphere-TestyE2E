@@ -74,8 +74,10 @@ function AdminPanel() {
       {isLoggedIn ? (
         <div className="wrapper1">
           <div className="login-status">
-            Logged in as {adminDetails?.username}
-            <button onClick={handleLogout}>Logout</button>
+            <div>
+              <p>Logged in as {adminDetails?.username}</p>
+              <button onClick={handleLogout}>Logout</button>
+            </div>
           </div>
           <div className="adminNav">
             <button onClick={() => setActiveTab('cars')}>Cars</button>
