@@ -36,14 +36,12 @@ const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess, onLoginError })
         <h1>Admin Panel</h1>
         <label htmlFor='username'>Username: <input
           type="text"
-          placeholder="Username"
           value={username}
           name='username'
           onChange={(e) => setUsername(e.target.value)}
         /></label>
         <label htmlFor='password'>Password: <input
           type="password"
-          placeholder="Password"
           value={password}
           name='password'
           onChange={(e) => setPassword(e.target.value)}
