@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Modal from '../modal';
+import './index.scss';
 
 interface Category {
   id: number;
@@ -23,6 +24,7 @@ const AdminCategories: React.FC = () => {
     photo_url: '',
   });
   const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [isAdding, setIsAdding] = useState<boolean>(false);
   const [editingCategory, setEditingCategory] = useState<Category | null>(null);
 
   const editCategory = (category: Category) => {
@@ -128,52 +130,56 @@ const AdminCategories: React.FC = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div>
-      <h2>Add a New Group</h2>
-      <form onSubmit={addCategory}>
-        <input type="text" name="name" placeholder="Name" value={newCategory.name} onChange={handleInputChange} />
-        <input type="text" name="years" placeholder="Years" value={newCategory.years} onChange={handleInputChange} />
-        <textarea name="description" placeholder="Description" value={newCategory.description} onChange={handleTextAreaChange} />
-        <input type="number" name="chrono" placeholder="Order" value={newCategory.chrono} onChange={handleInputNumChange} />
-        <input type="text" name="photo_url" placeholder="Photo URL" value={newCategory.photo_url} onChange={handleInputChange} />
-        <button type="submit">Add Group</button>
-      </form>
+    <div className='adminPanelContent'>
+      <button onClick={() => {setIsAdding(true)}} className='addNewCarBtn'>Add a new Group</button>
+      {isAdding && (
+        <Modal title="Add Group" onClose={() => setIsAdding(false)}>
+          <form onSubmit={addCategory} className='addForm'>
+            <input type="text" name="name" placeholder="Name" value={newCategory.name} onChange={handleInputChange} />
+            <input type="text" name="years" placeholder="Years" value={newCategory.years} onChange={handleInputChange} />
+            <textarea name="description" placeholder="Description" value={newCategory.description} onChange={handleTextAreaChange} />
+            <input type="number" name="chrono" placeholder="Order" value={newCategory.chrono} onChange={handleInputNumChange} />
+            <input type="text" name="photo_url" placeholder="Photo URL" value={newCategory.photo_url} onChange={handleInputChange} />
+            <button type="submit">Add Group</button>
+          </form>
+        </Modal>
+      )}
       <h1>Groups</h1>
-      <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Years</th>
-          <th>Description</th>
-          <th>Order</th>
-          <th>Photo URL</th>
-          <th>Delete</th>
-          <th>Edit</th>
-        </tr>
-      </thead>
-      <tbody>
-        {categories.map((category) => (
-          <tr key={category.id}>
-            <td>{category.id}</td>
-            <td>{category.name}</td>
-            <td>{category.years}</td>
-            <td>{category.description.length > 30 ? (category.description.substring(0, 30).trim() + "...") : (category.description) }</td>
-            <td>{category.chrono}</td>
-            <td>{category.photo_url.length > 30 ? (category.photo_url.substring(0, 30).trim() + "...") : (category.photo_url) }</td>
-            <td>
-              <button onClick={() => deleteCategory(category.id)}>Delete</button>
-            </td>
-            <td>
-              <button onClick={() => editCategory(category)}>Edit</button>
-            </td>
+      <table className='adminTable'>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Years</th>
+            <th>Description</th>
+            <th>Order</th>
+            <th>Photo URL</th>
+            <th>Edit</th>
+            <th>Delete</th>
           </tr>
-        ))}
-      </tbody>
+        </thead>
+        <tbody>
+          {categories.map((category) => (
+            <tr key={category.id}>
+              <td>{category.id}</td>
+              <td>{category.name}</td>
+              <td>{category.years}</td>
+              <td>{category.description.length > 30 ? (category.description.substring(0, 30).trim() + "...") : (category.description) }</td>
+              <td>{category.chrono}</td>
+              <td>{category.photo_url.length > 30 ? (category.photo_url.substring(0, 30).trim() + "...") : (category.photo_url) }</td>
+              <td>
+                <button onClick={() => editCategory(category)} className='editBtn'>Edit</button>
+              </td>
+              <td>
+                <button onClick={() => deleteCategory(category.id)} className='deleteBtn'>Delete</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
       </table>
       {isEditing && editingCategory && (
         <Modal title="Edit Group" onClose={() => setIsEditing(false)}>
-          <form onSubmit={updateCategory}>
+          <form onSubmit={updateCategory} className='editForm'>
             <input type="text" name="name" placeholder="Name" value={editingCategory.name} onChange={handleEditInputChange} />
             <input type="text" name="years" placeholder="Years" value={editingCategory.years} onChange={handleEditInputChange} />
             <textarea name="description" placeholder="Description" value={editingCategory.description} onChange={handleEditInputChange} />
