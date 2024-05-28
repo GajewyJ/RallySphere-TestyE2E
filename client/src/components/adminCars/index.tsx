@@ -167,7 +167,7 @@ const AdminCars: React.FC = () => {
         </Modal>
       )}
       <h1>Cars</h1>
-      <table className='adminTable'>
+      <table className='adminTableCars'>
         <thead>
           <tr>
             <th>ID</th>
