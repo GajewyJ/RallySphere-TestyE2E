@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Modal from '../modal';
+import './index.scss';
 
 interface Rally {
   id: number;
@@ -23,6 +24,7 @@ const AdminRallies: React.FC = () => {
     end: '',
   });
   const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [isAdding, setIsAdding] = useState<boolean>(false);
   const [editingRally, setEditingRally] = useState<Rally | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -51,6 +53,7 @@ const AdminRallies: React.FC = () => {
         beginning: '',
         end: '',
       });
+      setIsAdding(false);
     } catch (error) {
       setError('Error adding new rally');
     }
@@ -99,22 +102,35 @@ const AdminRallies: React.FC = () => {
     fetchRallies();
   }, []);
 
+  function formatDate(dateString: string) {
+    const date = new Date(dateString);
+    const day = String(date.getUTCDate()).padStart(2, '0');
+    const month = String(date.getUTCMonth() + 1).padStart(2, '0'); // Miesiące są indeksowane od 0
+    const year = date.getUTCFullYear();
+
+    return `${day}-${month}-${year}`;
+}
+
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div>
-      <h2>Add a New Rally</h2>
-      <form onSubmit={addRally}>
-        <input type="text" name="name" placeholder="Name" value={newRally.name} onChange={handleInputChange} required />
-        <input type="number" name="season" placeholder="Season" value={newRally.season} onChange={handleInputChange} required />
-        <input type="text" name="country" placeholder="Country" value={newRally.country} onChange={handleInputChange} required />
-        <input type="date" name="beginning" placeholder="Beginning" value={newRally.beginning} onChange={handleInputChange} required />
-        <input type="date" name="end" placeholder="End" value={newRally.end} onChange={handleInputChange} required />
-        <button type="submit">Add Rally</button>
-      </form>
+    <div className='adminPanelContent'>
+      <button onClick={() => {setIsAdding(true)}} className='addNewCarBtn'>Add a new Rally</button>
+      {isAdding && (
+        <Modal title="Add Rally" onClose={() => setIsAdding(false)}>
+          <form onSubmit={addRally} className='addForm'>
+            <input type="text" name="name" placeholder="Name" value={newRally.name} onChange={handleInputChange} required />
+            <input type="number" name="season" placeholder="Season" value={newRally.season} onChange={handleInputChange} required />
+            <input type="text" name="country" placeholder="Country" value={newRally.country} onChange={handleInputChange} required />
+            <input type="date" name="beginning" placeholder="Beginning" value={newRally.beginning} onChange={handleInputChange} required />
+            <input type="date" name="end" placeholder="End" value={newRally.end} onChange={handleInputChange} required />
+            <button type="submit">Add Rally</button>
+          </form>
+        </Modal>
+      )}
       <h1>WRC Rallies</h1>
-      <table>
+      <table className='adminTableCoDrivers'>
         <thead>
           <tr>
             <th>ID</th>
@@ -123,8 +139,8 @@ const AdminRallies: React.FC = () => {
             <th>Country</th>
             <th>Beginning</th>
             <th>End</th>
-            <th>Delete</th>
             <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -134,13 +150,13 @@ const AdminRallies: React.FC = () => {
               <td>{rally.name}</td>
               <td>{rally.season}</td>
               <td>{rally.country}</td>
-              <td>{rally.beginning}</td>
-              <td>{rally.end}</td>
+              <td>{formatDate(rally.beginning)}</td>
+              <td>{formatDate(rally.end)}</td>
               <td>
-                <button onClick={() => deleteRally(rally.id)}>Delete</button>
+                <button onClick={() => { setEditingRally(rally); setIsEditing(true); }} className='editBtn'>Edit</button>
               </td>
               <td>
-                <button onClick={() => { setEditingRally(rally); setIsEditing(true); }}>Edit</button>
+                <button onClick={() => deleteRally(rally.id)} className='deleteBtn'>Delete</button>
               </td>
             </tr>
           ))}
@@ -148,7 +164,7 @@ const AdminRallies: React.FC = () => {
       </table>
       {isEditing && editingRally && (
         <Modal title="Edit Rally" onClose={() => setIsEditing(false)}>
-          <form onSubmit={updateRally}>
+          <form onSubmit={updateRally} className='editForm'>
             <input type="text" name="name" placeholder="Name" value={editingRally.name} onChange={handleEditInputChange} required />
             <input type="number" name="season" placeholder="Season" value={editingRally.season} onChange={handleEditInputChange} required />
             <input type="text" name="country" placeholder="Country" value={editingRally.country} onChange={handleEditInputChange} required />
