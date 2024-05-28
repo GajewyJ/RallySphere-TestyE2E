@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Modal from '../modal';
+import './index.scss';
 
 interface Driver {
   id: number;
@@ -23,6 +24,7 @@ const AdminDrivers: React.FC = () => {
     points: 0,
   });
   const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [isAdding, setIsAdding] = useState<boolean>(false);
   const [editingDriver, setEditingDriver] = useState<Driver | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -61,6 +63,7 @@ const AdminDrivers: React.FC = () => {
         team: '',
         points: 0,
       });
+      setIsAdding(false);
     } catch (error) {
       setError('Error adding new driver');
     }
@@ -117,18 +120,22 @@ const AdminDrivers: React.FC = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div>
-      <h2>Add a New Driver</h2>
-      <form onSubmit={addDriver}>
-        <input type="text" name="firstName" placeholder="First Name" value={newDriver.firstName} onChange={handleInputChange} />
-        <input type="text" name="lastName" placeholder="Last Name" value={newDriver.lastName} onChange={handleInputChange} />
-        <input type="text" name="country" placeholder="Country" value={newDriver.country} onChange={handleInputChange} />
-        <input type="text" name="team" placeholder="Team" value={newDriver.team} onChange={handleInputChange} />
-        <input type="number" name="points" placeholder="Points" value={newDriver.points} onChange={handleInputChange} />
-        <button type="submit">Add Driver</button>
-      </form>
+    <div className='adminPanelContent'>
+      <button onClick={() => {setIsAdding(true)}} className='addNewCarBtn'>Add a new Driver</button>
+      {isAdding && (
+        <Modal title="Add Driver" onClose={() => setIsAdding(false)}>
+          <form onSubmit={addDriver} className='addForm'>
+            <input type="text" name="firstName" placeholder="First Name" value={newDriver.firstName} onChange={handleInputChange} />
+            <input type="text" name="lastName" placeholder="Last Name" value={newDriver.lastName} onChange={handleInputChange} />
+            <input type="text" name="country" placeholder="Country" value={newDriver.country} onChange={handleInputChange} />
+            <input type="text" name="team" placeholder="Team" value={newDriver.team} onChange={handleInputChange} />
+            <input type="number" name="points" placeholder="Points" value={newDriver.points} onChange={handleInputChange} />
+            <button type="submit">Add Driver</button>
+          </form>
+        </Modal>
+      )}
       <h1>WRC Drivers</h1>
-      <table>
+      <table className='adminTableDrivers'>
         <thead>
           <tr>
             <th>ID</th>
@@ -150,15 +157,15 @@ const AdminDrivers: React.FC = () => {
               <td>{driver.country}</td>
               <td>{driver.team}</td>
               <td>{driver.points}</td>
-              <td><button onClick={() => deleteDriver(driver.id)}>Delete</button></td>
-              <td><button onClick={() => { setEditingDriver(driver); setIsEditing(true); }}>Edit</button></td>
+              <td><button onClick={() => { setEditingDriver(driver); setIsEditing(true); }} className='editBtn'>Edit</button></td>
+              <td><button onClick={() => deleteDriver(driver.id)} className='deleteBtn'>Delete</button></td>
             </tr>
           ))}
         </tbody>
       </table>
       {isEditing && editingDriver && (
         <Modal title="Edit Driver" onClose={() => setIsEditing(false)}>
-          <form onSubmit={updateDriver}>
+          <form onSubmit={updateDriver} className='editForm'>
             <input type="text" name="firstName" placeholder="First Name" value={editingDriver.firstName} onChange={handleEditInputChange} />
             <input type="text" name="lastName" placeholder="Last Name" value={editingDriver.lastName} onChange={handleEditInputChange} />
             <input type="text" name="country" placeholder="Country" value={editingDriver.country} onChange={handleEditInputChange} />
