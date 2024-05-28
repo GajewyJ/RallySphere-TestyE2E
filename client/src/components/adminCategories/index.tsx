@@ -146,7 +146,7 @@ const AdminCategories: React.FC = () => {
         </Modal>
       )}
       <h1>Groups</h1>
-      <table className='adminTable'>
+      <table className='adminTableCategories'>
         <thead>
           <tr>
             <th>ID</th>
