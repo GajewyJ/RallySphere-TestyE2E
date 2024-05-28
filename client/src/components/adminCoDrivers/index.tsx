@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Modal from '../modal';
+import './index.scss';
 
 interface CoDriver {
   id: number;
@@ -23,6 +24,7 @@ const AdminCoDrivers: React.FC = () => {
     points: 0,
   });
   const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [isAdding, setIsAdding] = useState<boolean>(false);
   const [editingCoDriver, setEditingCoDriver] = useState<CoDriver | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -55,6 +57,7 @@ const AdminCoDrivers: React.FC = () => {
         team: '',
         points: 0,
       });
+      setIsAdding(false);
     } catch (error) {
       setError('Error adding new co-driver');
     }
@@ -107,18 +110,22 @@ const AdminCoDrivers: React.FC = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div>
-      <h2>Add a New Co-Driver</h2>
-      <form onSubmit={addCoDriver}>
-        <input type="text" name="firstName" placeholder="First Name" value={newCoDriver.firstName} onChange={handleInputChange} required />
-        <input type="text" name="lastName" placeholder="Last Name" value={newCoDriver.lastName} onChange={handleInputChange} required />
-        <input type="text" name="country" placeholder="Country" value={newCoDriver.country} onChange={handleInputChange} required />
-        <input type="text" name="team" placeholder="Team" value={newCoDriver.team} onChange={handleInputChange} required />
-        <input type="number" name="points" placeholder="Points" value={newCoDriver.points} onChange={handleInputChange} required />
-        <button type="submit">Add Co-Driver</button>
-      </form>
+    <div className='adminPanelContent'>
+      <button onClick={() => {setIsAdding(true)}} className='addNewCarBtn'>Add a new Co-Driver</button>
+      {isAdding && (
+        <Modal title="Add Co-Driver" onClose={() => setIsAdding(false)}>
+          <form onSubmit={addCoDriver} className='addForm'>
+            <input type="text" name="firstName" placeholder="First Name" value={newCoDriver.firstName} onChange={handleInputChange} required />
+            <input type="text" name="lastName" placeholder="Last Name" value={newCoDriver.lastName} onChange={handleInputChange} required />
+            <input type="text" name="country" placeholder="Country" value={newCoDriver.country} onChange={handleInputChange} required />
+            <input type="text" name="team" placeholder="Team" value={newCoDriver.team} onChange={handleInputChange} required />
+            <input type="number" name="points" placeholder="Points" value={newCoDriver.points} onChange={handleInputChange} required />
+            <button type="submit">Add Co-Driver</button>
+          </form>
+        </Modal>
+      )}
       <h1>WRC Co-Drivers</h1>
-      <table>
+      <table className='adminTableCoDrivers'>
         <thead>
           <tr>
             <th>ID</th>
@@ -127,8 +134,8 @@ const AdminCoDrivers: React.FC = () => {
             <th>Country</th>
             <th>Team</th>
             <th>Points</th>
-            <th>Delete</th>
             <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -141,18 +148,18 @@ const AdminCoDrivers: React.FC = () => {
               <td>{coDriver.team}</td>
               <td>{coDriver.points}</td>
               <td>
-                <button onClick={() => deleteCoDriver(coDriver.id)}>Delete</button>
+                <button onClick={() => { setEditingCoDriver(coDriver); setIsEditing(true); }} className='editBtn'>Edit</button>
               </td>
               <td>
-                <button onClick={() => { setEditingCoDriver(coDriver); setIsEditing(true); }}>Edit</button>
-            </td>
+                <button onClick={() => deleteCoDriver(coDriver.id)} className='deleteBtn'>Delete</button>
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
       {isEditing && editingCoDriver && (
         <Modal title="Edit Co-Driver" onClose={() => setIsEditing(false)}>
-          <form onSubmit={updateCoDriver}>
+          <form onSubmit={updateCoDriver} className='editForm'>
             <input type="text" name="firstName" placeholder="First Name" value={editingCoDriver.firstName} onChange={handleEditInputChange} required />
             <input type="text" name="lastName" placeholder="Last Name" value={editingCoDriver.lastName} onChange={handleEditInputChange} required />
             <input type="text" name="country" placeholder="Country" value={editingCoDriver.country} onChange={handleEditInputChange} required />
