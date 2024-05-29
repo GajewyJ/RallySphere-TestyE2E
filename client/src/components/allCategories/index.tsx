@@ -29,20 +29,30 @@ function AllCategories() {
     fetchData();
   }, []);
 
-  return (
-    <article>
-      <Heading level={1}>Car Groups</Heading>
-      <div>
-        {categories.map((category) => (
-          <Link to={'/groups/' + category.id.toString()} key={category.id}>
-            <p>{category.years}</p>
-            <p>{category.name}</p>
-            <img src={category.photo_url} alt={category.name + " car"}/>
-          </Link>
-        ))}
-      </div>
-    </article>
-  );
+  if(categories.length > 0){
+    return (
+      <article>
+        <Heading level={1}>Car Groups</Heading>
+        <div>
+          {categories.map((category) => (
+            <Link to={'/groups/' + category.id.toString()} key={category.id}>
+              <p>{category.years}</p>
+              <p>{category.name}</p>
+              <img src={category.photo_url} alt={category.name + " car"}/>
+            </Link>
+          ))}
+        </div>
+      </article>
+    );
+  }
+  else{
+    return (
+      <article>
+        <Heading level={1}>Car Groups</Heading>
+        <h3>No groups found</h3>
+      </article>
+    );
+  }
 }
 
 export default AllCategories;

@@ -35,21 +35,31 @@ function SingleNews(){
     fetchData();
   }, [id]);
 
-  return (
-    <article>
-      {news && (
-        <div className='newsBody'>
-          <Heading level={1}>{news.title}</Heading>
-          <p className='date'>{news.publicationDate.toString().substring(8, 10) + '.' + news.publicationDate.toString().substring(5, 7) + '.' + news.publicationDate.toString().substring(0, 4) + ' ' + news.publicationDate.toString().substring(11, 13) + ':' + news.publicationDate.toString().substring(14, 16)}</p>
-          <img src={"/news-images/" + news.photo} alt={news.title}/>
-          <p>{news.paragraph1}</p>
-          <p>{news.paragraph2}</p>
-          <p>{news.paragraph3}</p>
-          <Link to="/wrc/news">Back</Link>
-        </div>
-      )}
-    </article>
-  );
+  if(news != null){
+    return (
+      <article>
+        {news && (
+          <div className='newsBody'>
+            <Heading level={1}>{news.title}</Heading>
+            <p className='date'>{news.publicationDate.toString().substring(8, 10) + '.' + news.publicationDate.toString().substring(5, 7) + '.' + news.publicationDate.toString().substring(0, 4) + ' ' + news.publicationDate.toString().substring(11, 13) + ':' + news.publicationDate.toString().substring(14, 16)}</p>
+            <img src={"/news-images/" + news.photo} alt={news.title}/>
+            <p>{news.paragraph1}</p>
+            <p>{news.paragraph2}</p>
+            <p>{news.paragraph3}</p>
+            <Link to="/wrc/news">Back</Link>
+          </div>
+        )}
+      </article>
+    );
+  }
+  else{
+    return (
+      <article>
+        <h1>404 Not found</h1>
+        <h3>Our server is not working or this news item does not exist</h3>
+      </article>
+    );
+  }
 };
 
 export default SingleNews;

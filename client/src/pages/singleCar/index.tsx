@@ -51,20 +51,30 @@ function SingleCar() {
     fetchData();
   }, [cat_id, id]);
 
-  return (
-    <article>
-      {car && (
-        <div className='carBody'>
-          <Heading level={1}>{car.brand} {car.model}</Heading>
-          <p className='category'>{car.enc_categories.name}</p>
-          <img src={car.photo_url} alt={`${car.brand} ${car.model}`} />
-          <span dangerouslySetInnerHTML={createMarkup(car.photo_html_attribution)}></span>
-          <p>{car.description}</p>
-          <Link to={"/groups/" + car.category}>Back</Link>
-        </div>
-      )}
-    </article>
-  );
+  if(car != null){
+    return (
+      <article>
+        {car && (
+          <div className='carBody'>
+            <Heading level={1}>{car.brand} {car.model}</Heading>
+            <p className='category'>{car.enc_categories.name}</p>
+            <img src={car.photo_url} alt={`${car.brand} ${car.model}`} />
+            <span dangerouslySetInnerHTML={createMarkup(car.photo_html_attribution)}></span>
+            <p>{car.description}</p>
+            <Link to={"/groups/" + car.category}>Back</Link>
+          </div>
+        )}
+      </article>
+    );
+  }
+  else{
+    return (
+      <article>
+        <h1>404 Not found</h1>
+        <h3>Our server is not working or this car does not exist</h3>
+      </article>
+    );
+  }
 }
 
 export default SingleCar;

@@ -30,20 +30,30 @@ function LatestNewsBar(){
     fetchData();
   }, []);
 
-  return (
-    <article>
-      <Heading level={1}>Latest WRC News</Heading>
-      <div>
-        {news.map((newsItem) => (
-          <Link to={'/wrc/news/' + newsItem.id.toString()} key={newsItem.id}>
-            <img src={"/news-images/" + newsItem.photo} alt={newsItem.title}/>
-            <p>{newsItem.publicationDate.toString().substring(8, 10) + '.' + newsItem.publicationDate.toString().substring(5, 7) + '.' + newsItem.publicationDate.toString().substring(0, 4) + ' ' + newsItem.publicationDate.toString().substring(11, 13) + ':' + newsItem.publicationDate.toString().substring(14, 16)}</p>
-            <p>{newsItem.title}</p>
-          </Link>
-        ))}
-      </div>
-    </article>
-  );
+  if(news.length > 0){
+    return (
+      <article>
+        <Heading level={1}>Latest WRC News</Heading>
+        <div>
+          {news.map((newsItem) => (
+            <Link to={'/wrc/news/' + newsItem.id.toString()} key={newsItem.id}>
+              <img src={"/news-images/" + newsItem.photo} alt={newsItem.title}/>
+              <p>{newsItem.publicationDate.toString().substring(8, 10) + '.' + newsItem.publicationDate.toString().substring(5, 7) + '.' + newsItem.publicationDate.toString().substring(0, 4) + ' ' + newsItem.publicationDate.toString().substring(11, 13) + ':' + newsItem.publicationDate.toString().substring(14, 16)}</p>
+              <p>{newsItem.title}</p>
+            </Link>
+          ))}
+        </div>
+      </article>
+    );
+  }
+  else{
+    return(
+      <article>
+        <Heading level={1}>Latest WRC News</Heading>
+        <Heading level={3}>No latest News found</Heading>
+      </article>
+    )
+  }
 };
 
 export default LatestNewsBar;

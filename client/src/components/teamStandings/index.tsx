@@ -35,34 +35,44 @@ function TeamStandings(){
 
   let i = 0;
 
-  return(
-    <main>
-      <h1>Team Standings</h1>
-      <table className='teamsContent'>
-        <tbody>
-          <tr>
-            <td>Position</td>
-            <td>Team</td>
-            <td>Category</td>
-            <td className='dissapearCollumn'>Based In</td>
-            <td>Points</td>
-          </tr>
-          {teams.map((team) => {
-            i = i + 1
-            return (
-              <tr key={team.id}>
-                <td>{i}</td>
-                <td>{team.name}</td>
-                <td>{team.category}</td>
-                <td className='dissapearCollumn'>{team.basedIn}</td>
-                <td>{team.points}</td>
-              </tr>
-            )
-          })}
-        </tbody>
-      </table>
-    </main>
-  )
+  if(teams.length > 0){
+    return(
+      <main>
+        <h1>Team Standings</h1>
+        <table className='teamsContent'>
+          <tbody>
+            <tr>
+              <td>Position</td>
+              <td>Team</td>
+              <td>Category</td>
+              <td className='dissapearCollumn'>Based In</td>
+              <td>Points</td>
+            </tr>
+            {teams.map((team) => {
+              i = i + 1
+              return (
+                <tr key={team.id}>
+                  <td>{i}</td>
+                  <td>{team.name}</td>
+                  <td>{team.category}</td>
+                  <td className='dissapearCollumn'>{team.basedIn}</td>
+                  <td>{team.points}</td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
+      </main>
+    )
+  }
+  else{
+    return(
+      <main>
+        <h1>Team Standings</h1>
+        <h3>No teams found</h3>
+      </main>
+    )
+  }
 };
 
 export default TeamStandings;

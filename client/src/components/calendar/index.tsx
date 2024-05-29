@@ -32,34 +32,44 @@ function Calendar(){
     fetchData();
   }, []);
 
-  return(
-    <main>
-      <Heading level={1}>WRC {new Date(Date.now()).getFullYear().toString()} Calendar</Heading>
-      <div className='calendarContent'>
-        {rallies.map((rally) => {
-          const currentYear = new Date().getFullYear();
-          if (parseInt(rally.season) === currentYear) {
-            return (
-              <a key={rally.id}>
-                <div>
-                  <p>{
-                    new Date(rally.end) < new Date(Date.now())
-                      ? "COMPLETED " 
-                      : `${new Date(rally.beginning).toLocaleDateString('pl-PL')} - ${new Date(rally.end).toLocaleDateString('pl-PL')} `
-                  }</p>
-                  <p>{rally.name}</p>
+  if(rallies.length > 0){
+    return(
+      <main>
+        <Heading level={1}>WRC {new Date(Date.now()).getFullYear().toString()} Calendar</Heading>
+        <div className='calendarContent'>
+          {rallies.map((rally) => {
+            const currentYear = new Date().getFullYear();
+            if (parseInt(rally.season) === currentYear) {
+              return (
+                <a key={rally.id}>
                   <div>
-                    <p> {rally.country}</p>
-                    <img src={`/flags/${rally.country.toLowerCase()}.png`}/>
+                    <p>{
+                      new Date(rally.end) < new Date(Date.now())
+                        ? "COMPLETED " 
+                        : `${new Date(rally.beginning).toLocaleDateString('pl-PL')} - ${new Date(rally.end).toLocaleDateString('pl-PL')} `
+                    }</p>
+                    <p>{rally.name}</p>
+                    <div>
+                      <p> {rally.country}</p>
+                      <img src={`/flags/${rally.country.toLowerCase()}.png`}/>
+                    </div>
                   </div>
-                </div>
-              </a>
-            )
-          }
-        })}
-      </div>
-    </main>
-  )
+                </a>
+              )
+            }
+          })}
+        </div>
+      </main>
+    )
+  }
+  else{
+    return(
+      <main>
+        <Heading level={1}>WRC {new Date(Date.now()).getFullYear().toString()} Calendar</Heading>
+        <h3>Calendar is empty!</h3>
+      </main>
+    )
+  }
 };
 
 export default Calendar;
