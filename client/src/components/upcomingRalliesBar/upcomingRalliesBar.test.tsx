@@ -5,8 +5,18 @@ import MockAdapter from 'axios-mock-adapter';
 import UpcomingRalliesBar from './index';
 
 describe('UpcomingRalliesBar component', () => {
+    let mock: MockAdapter;
+
+    beforeEach(() => {
+        mock = new MockAdapter(axios);
+    });
+
+    afterEach(() => {
+        mock.restore();
+    });
+
     it('renders correctly', async () => {
-        const mock = new MockAdapter(axios);
+        mock = new MockAdapter(axios);
         const data = [
             {
                 id: 1,
