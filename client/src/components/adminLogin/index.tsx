@@ -38,12 +38,14 @@ const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess, onLoginError })
           type="text"
           value={username}
           name='username'
+          id='username'
           onChange={(e) => setUsername(e.target.value)}
         /></label>
         <label htmlFor='password'>Password: <input
           type="password"
           value={password}
           name='password'
+          id='password'
           onChange={(e) => setPassword(e.target.value)}
         /></label>
         <button onClick={handleLogin}>Sign In</button>
