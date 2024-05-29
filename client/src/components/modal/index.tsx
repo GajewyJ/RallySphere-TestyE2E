@@ -10,7 +10,7 @@ interface ModalProps {
 
 const Modal: React.FC<ModalProps> = ({ title, children, onClose }) => {
   return ReactDOM.createPortal(
-    <div className="modal-overlay" onClick={onClose}>
+    <div className="modal-overlay" onClick={onClose} role="presentation">
       <div className="modal" onClick={e => e.stopPropagation()}>
         <div className="modal-header">
           <h2>{title}</h2>
