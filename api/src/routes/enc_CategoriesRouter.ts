@@ -63,11 +63,11 @@ categoriesRouter.post('/', async (req, res) => {
 // Update a category
 categoriesRouter.put('/:id', async (req, res) => {
     const { id } = req.params;
-    const { name, years, description, chrono } = req.body;
+    const { name, years, description, chrono, photo_url } = req.body;
     try {
         const updatedCategory = await prisma.enc_categories.update({
             where: { id: parseInt(id) },
-            data: { name, years, description, chrono },
+            data: { name, years, description, chrono, photo_url },
         });
         res.json(updatedCategory);
     } catch (error) {
