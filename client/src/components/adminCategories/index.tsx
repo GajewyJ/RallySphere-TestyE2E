@@ -165,9 +165,9 @@ const AdminCategories: React.FC = () => {
               <td>{category.id}</td>
               <td>{category.name}</td>
               <td>{category.years}</td>
-              <td>{category.description.length > 30 ? (category.description.substring(0, 30).trim() + "...") : (category.description) }</td>
+              <td>{category.description && category.description.length > 30 ? (category.description.substring(0, 30).trim() + "...") : (category.description) }</td>
               <td>{category.chrono}</td>
-              <td>{category.photo_url.length > 30 ? (category.photo_url.substring(0, 30).trim() + "...") : (category.photo_url) }</td>
+              <td>{category.photo_url && category.photo_url.length > 30 ? (category.photo_url.substring(0, 30).trim() + "...") : (category.photo_url) }</td>
               <td>
                 <button onClick={() => editCategory(category)} className='editBtn'>Edit</button>
               </td>

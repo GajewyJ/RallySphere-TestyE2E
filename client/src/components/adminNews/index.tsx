@@ -168,11 +168,11 @@ const AdminNews: React.FC = () => {
           {newsItems.map((item) => (
             <tr key={item.id}>
               <td>{item.id}</td>
-              <td>{getFirst30Chars(item.title)}</td>
-              <td>{getFirst30Chars(item.paragraph1)}</td>
-              <td>{getFirst30Chars(item.paragraph2)}</td>
-              <td>{getFirst30Chars(item.paragraph3)}</td>
-              <td>{getFirst30Chars(item.photo)}</td>
+              <td>{item.title && getFirst30Chars(item.title)}</td>
+              <td>{item.paragraph1 && getFirst30Chars(item.paragraph1)}</td>
+              <td>{item.paragraph2 && getFirst30Chars(item.paragraph2)}</td>
+              <td>{item.paragraph3 && getFirst30Chars(item.paragraph3)}</td>
+              <td>{item.photo && getFirst30Chars(item.photo)}</td>
               <td>{formatDateWithTime(item.publicationDate)}</td>
               <td>
                 <button onClick={() => { setEditingNewsItem(item); setIsEditing(true); }} className='editBtn'>Edit</button>
