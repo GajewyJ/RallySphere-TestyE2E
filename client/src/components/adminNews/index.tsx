@@ -173,7 +173,7 @@ const AdminNews: React.FC = () => {
               <td>{item.paragraph2 && getFirst30Chars(item.paragraph2)}</td>
               <td>{item.paragraph3 && getFirst30Chars(item.paragraph3)}</td>
               <td>{item.photo && getFirst30Chars(item.photo)}</td>
-              <td>{formatDateWithTime(item.publicationDate)}</td>
+              <td>{item.publicationDate && formatDateWithTime(item.publicationDate)}</td>
               <td>
                 <button onClick={() => { setEditingNewsItem(item); setIsEditing(true); }} className='editBtn'>Edit</button>
               </td>
