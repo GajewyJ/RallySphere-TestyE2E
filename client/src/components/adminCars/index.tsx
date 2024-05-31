@@ -187,10 +187,10 @@ const AdminCars: React.FC = () => {
               <td>{car.id}</td>
               <td>{car.brand}</td>
               <td>{car.model}</td>
-              <td>{car.description.length > 30 ? (car.description.substring(0, 30).trim() + "...") : (car.description) }</td>
-              <td>{car.photo_url.length > 30 ? (car.photo_url.substring(0, 30).trim() + "...") : (car.photo_url) }</td>
-              <td>{car.photo_html_attribution.length > 30 ? (car.photo_html_attribution.substring(0, 30).trim() + "...") : (car.photo_html_attribution)}</td>
-              <td>{car.enc_categories.name}</td>
+              <td>{car.description && car.description.length > 30 ? (car.description.substring(0, 30).trim() + "...") : (car.description) }</td>
+              <td>{car.photo_url && car.photo_url.length > 30 ? (car.photo_url.substring(0, 30).trim() + "...") : (car.photo_url) }</td>
+              <td>{car.photo_html_attribution && car.photo_html_attribution.length > 30 ? (car.photo_html_attribution.substring(0, 30).trim() + "...") : (car.photo_html_attribution)}</td>
+              <td>{car.enc_categories && car.enc_categories.name}</td>
               <td>
                 <button onClick={() => editCar(car)} className='editBtn'>Edit</button>
               </td>
