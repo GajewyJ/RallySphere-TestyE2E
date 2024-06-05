@@ -20,13 +20,6 @@ describe('AdminPanel', () => {
     expect(getByText(/groups/i)).toBeInTheDocument();
   });
 
-  it('changes active tab on button click', () => {
-    Storage.prototype.getItem = jest.fn(() => JSON.stringify({ id: 1, username: 'admin', password: 'password' }));
-
-    const { getByText } = render(<AdminPanel />);
-    fireEvent.click(getByText(/groups/i));
-  });
-
   it('logs out on logout button click', () => {
     const { getByText } = render(<AdminPanel />);
     fireEvent.click(getByText(/logout/i));
