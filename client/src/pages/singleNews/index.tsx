@@ -19,21 +19,18 @@ function SingleNews(){
   const { id } = useParams<{ id: string }>();
 
   useEffect(() => {
-      document.title = 'RallySphere - ' + news?.title;
-  }, [news]);
-
-  useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get<News>('http://localhost:3000/news/' + id);
         setNews(response.data);
+        document.title = 'RallySphere - ' + response.data.title;
       } catch (error) {
         console.error('Error fetching data', error);
       }
     };
-
+  
     fetchData();
-  }, [id]);
+  }, [id]);  
 
   if(news != null){
     return (
