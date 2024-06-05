@@ -31,7 +31,7 @@ const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess, onLoginError })
   
 
   return (
-    <div className='login-root'>
+    <div className='login-root' data-testid="admin-login">
       <div className='form'>
         <h1>Admin Panel</h1>
         <label htmlFor='username'>Username: <input
