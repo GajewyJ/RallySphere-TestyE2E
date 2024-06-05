@@ -1,5 +1,6 @@
 # ![rallysphere-high-resolution-logo-transparent](https://github.com/GajewyJ/RallySphere-Project/assets/90028969/d16f832f-1f26-46fb-82dc-c3d08ab43323)
-a. Opis aplikacji
+
+# Opis aplikacji
 
 **Nazwa aplikacji:** RallySphere
 
@@ -55,12 +56,12 @@ Natomiast usunięcie rekordu realizujemy poprzez czerwony przycisk
 “DELETE” obok rekordu w tabeli. Z panelu administracyjnego wylogować
 się możemy klikając przycisk “Logout”.
 
-# b. Opis podziału pracy
+# Opis podziału pracy
 
 Nie dotyczy: zarówno frontend, backend jak i baza danych zrealizowane
 przez jedną osobę: Jakub Gajewy.
 
-# c. Opis + diagram bazy danych
+# Opis + diagram bazy danych
 
 **Opis bazy danych:** Baza danych składa się z 8 tabel: admins, enc_cars,
 enc_categories, news, wrc_codrivers, wrc_drivers, wrc_rallies oraz
@@ -97,6 +98,5 @@ w którym się znaduje, rok założenia, imię i nazwisko przewodniczącego,
 kategorię WRC, markę oraz ilość punktów.
 
 Poniżej znajduje się diagram bazy danych:
-
 
 ![Diagram bazy danych RallySphere](https://github.com/GajewyJ/RallySphere-Project/assets/90028969/0c2de089-cb48-4c0d-ac97-0d1dd751ae99)
