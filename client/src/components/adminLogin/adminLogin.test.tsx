@@ -1,6 +1,13 @@
 import '@testing-library/jest-dom';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, waitFor } from '@testing-library/react';
 import AdminLogin from './index';
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
+
+var mock = new MockAdapter(axios);
+mock.onGet('http://localhost:3000/admins').reply(200, [
+  { id: 1, username: 'admin', password: 'admin' },
+]);
 
 describe('AdminLogin', () => {
   it('renders correctly', () => {
@@ -20,5 +27,33 @@ describe('AdminLogin', () => {
 
     fireEvent.change(passwordInput, { target: { value: 'testpass' } });
     expect(passwordInput.value).toBe('testpass');
+  });
+
+  it('calls onLoginSuccess when login is successful', async () => {
+    const mockOnLoginSuccess = jest.fn();
+    const { getByLabelText, getByText } = render(<AdminLogin onLoginSuccess={mockOnLoginSuccess} onLoginError={() => {}} />);
+    const usernameInput = getByLabelText(/Username:/i) as HTMLInputElement;
+    const passwordInput = getByLabelText(/Password:/i) as HTMLInputElement;
+    const signInButton = getByText(/Sign In/i);
+
+    fireEvent.change(usernameInput, { target: { value: 'admin' } });
+    fireEvent.change(passwordInput, { target: { value: 'admin' } });
+    fireEvent.click(signInButton);
+
+    await waitFor(() => expect(mockOnLoginSuccess).toHaveBeenCalled());
+  });
+
+  it('calls onLoginError when login fails', async () => {
+    const mockOnLoginError = jest.fn();
+    const { getByLabelText, getByText } = render(<AdminLogin onLoginSuccess={() => {}} onLoginError={mockOnLoginError} />);
+    const usernameInput = getByLabelText(/Username:/i) as HTMLInputElement;
+    const passwordInput = getByLabelText(/Password:/i) as HTMLInputElement;
+    const signInButton = getByText(/Sign In/i);
+
+    fireEvent.change(usernameInput, { target: { value: 'wronguser' } });
+    fireEvent.change(passwordInput, { target: { value: 'wrongpass' } });
+    fireEvent.click(signInButton);
+
+    await waitFor(() => expect(mockOnLoginError).toHaveBeenCalled());
   });
 });
