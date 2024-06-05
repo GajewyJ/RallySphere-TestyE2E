@@ -1,7 +1,5 @@
-# RallySphere
-![rallysphere-high-resolution-logo-transparent](https://github.com/GajewyJ/RallySphere-Project/assets/90028969/3007a982-9dd6-44a4-9bea-a22d0e11fda2)
-
-# a. Opis aplikacji
+# ![rallysphere-high-resolution-logo-transparent](https://github.com/GajewyJ/RallySphere-Project/assets/90028969/d16f832f-1f26-46fb-82dc-c3d08ab43323)
+a. Opis aplikacji
 
 **Nazwa aplikacji:** RallySphere
 
