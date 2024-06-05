@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import AdminRallies from './index';
@@ -74,4 +74,56 @@ describe('AdminRallies component', () => {
         expect(addButton).toBeVisible();
     });
     
+    it('shows error message when there is an error', async () => {
+        mock.onGet('http://localhost:3000/wrcRallies').reply(500);
+    
+        render(
+          <Router>
+            <AdminRallies />
+          </Router>
+        );
+    
+        await waitFor(() => screen.getByText(/Error:/i));
+      });
+    
+    it('shows loading message while fetching rallies', () => {
+        mock.onGet('http://localhost:3000/wrcRallies').reply(() => new Promise(() => {}));
+    
+        render(
+          <Router>
+            <AdminRallies />
+          </Router>
+        );
+    
+        expect(screen.getByText(/Loading.../i)).toBeInTheDocument();
+    });
+    
+    it('calls deleteRally function when delete button is clicked', async () => {
+        const data = [
+          {
+            id: 1,
+            name: 'Rally 1',
+            season: 2022,
+            country: 'Country 1',
+            beginning: '2022-01-01',
+            end: '2022-01-05'
+          }
+        ];
+    
+        mock.onGet('http://localhost:3000/wrcRallies').reply(200, data);
+        mock.onDelete('http://localhost:3000/wrcRallies/1').reply(200);
+    
+        render(
+          <Router>
+            <AdminRallies />
+          </Router>
+        );
+    
+        await waitFor(() => screen.getByText('Rally 1'));
+    
+        const deleteButton = screen.getByRole('button', { name: /Delete/i });
+        fireEvent.click(deleteButton);
+    
+        await waitFor(() => expect(screen.queryByText('Rally 1')).not.toBeInTheDocument());
+    });
 });
