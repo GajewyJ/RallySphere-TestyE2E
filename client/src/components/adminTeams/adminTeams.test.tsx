@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import AdminTeams from './index';
@@ -80,4 +80,59 @@ describe('AdminTeams component', () => {
         expect(addButton).toBeVisible();
     });
     
+    
+    it('shows error message when there is an error', async () => {
+        mock.onGet('http://localhost:3000/wrcTeams').reply(500);
+
+        render(
+        <Router>
+            <AdminTeams />
+        </Router>
+        );
+
+        await waitFor(() => screen.getByText(/Error:/i));
+    });
+
+    it('shows loading message while fetching teams', () => {
+        mock.onGet('http://localhost:3000/wrcTeams').reply(() => new Promise(() => {}));
+
+        render(
+        <Router>
+            <AdminTeams />
+        </Router>
+        );
+
+        expect(screen.getByText(/Loading.../i)).toBeInTheDocument();
+    });
+
+    it('calls deleteTeam function when delete button is clicked', async () => {
+        const data = [
+        {
+            id: 1,
+            name: 'Team 1',
+            basedIn: 'Country 1',
+            establishment: 2000,
+            principal: 'Principal 1',
+            category: 'Category 1',
+            brand: 'Brand 1',
+            points: 100
+        }
+        ];
+
+        mock.onGet('http://localhost:3000/wrcTeams').reply(200, data);
+        mock.onDelete('http://localhost:3000/wrcTeams/1').reply(200);
+
+        render(
+        <Router>
+            <AdminTeams />
+        </Router>
+        );
+
+        await waitFor(() => screen.getByText('Team 1'));
+
+        const deleteButton = screen.getByRole('button', { name: /Delete/i });
+        fireEvent.click(deleteButton);
+
+        await waitFor(() => expect(screen.queryByText('Team 1')).not.toBeInTheDocument());
+    });
 });
