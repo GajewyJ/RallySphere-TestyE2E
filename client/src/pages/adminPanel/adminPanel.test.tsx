@@ -57,4 +57,33 @@ describe('AdminPanel', () => {
     const { queryByTestId } = render(<AdminPanel />);
     expect(queryByTestId('admin-login')).toBeNull();
   });
+
+  it('sets document title on mount', () => {
+    render(<AdminPanel />);
+    expect(document.title).toEqual('RallySphere - Admin Panel');
+  });
+
+  it('sets isLoggedIn and adminDetails state from localStorage on mount', () => {
+    Storage.prototype.getItem = jest.fn(() => JSON.stringify({ id: 1, username: 'admin', password: 'password' }));
+
+    const { getByText } = render(<AdminPanel />);
+    expect(getByText(/Logged in as admin/i)).toBeInTheDocument();
+  });
+  
+  it('renders different components based on activeTab state', () => {
+    Storage.prototype.getItem = jest.fn(() => JSON.stringify({ id: 1, username: 'admin', password: 'password' }));
+
+    const { getByText } = render(<AdminPanel />);
+    fireEvent.click(getByText(/WRC Drivers/i));
+    expect(getByText(/WRC Drivers/i)).toBeInTheDocument();
+
+    fireEvent.click(getByText(/WRC Co-Drivers/i));
+    expect(getByText(/WRC Co-Drivers/i)).toBeInTheDocument();
+
+    fireEvent.click(getByText(/WRC Rallies/i));
+    expect(getByText(/WRC Rallies/i)).toBeInTheDocument();
+
+    fireEvent.click(getByText(/News/i));
+    expect(getByText(/News/i)).toBeInTheDocument();
+  });
 });
