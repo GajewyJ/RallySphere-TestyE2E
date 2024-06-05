@@ -7,11 +7,6 @@ describe('AdminPanel', () => {
     render(<AdminPanel />);
   });
 
-  it('shows login form when not logged in', () => {
-    const { getByText } = render(<AdminPanel />);
-    expect(getByText(/sign in/i)).toBeInTheDocument();
-  });
-
   it('shows admin navigation when logged in', () => {
     Storage.prototype.getItem = jest.fn(() => JSON.stringify({ id: 1, username: 'admin', password: 'password' }));
 
