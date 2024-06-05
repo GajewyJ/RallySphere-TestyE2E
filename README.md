@@ -37,13 +37,11 @@ oraz państwo wraz z flagą, w którym rajd jest organizowany.
 
 W zakładce Car Encyclopedia znajdują się kafelki z grupami
 samochodów - latami, w których te grupy istniały, nazwami grup, a także
-
-
-zdjęciem przykładowego samochodu. Po kliknięciu na grupę wyświetlają
+zdjęciem samochodu. Po kliknięciu na grupę wyświetlają
 się samochody z tej grupy – ich marka i model oraz zdjęcie, a po
 kliknięciu również opis, w podobnej formie co wiadomości. Pod
 zdjęciem widnieją też prawa autorskie do zdjęcia oraz licencja
-(wszystkie obrazy pochodzą z serwisu https://commons.wikimedia.org/
+(wszystkie zdjęcia samochodów pochodzą z serwisu https://commons.wikimedia.org/)
 
 Ostatnią funkcją aplikacji jest panel administracyjny, który znaleźć
 można pod ścieżką [aplikacja]/admin. Wyświetla on panel logowania, a
