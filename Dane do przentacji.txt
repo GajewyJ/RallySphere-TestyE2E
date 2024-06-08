@@ -1,0 +1,11 @@
+Brand: Porsche
+
+Model: 911 SC RS
+
+Description: The Porsche 911 SC RS is a rare and special model, built in 1984 with only 20 units produced. It was developed so that the factory Rothmans Porsche Rally Team could compete on the international stage. With a 3.0 L air-cooled flat 6 engine, it produced 255 bhp at 7000 rpm and 184 ft lbs of torque at 6500 rpm. This car was capable of 0 - 60 mph in 5.3 seconds and had a top speed of 158 mph, making it a formidable competitor in its time.
+
+Photo URL: https://upload.wikimedia.org/wikipedia/commons/2/21/Piotr_Zaleski_-Jacek_Gruszczy%C5%84ski_Porsche_911_SC_RS_Rajd_Nadwislanski_HRSMP_2018_.arch_HRSMP_2018_fot_G.Rybarski.jpg
+
+Photo HTML Attribution: <a href="https://commons.wikimedia.org/wiki/File:Piotr_Zaleski_-Jacek_Gruszczy%C5%84ski_Porsche_911_SC_RS_Rajd_Nadwislanski_HRSMP_2018_.arch_HRSMP_2018_fot_G.Rybarski.jpg">Don Boolgot</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons
+
+Category: Group B
