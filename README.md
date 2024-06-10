@@ -65,36 +65,33 @@ przez jedną osobę: Jakub Gajewy.
 enc_categories, news, wrc_codrivers, wrc_drivers, wrc_rallies oraz
 wrc_teams.
 
-Tabela admins zawiera id, nazwę użytkownika oraz hasło dla panelu
+Tabela **admins** zawiera id, nazwę użytkownika oraz hasło dla panelu
 administracyjnego.
 
-Tabela enc_cars zawiera dane o samochodach, czyli id, markę, model,
+Tabela **enc_cars** zawiera dane o samochodach, czyli id, markę, model,
 opis, url zdjęcia, prawa autorskie do zdjęcia w formie HTML oraz ID
 grupy (kategorii).
 
-Tabela enc_categories zawiera dane o grupach (kategoriach), czyli id,
-nazwę, lata, opis (nieużywany przez aplikację), numer chronologii,
-
-
-według którego wyświetlane są one w odpowiedniej kolejności, a także
+Tabela **enc_categories** zawiera dane o grupach (kategoriach), czyli id,
+nazwę, lata, opis (nieużywany przez aplikację), numer chronologii, według którego wyświetlane są one w odpowiedniej kolejności, a także
 url zdjęcia.
 
-Tabela news zawiera dane o wiadomościach - id, tytuł, 3 paragrafy,
+Tabela **news** zawiera dane o wiadomościach - id, tytuł, 3 paragrafy,
 nazwę pliku ze zdjęciem oraz datę publikacji.
 
-Tabela wrc_codrivers zawiera informacje o pilotach – id, imię, nazwisko,
+Tabela **wrc_codrivers** zawiera informacje o pilotach – id, imię, nazwisko,
 państwo, które rezprezentuje, drużynę oraz ilość punktów.
 
-Tabela wrc_drivers zawiera informacje o pilotach – id, imię, nazwisko,
+Tabela **wrc_drivers** zawiera informacje o pilotach – id, imię, nazwisko,
 państwo, które rezprezentuje, drużynę oraz ilość punktów.
 
-Tabela wrc_rallies zawiera dane o rajdach – id, nazwę, sezon, państwo
+Tabela **wrc_rallies** zawiera dane o rajdach – id, nazwę, sezon, państwo
 oraz daty rozpoczęcia i zakończenia.
 
-Tabela wrc_teams zawiera informacje o drużynach - id, nazwę, państwo,
+Tabela **wrc_teams** zawiera informacje o drużynach - id, nazwę, państwo,
 w którym się znaduje, rok założenia, imię i nazwisko przewodniczącego,
 kategorię WRC, markę oraz ilość punktów.
 
-Poniżej znajduje się diagram bazy danych:
+Poniżej znajduje się **diagram bazy danych**:
 
 ![Diagram bazy danych RallySphere](https://github.com/GajewyJ/RallySphere-Project/assets/90028969/0c2de089-cb48-4c0d-ac97-0d1dd751ae99)
