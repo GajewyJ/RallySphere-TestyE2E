@@ -1,5 +1,5 @@
-describe('Admin panel log in and logout', () => {
-  it('correct data', () => {
+describe('Admin panel logging in and out', () => {
+  it('Correct data', () => {
     cy.visit('http://localhost:5173/admin')
 
     cy.get('input[name=username]').type("admin")
@@ -12,7 +12,7 @@ describe('Admin panel log in and logout', () => {
     cy.url().should("include", "/admin")
   })
 
-  it('incorrect username', () => {
+  it('Incorrect username', () => {
     cy.visit('http://localhost:5173/admin')
 
     cy.get('input[name=username]').type("admin1")
@@ -25,7 +25,7 @@ describe('Admin panel log in and logout', () => {
     });
   })
 
-  it('incorrect password', () => {
+  it('Incorrect password', () => {
     cy.visit('http://localhost:5173/admin')
 
     cy.get('input[name=username]').type("admin")
@@ -38,7 +38,7 @@ describe('Admin panel log in and logout', () => {
     });
   })
 
-  it('incorrect username and password', () => {
+  it('Incorrect username and password', () => {
     cy.visit('http://localhost:5173/admin')
 
     cy.get('input[name=username]').type("admin1")
