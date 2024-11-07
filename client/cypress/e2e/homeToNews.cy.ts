@@ -1,4 +1,4 @@
-describe('template spec', () => {
+describe('Homepage to single news page and "back" button', () => {
   it('passes', () => {
     cy.visit('http://localhost:5173')
 
