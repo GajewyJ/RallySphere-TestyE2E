@@ -10,27 +10,15 @@ jobs:
         - name: Checkout code
           uses: actions/checkout@v2
 
-        - name: Install API dependencies and run API
+        - name: Run Cypress tests
           run: |
             cd api
             npm install
             npm run dev &
-          env:
-            NODE_ENV: development
-
-        - name: Install client dependencies and run client
-          run: |
+            cd ..
             cd client
             npm install
             npm run dev &
+            npx wait-on http://localhost:5173 npx cypress run
           env:
             NODE_ENV: development
-
-        - name: Wait for client to be ready
-          run: |
-            npx wait-on http://localhost:5173
-
-        - name: Run Cypress tests
-          run: |
-            cd client
-            npx cypress run
