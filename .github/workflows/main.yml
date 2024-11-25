@@ -15,12 +15,20 @@ jobs:
             cd api
             npm install
             npm run dev &
+          env:
+            NODE_ENV: development
 
         - name: Install client dependencies and run client
           run: |
             cd client
             npm install
             npm run dev &
+          env:
+            NODE_ENV: development
+
+        - name: Wait for client to be ready
+          run: |
+            npx wait-on http://localhost:5173
 
         - name: Run Cypress tests
           run: |
