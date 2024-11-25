@@ -19,6 +19,7 @@ jobs:
             cd client
             npm install
             npm run dev &
-            npx wait-on http://localhost:5173 npx cypress run
+            npx wait-on http://localhost:5173 
+            npx cypress run
           env:
             NODE_ENV: development
