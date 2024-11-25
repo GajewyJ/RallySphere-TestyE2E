@@ -3,23 +3,34 @@ name: Run Cypress tests
 on: [push]
 
 jobs:
-    cypress-run:
-        runs-on: ubuntu-latest
+  cypress-run:
+    runs-on: ubuntu-latest
 
-        steps:
-        - name: Checkout code
-          uses: actions/checkout@v2
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-        - name: Run Cypress tests
-          run: |
-            cd api
-            npm install
-            npm run dev &
-            cd ..
-            cd client
-            npm install
-            npm run dev &
-            npx wait-on http://localhost:5173 
-            npx cypress run
-          env:
-            NODE_ENV: development
+      - name: Install and start API
+        run: |
+          cd api
+          npm install
+          npm run dev &  # Start the API server in the background
+          cd ..
+
+      - name: Install and start client
+        run: |
+          cd client
+          npm install
+          npm run dev &  # Start the client server in the background
+          cd ..
+
+      - name: Wait for both servers to be ready
+        run: |
+          npx wait-on http://localhost:5173  # Wait for the client server
+          npx wait-on http://localhost:3000  # (Or whatever the API's port is) Wait for the API server
+
+      - name: Run Cypress tests
+        run: npx cypress run
+
+    env:
+        NODE_ENV: development
