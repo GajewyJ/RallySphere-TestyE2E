@@ -98,7 +98,7 @@ Poniżej znajduje się **diagram bazy danych**:
 
 # Testy w Aplikacji
 
-**Instrukcja uruchamiania testów E2E: ** 
+**Instrukcja uruchamiania testów E2E:**
 1. Po zainstalowaniu projektu będąc w folderze *client* wprowadź do konsoli *'npm run cy:open'*
 2. Włączy się program Cypress - klinknij *E2E Testing* i wybierz przeglądarkę *Edge* i kliknij przycisk *Start E2E Testing in Edge*
 3. Wybierz zestaw testów do uruchomienia - uruchomi się po ty automatycznie
