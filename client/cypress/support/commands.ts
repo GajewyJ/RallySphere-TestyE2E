@@ -35,3 +35,14 @@
 //     }
 //   }
 // }
+
+Cypress.Commands.add('visitLoginAdmin', () => { 
+    cy.visit('http://localhost:5173/admin')
+    cy.viewport(1920, 1080)
+
+    cy.get('input[name=username]').type("admin")
+    cy.get('input[name=password]').type("admin")
+
+    cy.contains("Sign In").click();
+    cy.url().should("include", "/admin")
+})
