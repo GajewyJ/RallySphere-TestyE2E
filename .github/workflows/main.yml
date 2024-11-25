@@ -1,0 +1,31 @@
+name: Run Cypress tests
+
+on: [push]
+
+jobs:
+    cypress-run:
+        runs-on: ubuntu-latest
+
+        steps:
+        -   name: Checkout code
+            uses: actions/checkout@v2
+
+        -   name: Install API dependencies and run API
+            run: |
+                cd api
+                npm install
+                npm run dev
+
+        -   name: Install client dependencies and run client
+            run: |
+                cd client
+                npm install
+                npm run dev
+
+        -   name: Run Cypress tests
+            uses: cypress-io/github-action@v3
+            with:
+                build: npm run build
+                start: npm start
+                wait-on: http://localhost:5173
+                browser: chrome
