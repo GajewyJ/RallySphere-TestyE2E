@@ -1,13 +1,6 @@
 describe('Adding, editing and romoving car from database', () => {
   it('Adds car', () => {
-    cy.visit('http://localhost:5173/admin')
-    cy.viewport(1920, 1080)
-
-    cy.get('input[name=username]').type("admin")
-    cy.get('input[name=password]').type("admin")
-
-    cy.contains("Sign In").click();
-    cy.url().should("include", "/admin")
+    cy.visitLoginAdmin();
 
     cy.contains("Add a new Car").click();
 
@@ -30,14 +23,7 @@ describe('Adding, editing and romoving car from database', () => {
   })
 
   it('Edits car', () => {
-    cy.visit('http://localhost:5173/admin')
-    cy.viewport(1920, 1080)
-
-    cy.get('input[name=username]').type("admin")
-    cy.get('input[name=password]').type("admin")
-
-    cy.contains("Sign In").click();
-    cy.url().should("include", "/admin")
+    cy.visitLoginAdmin();
 
     cy.contains('testBrand1').parent().within(() => {
       cy.get('button').contains('Edit').click(); 
@@ -62,14 +48,7 @@ describe('Adding, editing and romoving car from database', () => {
   })
 
   it('Deletes car', () => {
-    cy.visit('http://localhost:5173/admin')
-    cy.viewport(1920, 1080)
-
-    cy.get('input[name=username]').type("admin")
-    cy.get('input[name=password]').type("admin")
-
-    cy.contains("Sign In").click();
-    cy.url().should("include", "/admin")
+    cy.visitLoginAdmin();
 
     cy.contains('testBrand11').parent().within(() => {
       cy.get('button').contains('Delete').click(); 

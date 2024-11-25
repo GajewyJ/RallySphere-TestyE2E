@@ -3,11 +3,7 @@ describe('WRC Rallies admin test', ()=>{
         cy.viewport(1920, 1080)
     })
     it('Adds, edits and deletes a new WRC rally', ()=>{
-        cy.visit('http://localhost:5173/admin')
-        cy.get('input[name=username]').type('admin')
-        cy.get('input[name=password]').type('admin')
-        cy.contains('Sign In').click()
-        cy.url().should("include", "/admin")
+        cy.visitLoginAdmin();
 
         cy.contains('WRC Rallies').click()
         cy.get('.addNewCarBtn').click()
