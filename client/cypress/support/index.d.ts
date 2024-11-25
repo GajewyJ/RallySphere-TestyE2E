@@ -3,5 +3,6 @@
 declare namespace Cypress {
     interface Chainable<Subject = any> {
         visitLoginAdmin(): Chainable<any>;
+        visitMainPage(): Chainable<any>;
     }
   }

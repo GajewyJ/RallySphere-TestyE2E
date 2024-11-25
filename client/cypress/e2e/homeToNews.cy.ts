@@ -1,6 +1,6 @@
 describe('Homepage to single news page and "back" button', () => {
   it('passes', () => {
-    cy.visit('http://localhost:5173')
+    cy.visitMainPage()
 
     cy.contains('MENU').click()
     cy.contains('WRC 2024').click()

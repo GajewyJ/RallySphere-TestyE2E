@@ -1,6 +1,6 @@
 describe('Car encyclopedia tests', () => {
   it('Shows information about Alfa Romeo Alfasud TI', () => {
-    cy.visit('http://localhost:5173')
+    cy.visitMainPage()
     cy.contains('MENU').click()
     cy.contains('Car Encyclopedia').click()
     cy.url().should('include', '/groups')

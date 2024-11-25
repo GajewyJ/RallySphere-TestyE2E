@@ -46,3 +46,7 @@ Cypress.Commands.add('visitLoginAdmin', () => {
     cy.contains("Sign In").click();
     cy.url().should("include", "/admin")
 })
+
+Cypress.Commands.add('visitMainPage', () => {
+    cy.visit('http://localhost:5173/')
+})
