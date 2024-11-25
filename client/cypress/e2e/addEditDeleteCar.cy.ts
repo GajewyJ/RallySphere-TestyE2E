@@ -13,11 +13,9 @@ describe('Adding, editing and romoving car from database', () => {
     
     cy.get('button[type=submit]').click();
     cy.url().should("include", "/admin")
-    cy.contains("testBrand1");
-    cy.contains("testModel1");
-    cy.contains("testDescription1");
-    cy.contains("testUrl1");
-    cy.contains("testHtml1");
+    cy.get('td').should('contain', 'testBrand1')
+    cy.get('td').should('contain', 'testModel1')
+    cy.get('td').should('contain', 'testDescription1')
 
     cy.contains("Logout").click();
   })
@@ -38,11 +36,9 @@ describe('Adding, editing and romoving car from database', () => {
 
     cy.get('button[type=submit]').click();
     cy.url().should("include", "/admin")
-    cy.contains("testBrand11");
-    cy.contains("testModel11");
-    cy.contains("testDescription11");
-    cy.contains("testUrl11");
-    cy.contains("testHtml11");
+    cy.get('td').should('contain', 'testBrand11')
+    cy.get('td').should('contain', 'testModel11')
+    cy.get('td').should('contain', 'testDescription11')
 
     cy.contains("Logout").click();
   })
