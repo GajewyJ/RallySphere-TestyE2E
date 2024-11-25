@@ -95,3 +95,14 @@ kategorię WRC, markę oraz ilość punktów.
 Poniżej znajduje się **diagram bazy danych**:
 
 ![Diagram bazy danych RallySphere](https://github.com/GajewyJ/RallySphere-Project/assets/90028969/0c2de089-cb48-4c0d-ac97-0d1dd751ae99)
+
+# Testy w Aplikacji
+
+**Instrukcja uruchamiania testów E2E: ** 
+1. Po zainstalowaniu projektu będąc w folderze *client* wprowadź do konsoli *'npm run cy:open'*
+2. Włączy się program Cypress - klinknij *E2E Testing* i wybierz przeglądarkę *Edge* i kliknij przycisk *Start E2E Testing in Edge*
+3. Wybierz zestaw testów do uruchomienia - uruchomi się po ty automatycznie
+
+# Konfiguracja środowiska
+
+Na komputerze powinna znajdować się osadzona w phpmyadmin baza danych *rallysphere*, na którą powinny być zaimportowane tabele z pliku *rallysphere.sql*. Włączona powinna być usługa Apache i MySQL. Aby uruchomić aplikację należy będąc w folerze *api* wprowadzić do konsoli *'npm run dev'*. To samo należy zrobić w folderze *client* (nie zamykając konsoli z *api*). Aplikacja znajdować się będzie na *localhost:5173*
