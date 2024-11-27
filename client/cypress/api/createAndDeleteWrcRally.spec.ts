@@ -1,5 +1,5 @@
-describe('POST /wrcrallies', () => {
-    it('should create a new rally', () => {
+describe('POST and DELETE /wrcrallies', () => {
+    it('should create a new rally and then delete it', () => {
         const newRally = {
             name: 'New Rally',
             season: 2024,
